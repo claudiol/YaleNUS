@@ -4,7 +4,12 @@
 TODO
 
 === Pre-requisites
-* TODO
+* Web Browsers: 
+** Mozilla Firefox for versions supported under Mozilla's Extended Support Release (ESR)
+** Internet Explorer 8 or Higher
+* Adobe Flash Player 9 or above. 
+* The Cloudforms Management Engine Appliance must already be installed and activated in your enterprise.
+* The SmartProxy must have visibility to the virtual machines and cloud instances that you want to control.
 * Server Racked, Stacked and Cabled
 * Switch configuration completed
 
@@ -12,11 +17,11 @@ TODO
 [width="100%"]
 |====
 | OS Version | RHEL 6.6 x86_64
-| Clloudforms Version | Cloudforms 3.1
+| Cloudforms Version | Cloudforms 3.1
 |====
 
 === Architecture
-* 
+* Cloudforms Appliance
 
 [width="100%"]
 |====
