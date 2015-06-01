@@ -358,7 +358,34 @@ rowsep="1" colsep="1"
 <itemizedlist>
 <listitem>
 <simpara>
-TODO
+Web Browsers:
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Mozilla Firefox for versions supported under Mozilla&#8217;s Extended Support Release (ESR)
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Internet Explorer 8 or Higher
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>
+Adobe Flash Player 9 or above.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+The Cloudforms Management Engine Appliance must already be installed and activated in your enterprise.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+The SmartProxy must have visibility to the virtual machines and cloud instances that you want to control.
 </simpara>
 </listitem>
 <listitem>
@@ -391,7 +418,7 @@ rowsep="1" colsep="1"
 <entry align="left" valign="top"><simpara>RHEL 6.6 x86_64</simpara></entry>
 </row>
 <row>
-<entry align="left" valign="top"><simpara>Clloudforms Version</simpara></entry>
+<entry align="left" valign="top"><simpara>Cloudforms Version</simpara></entry>
 <entry align="left" valign="top"><simpara>Cloudforms 3.1</simpara></entry>
 </row>
 </tbody>
@@ -516,6 +543,7 @@ Summary Information to review.</simpara>
   <textobject><phrase>./images/CFME-Console-Menu.png</phrase></textobject>
 </mediaobject>
 </informalfigure>
+<simpara>&gt;&gt;&gt;&gt;&gt;&gt;&gt; master</simpara>
 <informaltable
 frame="all"
 rowsep="1" colsep="1"

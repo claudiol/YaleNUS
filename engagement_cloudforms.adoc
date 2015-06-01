@@ -21,9 +21,7 @@ TODO
 |====
 
 === Architecture
-<<<<<<< HEAD
-* Cloudforms Appliance
-=======
+
 At YaleNUS we had some discussions around the size of the environment.  Some of the questions that were asked were: 
 
 * How many VMs will be managed in your virtualization environment?
@@ -79,7 +77,6 @@ have one database appliance handling the data for one data center.
 
 The current implementation for YaleNUS only has one appliance but this can easily be extended in future phases 
 of the project.
-
 
 == Initial Cloudforms Engine Setup
 
