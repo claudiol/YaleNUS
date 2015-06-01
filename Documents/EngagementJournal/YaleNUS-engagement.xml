@@ -110,16 +110,62 @@ rowsep="1" colsep="1"
 <section id="_red_hat_cloudforms_implementation_tasks">
 <title>Red Hat Cloudforms Implementation tasks:</title>
 </section>
+<section id="_red_hat_openstack_implementation_tasks">
+<title>Red Hat OpenStack Implementation tasks:</title>
+</section>
 </section>
 </section>
 </section>
 <section id="_project_approach">
 <title>Project Approach</title>
+<section id="_introduction">
+<title>Introduction</title>
+<simpara>Yale-NUS College, a residential college located in Singapore, aims to redefine liberal arts and science education for a complex, interconnected world.</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+A community of learning
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>We are a diverse group of students, faculty, staff, and supporters, dedicated to building a community in which living and learning are intertwined and habits of creativity, curiosity, and critical thinking are encouraged. Our innovative curriculum integrates knowledge from across the disciplines and around the world.</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Founded by two great universities
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>An intimate liberal arts college, dedicated to undergraduate education, Yale-NUS draws on the resources and traditions of two great universities. We pursue excellence through innovative teaching and research, and we provide global opportunities for our students.</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+In Asia
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>Our location at the crossroads of Asia informs our pedagogy. Drawing on active modes of learning associated with American liberal arts education, we introduce our students to the diverse intellectual traditions and cultures of Asia and the world.</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+For the world
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>We educate citizens of the world and uphold the principles of free exchange of ideas, pluralism, and respect for diversity. Our extra-curricular and residential programmes support student learning and encourage an ethic of service. By our example, we seek to spur innovation in higher education across the globe.</simpara>
+<simpara>Red Hat Consulting was engaged by the infrasturecture at Yale NUS to assist in deploying CloudForms 3.1 (Red Hat CloudForms Management Engine, CFME), integrate Cloudforms with Amazon Web Services (AWS), and deploy Red Hat OpenStack in their current infrastructure.</simpara>
+<simpara>This document details the strategies, implementations, and recommendations that Red Hat Consulting services provided for YaleNUS in Singapore, Singapore.</simpara>
+</section>
 <section id="_architecture_overview">
 <title>Architecture Overview</title>
+<simpara>Cloudforms is a powerful tool that allows customers to build and manage their current virtualization environment
+as well as their future private or hybrid cloud.  The Red Hat CloudForms 3 “Management Engine” delivers the
+insight, control, and automation enterprises need in order to manage diverse and expanding virtual environments.
+This technology enables enterprises with existing virtual infrastructures to improve visibility and control, and
+those just starting virtualization deployments to build and operate a well-managed virtual infrastructure.</simpara>
 </section>
-<section id="_network">
-<title>Network</title>
+<section id="_network_details_for_yalenus">
+<title>Network Details for YaleNUS</title>
 <section id="_hostnames_ip_addresses">
 <title>Hostnames / IP Addresses</title>
 <informaltable
@@ -181,8 +227,8 @@ rowsep="1" colsep="1"
 </tbody>
 </tgroup>
 </informaltable>
-<section id="_vlan_670_console_display_network">
-<title>VLAN 670: Console Display Network</title>
+<section id="_vlan_xxx_purpose">
+<title>VLAN XXX: Purpose</title>
 <informaltable
 frame="all"
 rowsep="1" colsep="1"
@@ -300,7 +346,397 @@ rowsep="1" colsep="1"
 </section>
 <section id="_george_goh_8217_s_activity_log">
 <title>George Goh&#8217;s activity log</title>
+</section>
+</section>
+<section id="_yalenus_cloudforms_environment">
+<title>YaleNUS Cloudforms Environment</title>
+<section id="_overview">
+<title>Overview</title>
+<simpara>TODO</simpara>
+<section id="_pre_requisites">
+<title>Pre-requisites</title>
+<itemizedlist>
+<listitem>
+<simpara>
+TODO
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Server Racked, Stacked and Cabled
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Switch configuration completed
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_versions">
+<title>Versions</title>
+<informaltable
+frame="all"
+rowsep="1" colsep="1"
+>
+<?dbhtml table-width="100%"?>
+<?dbfo table-width="100%"?>
+<?dblatex table-width="100%"?>
+<tgroup cols="2">
+<colspec colname="col_1" colwidth="213*"/>
+<colspec colname="col_2" colwidth="213*"/>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>OS Version</simpara></entry>
+<entry align="left" valign="top"><simpara>RHEL 6.6 x86_64</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Clloudforms Version</simpara></entry>
+<entry align="left" valign="top"><simpara>Cloudforms 3.1</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+</section>
+<section id="_architecture">
+<title>Architecture</title>
+<simpara>At YaleNUS we had some discussions around the size of the environment.  Some of the questions that were asked were:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+How many VMs will be managed in your virtualization environment?
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Do you have provisioning templates in place?
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Do you have multiple data centers that need to be managed?
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Do you have a local NTP server?
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Do you have a local DNS or remote DNS service?
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Are forward and reverse DNS resolution configured in your environment?
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Is there at least 42 GB disk space on target virtualization platform?
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>At Yale NUS the objective of the engagement was to integrate the new Red Hat OpenStack environment and Microsoft AD
+environment where they housed their users. Yale NUS would like to implement a Self-service provisioning system using
+Cloudforms as the front end where professors and students would only see the VM&#8217;s that they owned.</simpara>
+<simpara>Yale uses Microsoft Active Directory (AD) as their directory service implementation. An AD domain controller
+authenticates and authorizes Yale NUS users assigning and enforcing security policies. The VMs are used by student,
+faculty and other users as well as by the operations group.</simpara>
+<simpara>This information gave us a general idea of the size of the environment and allowed us to figure out how to size
+the Cloudforms database adequately the first time around. The new appliance does not include the database disk
+so with the database appliance we are required to create a separate database disk that would be used by the
+Database Appliance.</simpara>
+<simpara>In addition, we briefly discussed the overall Cloudforms architecture which included discussions on Zones and
+the roles of each appliance.</simpara>
+<simpara>There are three main roles for an appliance:
+* UI Appliance – allows the user to interact with the Cloudforms user interface
+* Worker Appliance – The workhorse which collects all the information from the virtualization environment and sends it to the database to be persisted.
+* Database Appliance – one of the most important appliances since it holds all of the data collected by the workers from the virtualization environment.</simpara>
+<simpara>It is considered a best practice to separate the appliance responsibilities into these three roles.  Each appliance can be configured with the appropriate roles and tuned to be more performant in the overall environment.</simpara>
+<simpara>The Basic Architecture for Cloudforms can be described in a simple Triangle:</simpara>
+<informalfigure>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="./images/CF-Triangle.png"/>
+  </imageobject>
+  <textobject><phrase>./images/CF-Triangle.png</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>The diagram not only depicts the three main roles for the appliances but also the zones that should be created
+to house each type of appliance.  It is best practice to create three zones in a Cloudforms environment:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+UI Zone
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Database Zone
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Worker Zone.
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>If we were to draw a box around the triangle this would define a Region.</simpara>
+<simpara>A region should have a Database Zone with only one Database Appliance to house all the virtual environment
+information. If there are multiple data centers, in different geographic locations, you would replicate the
+architecture at each data center. The database appliances can be configured to include the Synchronization
+server role to replicate its contents to a main database. Best practice states that you should only
+have one database appliance handling the data for one data center.</simpara>
+<simpara>The current implementation for YaleNUS only has one appliance but this can easily be extended in future phases
+of the project.</simpara>
+</section>
+</section>
+<section id="_initial_cloudforms_engine_setup">
+<title>Initial Cloudforms Engine Setup</title>
+<simpara>To manage a <subscript>1500 virtual machines workload in a virtualization environment, multiple appliances should be created
+and the roles distributed for better performance and redundancy: 1 DB, 2 Web UI and 4 Workers. Red Hat recommends
+5 Workers in the scenario of </subscript>1500 virtual machines, to maintain a 300:1 VM to appliance ratio.</simpara>
+<simpara>To increase performance, increase the default 4 vCPUs/6GB RAM appliance configuration to 4 vCPUs/8GB RAM for the
+Web UI appliance and 4 vCPUs/8GB RAM for the DB and the Worker appliances.</simpara>
+<simpara>With a new CFME appliance the Database is not shipped configured by default. There will need to be a separate
+Database disk created outside of the appliance and then connected once the appliance has been started. In this case,
+after looking at where the current VM count and number of VM&#8217;s that will be coming over the next few years the
+Database can be sized to 150GB. This will allow for growth over the next few years.</simpara>
+<simpara>Once started, the appliances need to be configured with basic network settings using the a console in
+the OpenStack client. Login as admin/smartvm and press Enter to go to the Advanced Settings menu.  Set Static
+Network Configuration, Set Hostname, Set Timezone, Date, and Time. When done entering the settings, select
+Summary Information to review.</simpara>
+<informalfigure>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="./images/CFME-Console-Menu.png"/>
+  </imageobject>
+  <textobject><phrase>./images/CFME-Console-Menu.png</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<informaltable
+frame="all"
+rowsep="1" colsep="1"
+>
+<?dbhtml table-width="100%"?>
+<?dbfo table-width="100%"?>
+<?dblatex table-width="100%"?>
+<tgroup cols="2">
+<colspec colname="col_1" colwidth="213*"/>
+<colspec colname="col_2" colwidth="213*"/>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>RAM</simpara></entry>
+<entry align="left" valign="top"><simpara>4 GB</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+<itemizedlist>
+<listitem>
+<simpara>
+Detailed Hardware Specs per Hypervisor:
+</simpara>
+</listitem>
+</itemizedlist>
+<screen></screen>
+<section id="_networks_information">
+<title>Networks Information</title>
+<informaltable
+frame="all"
+rowsep="1" colsep="1"
+>
+<?dbhtml table-width="100%"?>
+<?dbfo table-width="100%"?>
+<?dblatex table-width="100%"?>
+<tgroup cols="5">
+<colspec colname="col_1" colwidth="85*"/>
+<colspec colname="col_2" colwidth="85*"/>
+<colspec colname="col_3" colwidth="85*"/>
+<colspec colname="col_4" colwidth="85*"/>
+<colspec colname="col_5" colwidth="85*"/>
+<thead>
+<row>
+<entry align="left" valign="top"> Name </entry>
+<entry align="left" valign="top"> VM? </entry>
+<entry align="left" valign="top"> On hosts </entry>
+<entry align="left" valign="top"> Special attributes </entry>
+<entry align="left" valign="top"> Notes</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>CFME Engine</simpara></entry>
+<entry align="left" valign="top"><simpara>Y</simpara></entry>
+<entry align="left" valign="top"><simpara></simpara></entry>
+<entry align="left" valign="top"><simpara></simpara></entry>
+<entry align="left" valign="top"><simpara>The default CFME Engine</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+</section>
+</section>
+</section>
+<section id="_openstack_deployment">
+<title>OpenStack Deployment</title>
+<section id="_overview_2">
+<title>Overview</title>
+<simpara>Overview of YaleNUS OpenStack environment</simpara>
+<section id="_pre_requisites_2">
+<title>Pre-requisites</title>
+<itemizedlist>
+<listitem>
+<simpara>
+List pre-requisites
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Server Racked, Stacked and Cabled
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Switch configuration completed
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_versions_2">
+<title>Versions</title>
+<informaltable
+frame="all"
+rowsep="1" colsep="1"
+>
+<?dbhtml table-width="100%"?>
+<?dbfo table-width="100%"?>
+<?dblatex table-width="100%"?>
+<tgroup cols="2">
+<colspec colname="col_1" colwidth="213*"/>
+<colspec colname="col_2" colwidth="213*"/>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>OS Version</simpara></entry>
+<entry align="left" valign="top"><simpara>RHEL 6.6 x86_64</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Red Hat OpenStack Version</simpara></entry>
+<entry align="left" valign="top"><simpara>RHOS Version x.x</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+</section>
+<section id="_architecture_2">
+<title>Architecture</title>
+<itemizedlist>
+<listitem>
+<simpara>
+1x Manamgement Node
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+3x Nodes
+</simpara>
+</listitem>
+</itemizedlist>
+<informaltable
+frame="all"
+rowsep="1" colsep="1"
+>
+<?dbhtml table-width="100%"?>
+<?dbfo table-width="100%"?>
+<?dblatex table-width="100%"?>
+<tgroup cols="2">
+<colspec colname="col_1" colwidth="213*"/>
+<colspec colname="col_2" colwidth="213*"/>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>RAM</simpara></entry>
+<entry align="left" valign="top"><simpara>128 GB</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OS Disk</simpara></entry>
+<entry align="left" valign="top"><simpara>2x 300GB</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+<itemizedlist>
+<listitem>
+<simpara>
+Detailed Hardware Specs per Hypervisor:
+</simpara>
+</listitem>
+</itemizedlist>
+<screen>DELL: &lt;Model&gt;
+1 - &lt;Model&gt; Server with Dual 8C CPU, Dual QPI, 128GB
+1 - PowerEdge R720, Intel® Xeon® E-26XX v2 Processors
+1 - 2.5" Chassis with up to 16 Hard Drives
+2 - Intel® Xeon® E5-2650 v2 2.60GHz, 20M Cache, 8.0GT/s QPI, Turbo, HT,
+8C, 95W, Max Mem 1866MHz
+1 - Performance Optimized
+8 - 16GB RDIMM, 1866 MT/s, Standard Volt, Single Rank, x4 Data Width
+1 - PERC H710P Integrated RAID Controller, 1GB NV Cache
+2 - 300GB 10K RPM SAS 6Gbps 2.5in Hot-plug Hard Drive
+1 - iDRAC7, Enterprise with OpenManage Essentials,Server ConfigMgmt
+1 - Risers with up to 6, x8 PCIe Slots + 1, x16 PCIe Slot
+1 - Intel Ethernet I350 QP 1Gb Network Daughter Card
+1 - Intel Ethernet X540 Dual Port 10GBASE-T Server Adapter
+1 - No Internal Optical Drive
+1 - No Bezel
+1 - Dual, Hot-plug, Redundant Power Supply (1+1), 750W
+2 - Power Cord, C13 to C14, PDU Style, 12 Amps, 2 foot, Qty 1
+1 - ReadyRails Sliding Rails Without Cable Management Arm
+1 - 3 Year ProSupport and NBD On-site Service
+1 - PowerEdge R720 Shipping</screen>
+</section>
+<section id="_networks">
+<title>Networks</title>
+<informaltable
+frame="all"
+rowsep="1" colsep="1"
+>
+<?dbhtml table-width="100%"?>
+<?dbfo table-width="100%"?>
+<?dblatex table-width="100%"?>
+<tgroup cols="5">
+<colspec colname="col_1" colwidth="85*"/>
+<colspec colname="col_2" colwidth="85*"/>
+<colspec colname="col_3" colwidth="85*"/>
+<colspec colname="col_4" colwidth="85*"/>
+<colspec colname="col_5" colwidth="85*"/>
+<thead>
+<row>
+<entry align="left" valign="top"> Name </entry>
+<entry align="left" valign="top"> VM? </entry>
+<entry align="left" valign="top"> On hosts </entry>
+<entry align="left" valign="top"> Special attributes </entry>
+<entry align="left" valign="top"> Notes</entry>
+</row>
+</thead>
+<tbody>
+</tbody>
+</tgroup>
+</informaltable>
+</section>
+<section id="_openstack_templates">
+<title>OpenStack Templates</title>
+<simpara>Template creation was explained and the customer was able to create
+their own templates from VMs.</simpara>
+</section>
+<section id="_create_vm">
+<title>Create VM</title>
+<simpara>For demonstration purposes, two VMs were created, one from the RHEL 6
+DVD ISO and one from the RHEL 7 ISO.  The customer also was able to
+create virtual machines including demonstrating their ability to
+provision.</simpara>
 <simpara><?asciidoc-pagebreak?></simpara>
+</section>
 </section>
 </section>
 <section id="_appendix_a_anchor_id_yalenus_rolebaseaccess_xreflabel_yalenus_rolebaseaccess_yalenus_basic_role_base_access">
@@ -325,16 +761,51 @@ be designated to attend the following training classes:</simpara>
 <simpara>&#8212;&#8201;CL220 Red Hat CloudForms Hybrid Cloud Management</simpara>
 <simpara>Red Hat CloudForms Hybrid Cloud Management teaches you how to perform an initial configuration and setup of Red Hat CloudForms.</simpara>
 <simpara>This course can also help you in your preparation for the Red Hat Certificate of Expertise in Hybrid Cloud Management exam (EX220).</simpara>
-<screen>== Course content summary
-
-   ** Perform initial configuration of CloudForms appliance
-   ** Deploy virtual machines
-   ** Perform policy-based management
-   ** Customize a dashboard
-   ** Create a catalog
-   ** Provision services
-   ** Analyze timelines and events
-   ** Run automations</screen>
+</section>
+<section id="_course_content_summary">
+<title>Course content summary</title>
+<itemizedlist>
+<listitem>
+<simpara>
+Perform initial configuration of CloudForms appliance
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Deploy virtual machines
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Perform policy-based management
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Customize a dashboard
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Create a catalog
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Provision services
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Analyze timelines and events
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Run automations
+</simpara>
+</listitem>
+</itemizedlist>
 </section>
 <section id="_documentation">
 <title>Documentation</title>

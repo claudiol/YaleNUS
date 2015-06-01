@@ -1,9 +1,38 @@
 = Project Approach
 
+== Introduction
+
+Yale-NUS College, a residential college located in Singapore, aims to redefine liberal arts and science education for a complex, interconnected world.
+
+* A community of learning
+
+We are a diverse group of students, faculty, staff, and supporters, dedicated to building a community in which living and learning are intertwined and habits of creativity, curiosity, and critical thinking are encouraged. Our innovative curriculum integrates knowledge from across the disciplines and around the world.
+
+* Founded by two great universities
+
+An intimate liberal arts college, dedicated to undergraduate education, Yale-NUS draws on the resources and traditions of two great universities. We pursue excellence through innovative teaching and research, and we provide global opportunities for our students.
+
+* In Asia
+
+Our location at the crossroads of Asia informs our pedagogy. Drawing on active modes of learning associated with American liberal arts education, we introduce our students to the diverse intellectual traditions and cultures of Asia and the world.
+
+* For the world
+
+We educate citizens of the world and uphold the principles of free exchange of ideas, pluralism, and respect for diversity. Our extra-curricular and residential programmes support student learning and encourage an ethic of service. By our example, we seek to spur innovation in higher education across the globe.
+
+Red Hat Consulting was engaged by the infrasturecture at Yale NUS to assist in deploying CloudForms 3.1 (Red Hat CloudForms Management Engine, CFME), integrate Cloudforms with Amazon Web Services (AWS), and deploy Red Hat OpenStack in their current infrastructure.
+
+This document details the strategies, implementations, and recommendations that Red Hat Consulting services provided for YaleNUS in Singapore, Singapore.
+
 == Architecture Overview
+Cloudforms is a powerful tool that allows customers to build and manage their current virtualization environment 
+as well as their future private or hybrid cloud.  The Red Hat CloudForms 3 “Management Engine” delivers the 
+insight, control, and automation enterprises need in order to manage diverse and expanding virtual environments. 
+This technology enables enterprises with existing virtual infrastructures to improve visibility and control, and 
+those just starting virtualization deployments to build and operate a well-managed virtual infrastructure.
 
 
-== Network
+== Network Details for YaleNUS
 
 === Hostnames / IP Addresses
 
@@ -18,7 +47,7 @@
 | VLAN ID | Purpose | Subnet | Netmask | Gateway | Default Gateway
 |====
 
-==== VLAN 670: Console Display Network
+==== VLAN XXX: Purpose
 [width="60%",options="header"]
 |====
 | Hostname | IP

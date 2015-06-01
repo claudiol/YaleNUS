@@ -2254,6 +2254,9 @@ cellspacing="0" cellpadding="4">
 <div class="sect4">
 <h5 id="_red_hat_cloudforms_implementation_tasks">Red Hat Cloudforms Implementation tasks:</h5>
 </div>
+<div class="sect4">
+<h5 id="_red_hat_openstack_implementation_tasks">Red Hat OpenStack Implementation tasks:</h5>
+</div>
 </div>
 </div>
 </div>
@@ -2262,12 +2265,55 @@ cellspacing="0" cellpadding="4">
 <h2 id="_project_approach">2. Project Approach</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_architecture_overview">2.1. Architecture Overview</h3>
+<h3 id="_introduction">2.1. Introduction</h3>
+<div class="paragraph"><p>Yale-NUS College, a residential college located in Singapore, aims to redefine liberal arts and science education for a complex, interconnected world.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+A community of learning
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>We are a diverse group of students, faculty, staff, and supporters, dedicated to building a community in which living and learning are intertwined and habits of creativity, curiosity, and critical thinking are encouraged. Our innovative curriculum integrates knowledge from across the disciplines and around the world.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Founded by two great universities
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>An intimate liberal arts college, dedicated to undergraduate education, Yale-NUS draws on the resources and traditions of two great universities. We pursue excellence through innovative teaching and research, and we provide global opportunities for our students.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+In Asia
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Our location at the crossroads of Asia informs our pedagogy. Drawing on active modes of learning associated with American liberal arts education, we introduce our students to the diverse intellectual traditions and cultures of Asia and the world.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+For the world
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>We educate citizens of the world and uphold the principles of free exchange of ideas, pluralism, and respect for diversity. Our extra-curricular and residential programmes support student learning and encourage an ethic of service. By our example, we seek to spur innovation in higher education across the globe.</p></div>
+<div class="paragraph"><p>Red Hat Consulting was engaged by the infrasturecture at Yale NUS to assist in deploying CloudForms 3.1 (Red Hat CloudForms Management Engine, CFME), integrate Cloudforms with Amazon Web Services (AWS), and deploy Red Hat OpenStack in their current infrastructure.</p></div>
+<div class="paragraph"><p>This document details the strategies, implementations, and recommendations that Red Hat Consulting services provided for YaleNUS in Singapore, Singapore.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_network">2.2. Network</h3>
+<h3 id="_architecture_overview">2.2. Architecture Overview</h3>
+<div class="paragraph"><p>Cloudforms is a powerful tool that allows customers to build and manage their current virtualization environment
+as well as their future private or hybrid cloud.  The Red Hat CloudForms 3 “Management Engine” delivers the
+insight, control, and automation enterprises need in order to manage diverse and expanding virtual environments.
+This technology enables enterprises with existing virtual infrastructures to improve visibility and control, and
+those just starting virtualization deployments to build and operate a well-managed virtual infrastructure.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_network_details_for_yalenus">2.3. Network Details for YaleNUS</h3>
 <div class="sect3">
-<h4 id="_hostnames_ip_addresses">2.2.1. Hostnames / IP Addresses</h4>
+<h4 id="_hostnames_ip_addresses">2.3.1. Hostnames / IP Addresses</h4>
 <div class="tableblock">
 <table rules="all"
 width="100%"
@@ -2295,7 +2341,7 @@ cellspacing="0" cellpadding="4">
 </div>
 </div>
 <div class="sect3">
-<h4 id="_vlans_allocated">2.2.2. VLANs Allocated</h4>
+<h4 id="_vlans_allocated">2.3.2. VLANs Allocated</h4>
 <div class="tableblock">
 <table rules="all"
 style="margin-left:auto; margin-right:auto;"
@@ -2323,7 +2369,7 @@ cellspacing="0" cellpadding="4">
 </table>
 </div>
 <div class="sect4">
-<h5 id="_vlan_670_console_display_network">VLAN 670: Console Display Network</h5>
+<h5 id="_vlan_xxx_purpose">VLAN XXX: Purpose</h5>
 <div class="tableblock">
 <table rules="all"
 width="60%"
@@ -2431,12 +2477,814 @@ cellspacing="0" cellpadding="4">
 </div>
 <div class="sect2">
 <h3 id="_george_goh_8217_s_activity_log">3.3. George Goh&#8217;s activity log</h3>
-<div style="page-break-after:always"></div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_appendix_a_a_id_yalenus_rolebaseaccess_a_yalenus_basic_role_base_access">4. Appendix A - <a id="YaleNUS-RoleBaseAccess"></a>YaleNUS Basic Role Base Access</h2>
+<h2 id="_yalenus_cloudforms_environment">4. YaleNUS Cloudforms Environment</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_overview">4.1. Overview</h3>
+<div class="paragraph"><p>TODO</p></div>
+<div class="sect3">
+<h4 id="_pre_requisites">4.1.1. Pre-requisites</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+TODO
+</p>
+</li>
+<li>
+<p>
+Server Racked, Stacked and Cabled
+</p>
+</li>
+<li>
+<p>
+Switch configuration completed
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect3">
+<h4 id="_versions">4.1.2. Versions</h4>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="50%" />
+<col width="50%" />
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">OS Version</p></td>
+<td align="left" valign="top"><p class="table">RHEL 6.6 x86_64</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Clloudforms Version</p></td>
+<td align="left" valign="top"><p class="table">Cloudforms 3.1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_architecture">4.1.3. Architecture</h4>
+<div class="paragraph"><p>At YaleNUS we had some discussions around the size of the environment.  Some of the questions that were asked were:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+How many VMs will be managed in your virtualization environment?
+</p>
+</li>
+<li>
+<p>
+Do you have provisioning templates in place?
+</p>
+</li>
+<li>
+<p>
+Do you have multiple data centers that need to be managed?
+</p>
+</li>
+<li>
+<p>
+Do you have a local NTP server?
+</p>
+</li>
+<li>
+<p>
+Do you have a local DNS or remote DNS service?
+</p>
+</li>
+<li>
+<p>
+Are forward and reverse DNS resolution configured in your environment?
+</p>
+</li>
+<li>
+<p>
+Is there at least 42 GB disk space on target virtualization platform?
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>At Yale NUS the objective of the engagement was to integrate the new Red Hat OpenStack environment and Microsoft AD
+environment where they housed their users. Yale NUS would like to implement a Self-service provisioning system using
+Cloudforms as the front end where professors and students would only see the VM&#8217;s that they owned.</p></div>
+<div class="paragraph"><p>Yale uses Microsoft Active Directory (AD) as their directory service implementation. An AD domain controller
+authenticates and authorizes Yale NUS users assigning and enforcing security policies. The VMs are used by student,
+faculty and other users as well as by the operations group.</p></div>
+<div class="paragraph"><p>This information gave us a general idea of the size of the environment and allowed us to figure out how to size
+the Cloudforms database adequately the first time around. The new appliance does not include the database disk
+so with the database appliance we are required to create a separate database disk that would be used by the
+Database Appliance.</p></div>
+<div class="paragraph"><p>In addition, we briefly discussed the overall Cloudforms architecture which included discussions on Zones and
+the roles of each appliance.</p></div>
+<div class="paragraph"><p>There are three main roles for an appliance:
+* UI Appliance – allows the user to interact with the Cloudforms user interface
+* Worker Appliance – The workhorse which collects all the information from the virtualization environment and sends it to the database to be persisted.
+* Database Appliance – one of the most important appliances since it holds all of the data collected by the workers from the virtualization environment.</p></div>
+<div class="paragraph"><p>It is considered a best practice to separate the appliance responsibilities into these three roles.  Each appliance can be configured with the appropriate roles and tuned to be more performant in the overall environment.</p></div>
+<div class="paragraph"><p>The Basic Architecture for Cloudforms can be described in a simple Triangle:</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="./images/CF-Triangle.png" src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAZ0AAAENCAYAAADUubjhAAAC0WlDQ1BJQ0MgUHJvZmlsZQAAKJGN
+lM9LFGEYx7+zjRgoQWBme4ihQ0ioTBZlROWuv9i0bVl/lBLE7Oy7u5Ozs9PM7JoiEV46ZtE9Kg8e
++gM8eOiUl8LALALpblFEgpeS7Xlnxt0R7ccLM/N5nx/f53nf4X2BGlkxTT0kAXnDsZJ9Uen66JhU
++xEhHEEdwqhTVNuMJBIDoMFjsWtsvofAvyute/v/OurStpoHhP1A6Eea2Sqw7xfZC1lqBBC5XsOE
+YzrE9zhbnv0x55TH8659KNlFvEh8QDUtHv+auEPNKWmgRiRuyQZiUgHO60XV7+cgPfXMGB6k73Hq
+6S6ze3wWZtJKdz9xG/HnNOvu4ZrE8xmtN0bcTM9axuod9lg4oTmxIY9DI4YeH/C5yUjFr/qaoulE
+k9v6dmmwZ9t+S7mcIA4TJ8cL/TymkXI7p3JD1zwW9KlcV9znd1Yxyeseo5g5U3f/F/UWeoVR6GDQ
+YNDbgIQk+hBFK0xYKCBDHo0iNLIyN8YitjG+Z6SORIAl8q9TzrqbcxtFyuZZI4jGMdNSUZDkD/JX
+eVV+Ks/JX2bDxeaqZ8a6qanLD76TLq+8ret7/Z48fZXqRsirI0vWfGVNdqDTQHcZYzZcVeI12P34
+ZmCVLFCpFSlXadytVHJ9Nr0jgWp/2j2KXZpebKrWWhUXbqzUL03v2KvCrlWxyqp2zqtxwXwmHhVP
+ijGxQzwHSbwkdooXxW6anRcHKhnDpKJhwlWyoVCWgUnymjv+mRcL76y5o6GPGczSVImf/4RVyGg6
+CxzRf7j/c/B7xaOxIvDCBg6frto2ku4dIjQuV23OFeDCN7oP3lZtzXQeDj0BFs6oRavkSwvCG4pm
+dxw+6SqYk5aWzTlSuyyflSJ0JTEpZqhtLZKi65LrsiWL2cwqsXQb7Mypdk+lnnal5lO5vEHnr/YR
+sPWwXP75rFzeek49rAEv9d/AvP1FThgxSQAAAAlwSFlzAAAXEgAAFxIBZ5/SUgAAIABJREFUeJzt
+nXmAFMXZ/7/VPccuy17ALrAsZwDRfQFvEAVXIogQRSUEAwmJJgIaoxKVgFdQjKjEqHiA/DRrFuMR
+kzeHvq/X74dIjMYDc2tQE7wVb0XYhd2d+v0x3dPV1T3TM+zu7Bzfj5k8TU91VT0wXU/V89QhpJQg
+hBBCsoHR0xUghBBSPNDoEEIIyRo0OoQQQrIGjQ4hhJCsQaNDCCEka9DoEEIIyRo0OoQQQrIGjQ4h
+hJCsQaNDCCEka9DoEEIIyRo0OoQQQrIGjQ4hhJCsQaNDCCEka9DoEEIIyRo0OoQQQrIGjQ4hhJCs
+QaNDCCEka9DoEEIIyRo0OoQQQrIGjQ4hhJCsQaNDCCEka9DoEEIIyRo0OoQQQrIGjQ4hhJCsQaND
+CCEka9DoEEIIyRo0OoQQQrIGjQ4hhJCsQaNDCCEka9DoEEIIyRo0OoQQQrIGjQ4hhJCsQaNDCCEk
+a9DoEEIIyRo0OoQQQrIGjQ4hhJCsQaNDCCEka9DoEEIIyRo0OoQQQrIGjQ4hhJCsQaNDCCEka9Do
+EEIIyRo0OoT4IIQQ6ze3Drv5MdQJIURP14eQQiHU0xUgJJewDcyi254PmUbJXWYELXPn/nKGECIG
+AFJK2bM1JCS/4UiHEAvL4AgAxkFfGrcaUh4pIY89ZvHsyxB/VwRHPYR0DsGOGyFug3Pdb9+fXl7V
+70EAQsb/r2Pn5zumnT974B8AxBAf8PDFIWQf4EiHFD2KwTHPvfGxul7lfZqkhLDNigTMsora5kU/
+/nUNOOIhpFPQ6JCiRh3h1NfXh0Y3TL7TMI1aCes/CUhIAKJ+3GGzbkc8DkrDQ8g+QqNDihbFaAgA
+5gUbXrzENCPHxD1nti2SCRkKh2de//uPzwdgWjcJIRlCo0OKHQOAufLnL0+ORst+KKU1upES7mtA
+SqCkrPKyK+7616GIGx6Dox1CMoNGhxQlqltt4cU/r6mpH9EEARPq2Ee9TjyISN/+IzaevGRNFehm
+IyRjaHRI0aEaHADmYVO+ukEIUS8ByFg8giNjMv6RirRmFgjDGN540lm3whrtgIaHkLSh0SHFigBg
+Xvf7j883Q9GZKVPZUsRdbRBAOByds+Y3HywB4zuEZASNDikqrBGJAcC84s5/HRrtVXEZANdIRl2C
+k5g2Ld3XANCrovqqi9e/MBaW4eFoh5BgaHRI0aC61U5esqaqetDwjUIgoq7yVA2PrxFyy9IBIxo2
+Hvedlb1Bw0NIWtDokKJAj+NMPnHJrUIYwwG3UQlCN0rCMMYcd8r5N8GJ74CGh5Dk0OiQYkIAMK/5
+zQdLIpGSOYDXfSahSFjGBclHPgAQiZbMX/3rd09F/H3iO0VICviCkIJH3eZm2foXxpb2rroqYVSs
+/QZk4goJCaSO6ajXZRX91l6w7rnR4Gw2QlJCo0MKGtXgzJq/vGzQiAM2CoHSZOkDYzq6ERJxKQTK
+B49ouGvC8QtKwfgOIUnhLtOkYFEafRNA6Lr/+eyOSKTXfAkJYc1ytq/t0Y268Q2S3FHRn2/b0/p/
+zv9KxTkA2hDfkZpn8BCiwJEOKXQMAMaPf/nuqeFw6XxpBWzSmZ3mF9PRP/rz4WjJGVfe88ZsKBML
+CCEOfClIQaLOVrtg3XOje1f3Xeu7rU0n8UxEkEDv6v7rzrnxiaFgfIcQDzQ6pOBQ4zgTjl9QWjfs
+gLsgZblr1IL0RjKe9AETDwQAYYjqEaMOa25oaIyChocQF4zpkIJCadwNAOE1D3y+NhItOcP+XkoJ
+IYSzj5p1bT/m/T4xUcAuAWqMJ1V+e1p23bhsdvUPAbSD8R1CANDokALDtc3N3a+fVN53wH22mQCC
+pgV4cU7TSVJe6vzkxx+9PfuK+SMeAdABIEajQ4odutdIwaDGcc658Ymh5dX91+tp9CnRQe40WNdJ
+F+qkzl9U9Rl4+7dX/qYOdLMRAoBGhxQIqsFpaGiMDhl5cLMUqAaAWGcGF7aNEMLta7OMUEyRdjlq
+eUIYtQ2HfLmprq4uDBoeQuheI/mPFscJrf7NR9dES8vOzUrZ1hqdZOt+bFp3f3HVRaf0uwKM75Ai
+hyMdUigYAMzLmv8zPVJSdo5907PDgLVGx/GfIXnAxg9tIY+ETEi/2Wz2ZUlJ7x9e1PTiFHD9Dily
++OMneY3qVvv2yt/UVfTrfzusEby09qmxJSAgBRJSWoeyJaTvtjdaDMi+RrpTri0ppFndf+jPFi79
+eQ3oZiNFDI0OyVtUg1NXVxc+4JAvN0EYtfZYw3cgE7CDpxqX8YvRpFErRbpXoxrCqG+YetIG8Jhr
+UsTQ6JC8RGmsBQDze2v/dpFhhhsFrFi/9YWUMiHTmq2G1N62wNlvng8UCZihyMwr73/vB+Ax16RI
+4UQCkpeo63GW/+zFKf36D38YAmbQc54NPoMWh2oTBTKvKNwLeeIhoL0fv/Pvqau/+1/Pget3SJHB
+kQ7JO1S32tylP6/p039ok21w1GB+Ip4CZ+QBpI7ZeGJAlsVIet6OXp7+n1a+NaaKVA0YtvHkJWuq
+QDcbKTJodEheoR87fdDRszcIIeqTxmD0dTZQpM8OoMHn6aT+3qfGinSuDcMYfviM794KxndIkUGj
+Q/IRAcC84r53fhAKR2aqbb4+T8AdVwmOuah5JC3ZlsJ9kJv/J3n5Zjgy5/J731kMxndIEcGYDskb
+1DjOhbf/47B+A4ZvEkJEUu1+psdo9BhLcMzGvfuauiGBVSdXTChjpGx5d/s/plz//Ql/Q3zhqGR8
+hxQyHOmQvEB1q01fsqaqb/9hGyFEJB4nEd51MdZ/QoiEFEIAEgmZznQ1zwxrIRIStjETwnckk866
+HghRWjt0/43HfWdlb/CYa1IE0OiQnEeP40yZdvqtQojhfv6wIPda/Lvk63KkIvcpphOwV5u3vhKG
+YY45aubZN0HZrYCGhxQqNDokXxAAzMvufXNxKFoyx76pGwF1bY7fQaHaLjYub5u6xidhtKBIv/SK
+lPGKuHallor0NWKWDEdL51/6izdOhXW8dqf+pgjJYfjjJjmNegro2Tc9M7ZXWZ/VdsNur6SxpXqd
+1J0F/0Y/kZ9wpJ8VCjQiGbrj1OfLKvqsPefGP44GZ7ORAoZGh+QsqsE5av7yskGDxzRLyFJAmQ2m
+xXAAfR2NI/2MUOBHfcbno5ahlp18nY47P2uxqG3pymuHNNw14fgFpWB8hxQonL1GchKlsTUBhFb9
++sPbQ5GSBT1ZJ1/ck9t8jhINOt7aCfvYtO1p2XDZV2vOBdAGHoNACgyOdEguYwAwLvrFG6ea4eiC
+dAL77skDdhokTw9tJKPGcdKYiBC0bgeQCZnOWElKIBwtXbT856/OBo9BIAUIf9Ak51Bnqy258Y+j
+e/euWuvERJCQfkZFNwIxKybTVbtGq1vl7IuR82yzYwWQdCNVXlWzbvG1jw4F4zukwKDRITmFGseZ
+cPyC0rohB9wFIcr3dR2MdzabSEhAQMZkQsavkZBAOkZDM0JajCleL5lkXJN8CrYQRnX9yEObGxoa
+o6DhIQUEYzokZ9COnQ6v/OUHN4ajJYvUNEEhFHt3ATug79kxQMtAzy+4jloMJsMM9PrpGuj67G3d
+dcPl8wYsB4+5JgUCjQ7JGdRtbn545ysnlVf3v89rZbRW3762f8dBViEovyD08jxKQLeCGZbnqa/8
+9MO3Z//ku/s/Ah6DQAoAutdITuA6dvraR4f2rqpZD/iso4F7UOH93pm07JqP7P9Hb36eiQnuT3yS
+gHTW8UCR/oo5UljGxJawXWopF4+Kyn51t5+6/J460M1GCgAaHdLjqAanoaExOuxLhzYDRnV6gXl9
+NpsjXTPRkFlMJRlB+QfNfgueeODO3/obqh1z6LSmurq6MGh4SJ5Do0N6FP3Y6ZMuvXuVaYYmpm8E
+MjMaQQQaNUX6GbHOkqx8MxRpPP0nz18E5RgEGh6SjzCmQ3oUNY5zwe0vHVfRb9DvIKVIGrPxZpA6
+xtPJ9J7jrKHNGwgqL1NS1U+i45P3/j3j+rMO3gLGd0iewpEO6TFUt9qpy++p691n4O2QUsTjLrZ/
+SVlx6bO3GpB6pKGPTPQp1UDqkUzMSp/uLtQ+WirSGwTyjJyke8NQl/5CmJUDhjfNXfrzGtDNRvIU
+Gh3SI6gGp66uLjzqkGObhBC1npiJFhOJf6cYCWVtjYxZBsWWcE8m84v7d9Zd5jVqWkzHWuzp7MWm
+3EsjpqPrL4RRP2bizA3gMdckT6HRIVlHj+N8+9rnLwqZkca0rEQAekwkZjXYMQnELMsQS1gIK31G
+gX4t5qLk4Vt/9Z60RzPqyMaR6eofCkdmrtj4xg/AY65JHsKYDsk6ahzn+7e+MKVf/y89LIU003wa
+TqsMuFtqQD9+2hODCUyvL97USw9Kn2n9UpeXTH8pxd6P3vnP1Ju/f9BzYHyH5BEc6ZCsorrVvrJ0
+XU2f/sOaYkjX4AQTdLQAoMdw3OnVe/G0jpQSiFmusRgkYla6mMtgpHbY6SeVqvcyQQhE+gwcunH6
+N9dUgW42kkfQ6JCsoR87feDEORsgjHogRUzE84kpMqbdi5eTqg0P2pVa/wDaLtEe/xhUm+ITk9Hz
+09x1isxUfyHE8MNmLbwVjO+QPIJGh2QbAcBc1rx9qREKz4QVWE8/kp96NlhXjSS6qzzPyKqT+ofC
+0TnL7ty+CIzvkDyBMR2SFdQ4ztk3PXdYnwEjN0Eg0ul1M9J9KJonpKLf0PMP2ivNWwFXfT2PB9VH
+z78L9AfQsuONf0657QdH/Q3xjUEl4zskV+FIh3Q7qlvt+NPWVlb1H7ERBiLxxlciIf38T9reZdJq
+lJMdbQC47UXwjgWpRzIeNP+ZVKTv3myqkZHavS7SH0Bpv/oxG4+Yu7I3eMw1yXFodEi3osdxDpo2
+d50wjOFJpyzDbUT0xZyeDTihTQzQYirqPT+kjCWkep34Xp+YkLiGdu2/DscVpwFcYaGu1N8wzDFH
+n7xkLZTTRml4SC5Co0OygQBgXnDn9kVGODoHUFb4w1n1n1ZII4DO7p3mfd59aJujDrTr9EZKegyo
+K/UPR6ILfnDHq6fCOuZ7H7MhpFthTId0G8ooJ3T6NU+OGzh8/y1CiFItTeoYTeZlZpRfUPqurl9n
+6xucIXa+u/2vk+648JhtiK/fYXyH5BTsDZFuQT12+qj5y8sGDtuvWTc4QDoxl8zIdKTjcV+p93y+
+72z9Mq1v5hmivHZww10jj19QCsZ3SA5Co0O6HO3YaXPSrHNugjD235dtZjI1AnpMx11m5jGgQCOm
+11fTTy8/G/qbZmj8KfPXrAGPQSA5CI0O6S4MAMZ5d7x6ajhcsiD5yZlIyHQC7/HpxEjM5opJmZC+
+62Q8J3cq93wIiumo99SZZEnzDzw5tHv0D0dLFp2z4Z8nQplYQEguwJgO6VJUt9p31jy+X+3QsU8J
+iPJEArv9tn922jqWzPdCcz0euMwmY320+uhkvHdaFvWXUn7y+stPT7j70hNeA+M7JEdgD4h0GarB
+GTlhQWm/QQfcJSDKXc2cNtlLXdsipfvMGr+Ri8d9htQjA8+UZO0Tzyt5/jFr25mYjPl+YH3nlOdI
+P/dZNvUXENWDRxzWXNPQGAW3ySE5Akc6mSFOvnLzbEg5DRLlwcnzDIEWQPzhwMm490eNje0ZPeqO
+44Qv2PjWDeFIyWK9L6733L0jCfdQwPZc2T9TfbZX4NDBQ1enDxpb9bz+e/fsuv66hUNWIL5bQSye
+b/e/+F+7/8VI28vvzUOHOEIKlHV3eYWKAFol8Ne+0cjGO5YdubOn69NZaHTS5HLA+Muqx++RUn7N
+ECIWjZix4Kfyi7a2DqM9Jg1AbImUl8z45dIjWtJ9Vt3m5nvr/nlSRZ8B9wE+7iGtjdR3gcm0kQ7K
+31tRZGQzAnepydQ91gP6S0Du/Ojt2bd+b/wjyNIxCF+75o9D2vbueVhK7B8yRSwcKrz3JVu0d8RE
+W3vMNAyxQxihmb++aPILPV2nzkCjkyan/Hjzt2IdsTunH1K36zvHjf48Gio8z2RHTOJXT75Wds/m
+7RWGED/670uPuSKd51S32vxVDwwbPHLiM8IQ1QASvfJk6170RjJ4JBBUGWRkVLo8vfZ9rugvO2Lv
+b/vb/5vw26u//ja6P74jTr7y8WdDhjjo9ONG7Tzu4LoWg169TvGnf30YvfmBl8p3t7Z/FOorRv3y
+rMYverpO+0rhtZzdhIzJE0qjofYlM8cUpMEBANMQmDdl+K7BNWV7JXBiOs+o29zUNDRGB404rFkI
+UW3HHAREQsavZUL6TQmON7JKeuWe3UKqLaV6zzemY91wNrGBMyrwzcBdgGcbHKnINGJCuaI/DFE7
+8r+ObkJdXRjdHN85ZdXjU2RMHvq1KcN2HX/IIBqcLmDimH57zpq1386YlAPaP459vafr0xkKs/Xs
+Hqr7VURjRhG8P/0qSmKGEH2C0unHTn/jwjuvMAxzYrzRi7e68UYv0WS7G0K/Rt4zZdndqHuOElAk
+rMYbSiOuZe+zriboA0XaeSj5KVItOxf1N0PhxqVXPrUC3bx+Rwo5DgCO3L+2tavzLmaOOKB2j2mI
+mJQY19N16Qw0OqSzGADMJTf/ZVooWnYe4G4k9elattPIbhQ9ix21dS/qvfgoAQkptBLUspOORBTp
+Z5T0dTVWy5woz5ps5swecxkmb3m5pn+otGzFGdc/NxnduH5HSkQBIBI2ZVBakj4CgGkKKYCSnq5L
+Z6DRIfuE6lY7afk9deXVA+8QgNAbdU+jqki/oYOn0dTS6z15KRXpNxLR3F2wjETy/Nz1DRrp6OS6
+/kJKs6r/0KavLFlXA06jJj0AjU6O8ac//SlcUVHR/7HHHosAwM9+9rPS/fbbr9/bb79tPPDAA9Hq
+6ur+L7zwQqgn6+g6rqCuLjz8gMlNEEatf6OnNaJ6Tz6eYdo9f6sCTv5azEW951e+q4xEHmp9HSll
+XEtbwmddTZBRykX9AdSPnnTCBvCYa9ID0OjkGBMnTmxra2sTxx577F4AOOaYY/YMGjQoNmjQoNjU
+qVP3GIaBgw8+OKM1NF2JHsc598onV4RC0Ua7bx9v5FIE2hXp28jq6fVGU/sEpde/97i7LIviNPKO
+YfEzMuoz7qli+aW/GYrOPOf2fy8Fj7l28fbbbxsPP/xwpLWV4ajugkYnR7HbdiEEtE5oCudO1jAA
+mGdc/9zkcEnvFZk8KGMyIdXrtJ9XZFojFWv2WFIjYeWQ1L2m3vMpL1NySf9or94rv3P904fCGvHk
+42hn9+7dmDRpUp+TTz65KhaLLwU69NBD+z766KMRALjvvvuiQ4YMqdm+fXtabV1VVVXsrLPOqvzo
+o4/YNnYT/IslaaO61b6yZF1NRc2QJkhpunvfbneTJ9CujSTiGTtl6I1mUKDe675KPVIJGikEETTy
+yC/9EamqGbZx8mlXVSJP3Wy9evXC/PnzW/v16xczDANvvvmm8e6775pPPPFEBADq6+tjJ598cuvw
+4cPTWpxaVlaGvn37ciFrN0Kjk4MIIaTdmHR0dAghRPqtYjehHzs96ogTNggh6nV3lXMN7dpuBeFI
+qzFFqkZVkb49e4iElFa+UslffyB4pJCZOyvf9ReGOfzgoxesQx7Hd2bMmLHnj3/8YwQAHnzwwejF
+F1+88+mnn44AwCOPPBJdsGBBCwC8+uqr5sKFCyuvv/76XldccUUZAGzZsiU8fvz4fjfddFOvUaNG
+1fznP/8xbfXvv//+6IEHHtj3iSeeCLe2tuLcc88tX716ddlpp51WGYvFsHr16rJ58+ZVXnjhhb3H
+jRvXr4fUzztodHKQgQMHxnbs2GEAcR/z4MGDO5Sve7JBEADM7214ZakRisz0d0cpEto9n+/j04dt
+l49PjAVaIxzgntID63r5nvyCYiBaKy3hyELRPxQumfO9215ehDyN74wcObKjtbVV7Nixw9i6dWt4
+8eLFLa+++qoZi8Xw0ksvhQ4//PB2AFi8eHHl4sWLdy9dunT3n//85/DWrVtDU6ZMaXv99dfNefPm
+tTz00EMfDxw4sAMA9u7diy1btkQ2btz42dFHH9129dVXl40cObJjxYoVu3bt2iUeffTRyNFHH713
+27ZtoWuvvfaLu+6669Oe/VvIH2h0cpBVq1btPPvssyvWrl3b65Zbbum1fPnyXQDw2GOPRT///HOx
+devWrM5eU/dV+9a1Tx9aUla+Ml13kWcgIBWptuBJYixQpF9+uvtIHT24ykpWPw3dvRU0e61Q9I/2
+rrj6m1c+PhZ5etro0Ucfvefhhx+OmKYJ0zQxduzY9gceeCA6bNiwxKSbv//976Fx48a1A8CYMWPa
+N23aFAGA8vLyWG1trRw5cmRHaWn8cNuf/OQnZdu3bw+NHTu2HQD++te/hrdt22Zed911vcaOHdtW
+U1MTA4Bhw4Z1CCFg50uCodHJQebPn996//33f3raaae13HfffZ/tt99+HQBw0kkn7Wlra3vvkEMO
+ydoPXHWrTT7tqso+A4ZtBETE/j4oBuGJcUA6Ur22vlc3wFSv045xKFLa9XLVL/VH1SkdCkV/SFHa
+d8h+zUfNWl6GPDQ806dP37tmzZrekyZN2gsAU6ZM2XPxxReXn3rqqYlpaAcffHDbiy++GAKADz/8
+0Bg5cmQHAEgp3TN1pMTy5ct31dXVdVx77bW97GfHjx/ffv755+9etmzZrvHjx7fbaUlm0OikiQRi
+7R3Z+4EJIVBeXt4jv+iOWAwSMqbHcQ46av46CDE8FksV4wgi9ZRlvZGO5+88rTeq6j0/Mo3R6O6p
+WMyRtt6Fqr9hmPsfPGfJWii7FeSL4Zk+ffqebdu2hWbNmrUHAKZOnbp3z549Qu2gnX/++bvWr19f
+evPNN/cSQuDEE0/c8/zzz4d27NhhPPvssyEAeP3114033njD3Lx5c2TVqlVfXHbZZRVNTU0lCxYs
+aH3kkUeip59+esXZZ59d8cknn4gnn3wy/OKLL4bfe+89tqMZ0KOLDPMJA/K1Dz5tmfrRzj1G3/Jo
+wc5uad0bE9t3fGFKKf9j3RIAzDPXv3SGGSmZ43LXwO3ecVCuhdXVtudCqC4fK/eEeyppfgoZptd3
+dbavEw0u3DLw6IAC1z8UKf3GknX//H/rz2y426plXvzW+/btK3fu3PleSUl8h5jDDjus/R//+McH
+appp06btnTZt2t69e/ciEokP1g899ND2tra29+w0Q4cOje3YseN9+8+tra2J7371q1992traCruM
+ZcuW7V62bNnublWsAKHRSRPDMG7riMVOu7T5L9Vzjhyyu6os2hH8VH7xRete43+efat05+62sAFx
+CyyD880rHx9bUlZ1DWC5e+D0voVyz7kB54bWyNrtb6LN1drkoOd9u/faSMCVXOvNC8Q3y0xkr+mj
+NsPQ8igW/UvK+q6d9+NHnr/v4uO2AZCWkcp5P5JtDGyi0ahvOtvgdEUZJHNodNLkVxc3Pn/Sjzcv
+ePfj3etv+v1LVT1dn+7CEKJVGMZ5v7n0mAcAmGNnLS/rUz+6WUKUAj5totZzdkfe4VzbjZ7e84a7
+kURMxoMYMa0ltQk4VS0of2mll8nS6/po5RWJ/uX96w64a+SEBVNefeYXLQA68sXwkNyHRicDfntx
+432LN2x94MMPPjsUHaLgjquWhmwJhSu23r/80M8R9+ubk09eslaY5v6OOwYuKYSI95yTHa2pNZJ2
+WnuLfgGBmOLOiqdH0kY1UAepSavZTbjPfBrlxB5o6nVSd1Rx6G+EwuOPO+PKa1995hfnIe5ik0Jd
+QJYCIbBHSmBvW0dexIPyBQmgo0MKCeT1Hj00Ohly26JDdgPY0tP16C6U6dHGGbf889RwJPqNlO2M
+1grr7iO/aHiq/KR0DjlTbnqvk3yvDwQ87q19CP4Xq/6hSMni02/8y6afnXvgb61bacZ3jL8DMTz1
+rw9Kvnrk0F3pPUOC+NNLH0Y7YtIQQvy9p+vSGTjrgiRQZ6vNW/nI6F69+6wNesZzqJhyzw/PbCro
+iyWdqMq+ELPcUvZsM/Ved1Do+veuqlk/55IHhiKD3Qp+c0njE4YhXrjvie1lj/35ndJu/OsvGp7d
+9lH01v95qdwwxI4+0cg9PV2fzsCRDgHgMjjmyAkLSvsNOWBjDLJcb//02V16CMPrPvLGxSGVZtUe
+FSjuINdsMb2eAbPL4oFyNeYSr4G9FMMvvV4/V4wloPzC119U9x8xvrmmoXHaB//c3AoglkZ8Rwoh
+T+nowKO3PPCv0Rseerk8GjbzYhZcLtLWHjP2tHWYhiE+ENI44Y5lR+7s6Tp1BsHYIFF6rwaA8Fkb
+tt9gRqOLfRPrrZLWagU1Yp1t5D2NspZB8MQAvb4B+VN/AEBb667r1y8etQJAOyw3W1B855ybXo2+
++elbXwfkEQB6p0pLUtIKIf8SDlc2//KHh3zW05XpLDQ6xLXNzek3/uWkXpW19zlxbHejFdSoeUYC
+nsLgavQyfd7bUw8oL7D8lHF/6u+M3OSuj9+efecPDn8EQAeAGGezkX2BMZ0iR43jzLnkgaGlFX3X
+A07MAdAOLZNwpHptfw8o0h1nl3a+rvwzC+oHoe8ooN6Ll+VI/5i8O+ZC/YU9uUGUVQ+6fcZ5TXXI
+092oSW5Ao1PEqAanpqEx2n/Y+GYhjOpUz3gC4foH7sC4655vI6s21M6Oy4ltaKQj/QL13kC+SEjV
+YCSrr7c+qSlm/YUQtcMbGptQVxcGDQ/ZR+heK1K0OE5o0W2vrI5Eey3V3S2Z5+t2z+gE5R+w9jE4
+ZtHJ+lL/YP3bWnet2nDm6B8jg/gOITY0OkWKGsdZeN3W6eXVA34H4R35djaGkOnznY5Z9HD9O/t8
+Pugfg+z47L3tM+5eMXkLGN8hGUL3WhGiutVmnNdU17u6/x22wQmKaejuH0CLGSgynlIkpHottbTJ
+MpBwpF9677oXJW7iUz6s62RQ/2D9BYRZUTusaeqSdTWgm41kCNcL2VfAAAAcuElEQVTpFBmu4wrq
+6sJDD2hsAlCrdlRTd1rdwXJp+WMSjZWdh/KE33Wy7xN5JfH3pGp4E+kV6duwB0D9g/U3DKN+1CEz
+NmwC5ljZp7N+hxCOdIoJpTcqAJjfvXjTcjMUbkzWKLp6zXZPOqZIn+OSA+ugSHX2brLyAHcjqNcP
+EAmZ1uwx7aOmof6Z6W8Y4Zmn3/LSecjTY65Jz8CYThGhxnHmr/7DlIr+wx8W8QZj31FbTd9ClTSA
+p+fujWS78/PEFLRAemB+3U2R6y+l3Ltzx/apv7hoynNgfIekAUc6RYLqVpu6ZF1Nec2wJkiY8R6s
+0pMNmFIbFEOAtmwl7ipKkV460tXgJjruwpHp9OT1nrnnA0UC1L9z+gMiUlYzZOPk066qBOM7JA1o
+dIoA/djpLx04fYMQqE/SysHVqHkbGVdgWXcQSasFdRo19yf+PBLP64F5/XhowJHxfB3p1yh6HVhu
+fbzNNPXvrP6GERo+5vC56+Acc03DQ5JCo1M8CADm6Tf98zwjFJnp3NYbIfWe47VJ1jOOf5e8Jyys
+Xr4QcF0ne95uqpz0jlTrkqx+asPvZwT056l/1+hvRkrmfPvGv58BxndIAIzpFDhqHOdrV205rKp2
+6CYBI+I0LHrQwY0npuBMm/V/XG0l08g/0+czr49yz/cG9e86/WXLh2/+a8qvV07/G+ILRyXjO0SH
+I50CRnWrTZ57VWVV3yHNgIgAyfq1PnlYjYuzzsRphCSs2Uy2jFnul1j67hpvDCH1uhi1Dn7rTrzu
+IG0kokjq39X6o7RP3ejmsbPOLIM14qGbjehwpFOgaHGc0OnrXrkrFI7OCezoenrGesZaev2G3lMP
+yr+z5WfWce/68qk/dP072vbcdcdZo85AfLTTEb/NhobE4UinsBEAzIU3/v0MMxSZ4zt7Cu72Jagn
+7IkhWD7+xA0BR9ptb4qYhF6ghCOlpYEtXe1bsvSe+mojC+rf7fqb4eg3vnn9n0+Fdew5CFHgSKcA
+UUY5oTkrHx3Xp27MFgiU+qcO6Pp6eu7Cuef7vfvxwK53UP6dTR8I9e8O/aWQOz/a/o9Jv7nqK9sQ
+H+0wvkMAsBdScKjHTo+ddWZZ1cBRzRIyicHx9lw96zaQumfsClsI60K4bkBtcDPteXvqq8h0evbq
+PeqfPf0FjPI+Qw64a+SEBaVgfIcocKRTQCgvtQkg9O1bt20IhUq+mdJH38N09Vb9GccoephC17+9
+rWX9nd8bsxRAG3gMAgFHOoWIAcCYf92fTw2FSr4JwNXgZNpTzrQnnineQ8jch5QF1ddDwAPUP3V+
+Xa1/KFy65Otrnj0RzsJRUuRwpFMgqG61WRc9uF//oQ1PAaLckw6pO8L6OgzPOo2uPkQsqLyg+mZY
+H+rfA/pL+cn7/9464cE1X30NjO8UPex5FACqwRk5YUFpzaD9N/oZHCu1IoNjDuq9dL73liYS0ndd
+idWY2es+4v+Tia64hCN9e+bKTs/p7fpM/bOuvxDVNcMPbK5paIyC2+QUPTQ6eY5+XMGR37j0GiNk
+HphotBQprQYtIdVrOy0cmQ6BgeiAD6y0iVZV7YoL7Z6SNvG8QEL6p6f+uaC/MEITj1t0y+VQtsmh
+4SlO6F7Lc1zb3Fz97EllVbX3uc+41x0onhyUNOmkz+x5rzvGPcPWW56en05n88+s/sFQ/7T1l4h9
+/vE7s3910aRHwWMQihaOdPIYddeBaRf+amhpZb/1gB2QTtZ1BtwNmlRkOund6O4hmbi2cpRKMNqv
+p4/U277En1fTw+XO8QbiqX/O6g9plFX1v6NxSVMd6GYrWnhcdZ6iGpyahsbowGHjmwVEdcLdkUgp
+od9J3YvV0gtY3WflttYRVnNLJ9AsXc9KlxTWdbLiPNpIQCoJvNpSf28te05/IYzawQ1HNqGubhbe
+eUeCx1wXHRzp5CF6HGfad2+5XBjmRL0B80Pv10I4Mn4tE9IvsK13hPX0es/cdc+vflqFYlbMwu65
+SyAhpZVOKunVOlL//NDfCIUa51/46HIwvlOUMKaTh6hxnK9e9dT03lUDfyeFtDoQmo9dd/IHbJvi
+8dDrPXVPyCEoJtC5+uj5BU3ppf75ob+UsuOz91+f8buVx2wB4ztFBUc6eYbqVmtc0lTXq7L2jhik
+4XRdFemDZ8qrIqHdc/vj/XvaenkJ956VZTwv9YaSKJ36KfcAnxiGMjqg/vmjvwDMyn6Dm45Y+NMa
+ML5TVNDo5BGu4wrq6sKDGo5ogjBqAacN0APXgLvR0lHbjTTaLE/6wPJUR6Diykn2vLCubUWldKRf
+m51xfah/zugPw6j/0mGzNoDHXBcVNDp5gh7HOfX8h5ebZqQxqGecaSOh96SlItNqxLT6xBtLmWg0
+3fc6Xz71z2/9DTM8c95PXjgPPOa6aGBMJ09Q4zizVz4+pbx26MMCMONdYcdnn/G2KEHpg7ayzzC/
+TtcP2uQp6p/3+kNg72fvvj7196umPgfGdwoejnTyANWtdsTCn9aU96tvgpTmvvR8dbzrPERCAs4a
+kq7qSduXiZ4vFKnl6aeP/qH++a8/pIiU19ZvPGjuVZWgm63godHJcVxxHMAcdvDMDUIY9WkHcpV7
+gLeR0B7PuNEKIrBRslwt+xxU0NJTf0fmk/5CmMPHHDF7HRjfKXhodPIDAcD86poXzjVD4Znq1vee
+nqpAQkLAdl+k3VMOIqjnLSUUCe2eT3l6oFk6UkprjYpMvvU/9S8c/c1oyZy512z9LhjfKWgY08lh
+1DjOiZduOqx37eBNhjAiEqm2wg9ax6GVkWH6oHUZen467tTBz2eqH/XPb/0hRcsnb/5ryv9eO+tv
+ANoBSMlGqqDgSCdHUd1qB829qrJ37aBmIUTE6/7Q9u5S7vn1POPPOuXYjYu0/lPvWX9wpK8/xv29
+hExICXtVvVTWlTjSr0KBh5pR/4LWX0KWVg4e2Tx21pll4DHXBQmNTg6ix3FGHTH7VsAcobpeHPdJ
+LCGljMXffVvCmmhkSfvVTfUKe9wn9rWVn8cnr7hw/NxD6uQntS7J2jBvfRxJ/YtDf0OY+x/w5bNv
+hHLaKA1P4UD3Wg6iuNVCc67Zeka0V+VNzrd2i2P/u+nuDp2g9Jnmlzp/b26ZnYzZeX0yTU/9c1X/
+1i8+Pu2/Vxx+NziNuqDgSCfHUE8Bnbnsd2MjpZXXqu4OT89XueeHnt4b2M1sa31vINr9vKVFcv2s
+7+yTNOOdZOHUD9KRiYaM+hej/tGyqrXTL3hwNDibraCg0ckhVIMzdtaZZeV1Y5olZClk+j5+T6Og
+uT/iBSHp8+q9dPA8bzVotv9EvZdW/dSusvTuukz9i0h/iPKqQSM3jpywoBSM7xQMNDo5gvIyGQDM
+McecdaNhGPsHPScVGf9IRSq95kRPUpFppAfcPWm19+1+1l2X5PVzfyAd6ZsB9S9q/Q3TPPDAucuv
+AY9BKBgY08kR1OnRJ/342fnR3lVNvungdAahXNv/ivo2Izr2d/a/e+C2JVp5+rYoGeeX4TYt1J/6
+A8Duz96f98BlR/0WjO/kPTQ6OYDqVpt+wX/vV1Xf8JQQoryn60VIriBl7JP3/rN1wpa1C15D3PBI
+Gp78hO61HkY1OCMnLCitqNtvoxCiPJmP3evDhyLtNE7+HveGlI70ed7jftHS6/XRUevgW5/A7936
+UX/qHx8NGdX9hx3UXNPQGAUnFuQ1NDo9iPLSxCcPnHLhNYYZPlDa7gvb7SDUDRe12UICjlSCsvsa
+GPappSL9Fh9qgWGtPL3RgxIVAOxn1MCyozP1p/7qPWGYEycvvGElGN/Ja+he60HUOM4JVzx5UmlF
+zX12c5L4V9FueLe6D1r34EbPPyhG4KkzgrY5SV2fjMun/tRf1R8i9sVnb8/+35XHPArGd/ISGp0e
+QnWrTTnnF8P6Dz/4GQijOvCt1Ol8K5I6/0zLy7X01L/g9JdSvv/WXx+f8Kc7z3wbjO/kHXSv9QDq
+Njc1DY3RmqEHNkuIan8fviPd/vdkPn93evVevHBFpuGOyTzGoH3s7+B2taSfP/Wn/m79AVE7sOGo
+JtTVhcH4Tt5Bo5Nl9DjOkQt/ulIY5kT7e/XF9HtJdbzp3T5zPYegRimoEfDRSJF+HzVNGo2MRx/q
+T/29mKFw4+yzH/whGN/JO+heyzJqHGfmysen96qo+x2ENJL5Q6SE63TgoNODMz+u2J1fEHp5meIt
+L7U/iPpT/xT6d+zc8dqMR66esQWM7+QNHOlkEdWtNvHb6+pKygfcISEN1V3idqHEn8vkNcq0p6r3
+LKVUpM8n0/p43TmOdOtK/al/xvqbZf2GNo1f+NMa0M2WN9DoZAnXcQV1deEBDUc2QaAWQMIhAgQ3
+GoHnrShOFgnbr55iSqvyYvu95Hp+nvrq5SWurcYrJh0Zs9LEZPL8qD/1z0B/YYj6Yf917AbwmOu8
+gUYnC+hxnNlnP/hDwwg3wupV2lLtdSJxrb/0zk7AgHfdBKD1bO2irXUPrns+ZBo4Vuvg58O3VRdC
+xK8lEpL6U/+u0N8MRWaesOqZc8FjrvMCxnSygBrHOXb5w1PK+w15CEKEAK9HO8hpL5VnfJ/XCEof
+mJ/HCe9+QqueV/fOlkf9qX86+ku5d+dHb019bPX058D4Tk7DkU43o7rVxs/9aU3vvoObhGVwAHfv
+TsLqQdrSr+cagJ4frPxs/4mUSEh/d0rq+siYImNW/WL7/m5T/9TlAdQ/Lf2FiPTuW9d80NwVlaCb
+Laeh0elGXHEcwBx26LEbIER9qpdKd1/EFOnnww/y8WfqXvGgtwq2ayTJNi2eD5SGBMGNCvWn/vuq
+v4QxYvAhX7sVjO/kNHSvdSOKWy00a9XT54VLK69O4xlImWqr+dTH/3aDFkjtIMms/oGlUX/q30n9
+9+z+9PsPXTbp/wBoB91sOQeNTjehxnGmrfjfw3pVD90EISJB6yLs7xL/LNo772kCtPSB+cPdZHhe
+Yv0l9+TnrkFQ+ozrR/2pf+f1b/nsnVembL5+9t8QNzyShid3oHutG1DdagfNXVFZUjW4GYaIQFju
+A6H4yOF2P0A40vWGJRIo0gfdGyKlIqWVlVSzlwkpIS3viUx4Y9SXOv6RinR0sTOU0pHqtfM99af+
+3a5/afnAEc1DjjqzDDzmOueg0eli9DjOoIO+dqthGCOSvjRaKyGtViKZz9vrw3dkOm+l53lFQnoD
+zRLSkVa+LleO3spBOlK9pv7UP4v6G4a5/7hZZ9wAJ74DGp7cgEanexAAzOMuf+o7Zjj6Vdc7Jh3p
+91Kr7g71OulLn3A0xG1dfCaRSHt2kafNgLtN8ORvdT3t+sR7qckDx3p+1J/6Z0t/w4wunLHyj6ci
+3s6xrcsRGNPpQpRRTujIpb8a12fg/luEQKntogDgclfEn3HuxRPA5XTX/hjsM1ee8bvR1eV3uY+f
++lP/rtQf2Pn5W9smbV57yjbwGIScgNa/i1DPxxly1Jll1f33axawDA6cnp3Hp659L6FIWC+UJf18
+7IAj4xVRpI8PPZ5+33u+np5qwhUTz19Y+SfTj/pT/6zqD1nee9CXNvaZcHwpGN/JCTjS6QKUH7EJ
+IHT8qudvMyMlC5OkTfQGAW/P0NNV07t6GVfOnV/wbKWAKasBPc3A6lB/6t8D+ne0tax/6JLDlgJo
+AxCzymbj1wPQ6HQBrunRl26ZH+3dp6mn65SgmxuxTufX3VB/6m/VsXXn+/P+76qpvwW3yelRaHQ6
+iepWm3TOvftVD/qvpyBlebpO7MB3OOB5/XtPTzIgv6D0nvrpPVPvX0jqrjD1p/49pL+U8pOPtj8/
+4ZnbTnsNjO/0GIzpdALV4PSZcHxpVf/9NgIo1xI5Ur22UP3s6fjcg5CKlNaFdN1QpE961wwknw/s
+BieJPh6ovyOpvyd9NvUXENV9hhzUXNPQGAW3yekxONLZR5QfqwEgfNwVz1xvRnotyTgf3ceOzLY1
+6eptUYJ6nl1fHvWn/tnVv23Pruse+9HEi2FtkwOA8Z0sQqOzj6hxnGMu2nRSaUXNfV2ScZB/Q08e
+EAjOuPguzi/zCoD6U//u1V8itvvzHbM3rz72UTC+k3VodPYB1a02YXHTsD7DDnkGQHWS1AjqO6rf
+B88Ocj/vnQ0UkD6wZ5i6PjqBPn7qT/1zUH9I+f67Lz814S93nvk2GN/JKozpZIhrm5v+4yLVgw9q
+lkB1/Jb9YqXqFapp1Bcu7oWO/+4VHzpS+7g9PmxF+qeXCamuLk+3Pt6t5kVCUn/qny/6Q4ja/iMn
+NKGuLgzGd7IKjU4GKD9KAcCcfuaGlTCMiQJQgq1QJBB/geIynZfKvrSfd+fpk17Z6iR+7Uj3Cx1/
+ye3+nvOSOs1QOund31o9XepP/fNQf2GGGo9d9OtlUI65puHpfuheywA1jtN44SPTS6oG/A5CGM6P
+GsHehMBCAp4PzD/oAZ2A9J7ypOa/CEqv1y8A6k/9s6i/lLH2XZ+8dfyTP/nKFjC+kxU40kkT1a12
+4Levr4tWDrgDQhiqiyLuK0ZCqteOO8PpW8avHSlh9ehsKa2nbJlW/rq7BFBfuCD3SpA+gHBkGump
+P/XPZf2FMEK9quubxs+9sgZ0s2UFGp00cMVx6urCNSMmN0GgVlq+bFv6voT6S608o7oanNdOd2AA
+7pfGkVK7F792v1SuF7cL6qt/qD/1z3f9hTDqa8fN2AAec50V6F4LQFuPE5p62R9XhKK9f5T4RWqj
+d937EOgtEM4z+/K8T33jfvYkGQY9H4THWUH9qX+B6N+2+7MfPv7jKTeCx1x3KzQ6AahxnKOWPjil
+tG/9Q0KIkJPC8xpBey01Mk2f61B/6l8g+kvsbfnwtal/uGH2c2B8p9ugey0Fqltt9Nwra0qrBzUJ
+IULu36HqAvBzHyDl7Bz1npo2uTtDz8+dXv9eJyh9puVTf+pfMPoLRKJ96ptHHr+iEnSzdRs0Oklw
+xXEAs77huA0wRH3gS6HtTaXeS+t7uF8a+zcvhHC5DpK+hIqUdj2RopHR0qv3/KD+1L+Q9ReGOWLI
+hFNuBeM73Qbda0lQ3GqhYy7ecq5ZUnFN/H68Z5ZwGSPAx6yk8cPOK9HZCspfuxGUvrPOjozrR/2p
+fwHo3777s7M3X3X07WB8p8uh0fFBjeNMPO93h/XuM3QTDEQAn5cSqV86D/pbpufYxa1E8Fb3AQoE
+VI/6U/9C1F9Ctuzc8e8pz9781b8hbngkDU/XQPeahupWG3n8isqyPvXNEHGDA8Da8gOJbUCkItP5
+QPF7A8J6WUTij/GXxpL2M67n4XYPaO4O3X0Rs66T1RcCCelyzyeB+lP/YtBfQJSW1wxvHnLUmWXg
+MdddCo2OgieOc/jsWyGMERKpAqmBuSrSu44h7nNWXkwrfwmn85VJaZ6XMKi+aiES8fpZ0q9+gfl5
+oP6OpP75pD8MY/8RUxdeDye+AxqezkP3moIax5ly0RPfDZdW3Gx3muy/Jo8PWfs+8zJT59fZ74PK
+C3JXUH/qX+z6t+3+9LQ/XH3M3eA06i6BRsdCGeWEDl98z7iyQaO3CIhSz6/Q86D2tfYjzvwlDXgL
+POXpGaZOH/h4oNOc+lP/4tJfIrZz5zuvTHp+/anbwGMQOk0oOEnho56PM+SoM8t6DRzVDIhS9eeX
+5JWDjFlTOGPKb1C/lMot6dxLUhdIqZ4Pop1XYj+nvmMxqb1FcN4iLb20FJJKI+Gqj1DyoP7Un/oD
+EOW9B3xpY58Jxx/98TMPtQDosOpEw7MPFH1MR9vmxhzWuPB6YRj7QwKQVuBUOoHTmIwpMgYACZle
+gYoU1m/dkhJw+7WtH38mgV4d9Z2L56tIqzWxpauFof7Un/on9IcwD2z48iVXg8cgdJqid6+p06OP
+XPb41yNllXeqPTv1N+hPUAqtrxjklNbz07PP0CntcSdkVlvqH5Ce+heX/q07P5r3p59M+y0Y39ln
+itroqG618WfcPbpy0OinDYhy9Uen/8j14b7nHQj62Qa+RDqpXyr9JQ5IHdwGeNJTf+pP/e36xTpi
+n3z+xt8n/OXO014D4zv7BGM6gNHvyBNLqupG3iWEUe71IbtlkM9ZnRQKIHHtvGMBPmtfpM+1ck95
+NlOfeHB66k/9qb8tDdOorhhyQDPqDvky3tkqETc8JAOK1uioa3L6102q3rVj+5XtLZ+VtLV81qtj
+7+6Sjr0tJbKjLRyLtYcgpSFlrOjjX4QUC0IYMQgRM4xQuzDDbWaktNWMlrWESypawmXVLaMPnlH9
+8jtbPwAQ46SCzCha95q6JgdAFEApgN7WpwxACYAIlI3/eqamhJAeQAKIIT6S2QugBcAu6/OF9ec9
+4N5sGVOUIx1l1onQPkD8h9aO+A8tBsfg0OgQUjxIOIanHVb8xvrO024IIQQNT3oUpdFRUD28qrEB
+gDbEDQ7daoQULzHr04Z429AGa+YaHMNEMqAojY6UUiqjHXsI3YZ4r6UD8WGzPR+fIxxCihfbsHQg
+3iltg2N4EgaHo5z0KUqjo6COcADH+NClRgix8XO1qaMdkgFFO5EAcM9gUz56jIf4MPX7P2+IllUO
+F5B0P+YxHe1tn3+47f8+s/WBDS09XZccR8JtfOwP1+lkSFEbHcBleNTJBaokCo3n31ZZVTHybglM
+6+m6kK5BAB/HOtoW/v6KGY/2dF1yGH2BkAQNzj5R9EYHcM1mS9zqkYrkASddsekeAHNPnDh410Ej
++u4xDMEfUB7z4ect5j2bXyv78PPWjo5Yx5gHVk57q6frlMO4fus0OPtGscd0APj+ePhj8uEbNz1T
+sevTXXOOHjug5bRpI3f2dH1IV1DVVt+vrGPZHc/3C5nmPCnlmp6uESls6I8nabP7i7YBUsIcMbC8
+rafrQrqO0YMq2gBAxuSgnq4LKXw40iEZY9D5WHgIISXdyiQLcKRDCCEka3CkQwiACy64oHzz5s2R
+E044oXX79u2hSZMm7V20aFELAFx44YW9N23aFD355JNb33rrLTMajcobb7yRMS1C9gEaHUIAHHXU
+UXv//e9/mz/60Y92tba2YvLkyX0rKytj8+bN23PkkUe2vfrqq6FLLrlkl5QSffv27b9s2bJdgwYN
+yuDITEIIQPcaIR5KSkrw9a9/veXee+8t1b976qmnwjU1NR0DBgygwSFkH6DRIcSHUaNGtb///vuJ
+9+OVV14JrVixoveiRYsqr7322p2mafZk9QjJW2h0CPHho48+MgYNGpQ4FXLUqFHtq1ev/uKFF174
+8Kyzzqp8//33OdOLkH2ARocQH+69997Sb33rW579yKLRKEKhkPziiy/47hCyD3AiASEANm/eHHn5
+5ZdDV199ddlrr71mnnjiia2zZs3aCwCbNm2KbNu2LXT55ZeXvfnmm+bChQtbRowY0RGUJyHEC40O
+IQBuuOGGnQB8p0GvXbs26XeEkMygi4CkjezY2wEAe9u5NV0h0R6TgJRCOOdKEdJt0OiQtAnvN+BN
+IcQXz237IEqzUzg8+Y8dJQAAIV7s4aqQIoBHG5CMOOXKzRfHYrErh/Uv3zN2eFWbyaMN8poPP9tj
+Pv3S+yUxie21/SvG3bbokN09XSdS2NDokEwRp6x6fCmAC2NSDujpypDOYQjRFoN8MGKUfv+XFx/x
+dk/XhxQ+NDpknzntzs0lHR/24SrJPOZLF4xr+VH82GVCsgKNDiGEkKzBiQSEEEKyBo0OIYSQrEGj
+QwghJGvQ6BBCCMkaNDqEEEKyBo0OIYSQrEGjQwghJGvQ6BBCCMkaNDqEEEKyBo0OIYSQrEGjQwgh
+JGvQ6BBCCMkaNDqEEEKyBo0OIYSQrEGjQwghJGvQ6BBCCMkaNDqEEEKyxv8HguKbhnSaW6MAAAAA
+SUVORK5CYII=" />
+</div>
+</div>
+<div class="paragraph"><p>The diagram not only depicts the three main roles for the appliances but also the zones that should be created
+to house each type of appliance.  It is best practice to create three zones in a Cloudforms environment:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+UI Zone
+</p>
+</li>
+<li>
+<p>
+Database Zone
+</p>
+</li>
+<li>
+<p>
+Worker Zone.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>If we were to draw a box around the triangle this would define a Region.</p></div>
+<div class="paragraph"><p>A region should have a Database Zone with only one Database Appliance to house all the virtual environment
+information. If there are multiple data centers, in different geographic locations, you would replicate the
+architecture at each data center. The database appliances can be configured to include the Synchronization
+server role to replicate its contents to a main database. Best practice states that you should only
+have one database appliance handling the data for one data center.</p></div>
+<div class="paragraph"><p>The current implementation for YaleNUS only has one appliance but this can easily be extended in future phases
+of the project.</p></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_initial_cloudforms_engine_setup">4.2. Initial Cloudforms Engine Setup</h3>
+<div class="paragraph"><p>To manage a <sub>1500 virtual machines workload in a virtualization environment, multiple appliances should be created
+and the roles distributed for better performance and redundancy: 1 DB, 2 Web UI and 4 Workers. Red Hat recommends
+5 Workers in the scenario of </sub>1500 virtual machines, to maintain a 300:1 VM to appliance ratio.</p></div>
+<div class="paragraph"><p>To increase performance, increase the default 4 vCPUs/6GB RAM appliance configuration to 4 vCPUs/8GB RAM for the
+Web UI appliance and 4 vCPUs/8GB RAM for the DB and the Worker appliances.</p></div>
+<div class="paragraph"><p>With a new CFME appliance the Database is not shipped configured by default. There will need to be a separate
+Database disk created outside of the appliance and then connected once the appliance has been started. In this case,
+after looking at where the current VM count and number of VM&#8217;s that will be coming over the next few years the
+Database can be sized to 150GB. This will allow for growth over the next few years.</p></div>
+<div class="paragraph"><p>Once started, the appliances need to be configured with basic network settings using the a console in
+the OpenStack client. Login as admin/smartvm and press Enter to go to the Advanced Settings menu.  Set Static
+Network Configuration, Set Hostname, Set Timezone, Date, and Time. When done entering the settings, select
+Summary Information to review.</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="./images/CFME-Console-Menu.png" src="data:image/png;base64,
+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
+SUVORK5CYII=" />
+</div>
+</div>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="50%" />
+<col width="50%" />
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">RAM</p></td>
+<td align="left" valign="top"><p class="table">4 GB</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="ulist"><ul>
+<li>
+<p>
+Detailed Hardware Specs per Hypervisor:
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code></code></pre>
+</div></div>
+<div class="sect3">
+<h4 id="_networks_information">4.2.1. Networks Information</h4>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<thead>
+<tr>
+<th align="left" valign="top"> Name </th>
+<th align="left" valign="top"> VM? </th>
+<th align="left" valign="top"> On hosts </th>
+<th align="left" valign="top"> Special attributes </th>
+<th align="left" valign="top"> Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">CFME Engine</p></td>
+<td align="left" valign="top"><p class="table">Y</p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table">The default CFME Engine</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_openstack_deployment">5. OpenStack Deployment</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_overview_2">5.1. Overview</h3>
+<div class="paragraph"><p>Overview of YaleNUS OpenStack environment</p></div>
+<div class="sect3">
+<h4 id="_pre_requisites_2">5.1.1. Pre-requisites</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+List pre-requisites
+</p>
+</li>
+<li>
+<p>
+Server Racked, Stacked and Cabled
+</p>
+</li>
+<li>
+<p>
+Switch configuration completed
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect3">
+<h4 id="_versions_2">5.1.2. Versions</h4>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="50%" />
+<col width="50%" />
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">OS Version</p></td>
+<td align="left" valign="top"><p class="table">RHEL 6.6 x86_64</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Red Hat OpenStack Version</p></td>
+<td align="left" valign="top"><p class="table">RHOS Version x.x</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_architecture_2">5.1.3. Architecture</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+1x Manamgement Node
+</p>
+</li>
+<li>
+<p>
+3x Nodes
+</p>
+</li>
+</ul></div>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="50%" />
+<col width="50%" />
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">RAM</p></td>
+<td align="left" valign="top"><p class="table">128 GB</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">OS Disk</p></td>
+<td align="left" valign="top"><p class="table">2x 300GB</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="ulist"><ul>
+<li>
+<p>
+Detailed Hardware Specs per Hypervisor:
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>DELL: &lt;Model&gt;
+1 - &lt;Model&gt; Server with Dual 8C CPU, Dual QPI, 128GB
+1 - PowerEdge R720, Intel® Xeon® E-26XX v2 Processors
+1 - 2.5" Chassis with up to 16 Hard Drives
+2 - Intel® Xeon® E5-2650 v2 2.60GHz, 20M Cache, 8.0GT/s QPI, Turbo, HT,
+8C, 95W, Max Mem 1866MHz
+1 - Performance Optimized
+8 - 16GB RDIMM, 1866 MT/s, Standard Volt, Single Rank, x4 Data Width
+1 - PERC H710P Integrated RAID Controller, 1GB NV Cache
+2 - 300GB 10K RPM SAS 6Gbps 2.5in Hot-plug Hard Drive
+1 - iDRAC7, Enterprise with OpenManage Essentials,Server ConfigMgmt
+1 - Risers with up to 6, x8 PCIe Slots + 1, x16 PCIe Slot
+1 - Intel Ethernet I350 QP 1Gb Network Daughter Card
+1 - Intel Ethernet X540 Dual Port 10GBASE-T Server Adapter
+1 - No Internal Optical Drive
+1 - No Bezel
+1 - Dual, Hot-plug, Redundant Power Supply (1+1), 750W
+2 - Power Cord, C13 to C14, PDU Style, 12 Amps, 2 foot, Qty 1
+1 - ReadyRails Sliding Rails Without Cable Management Arm
+1 - 3 Year ProSupport and NBD On-site Service
+1 - PowerEdge R720 Shipping</code></pre>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_networks">5.1.4. Networks</h4>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<thead>
+<tr>
+<th align="left" valign="top"> Name </th>
+<th align="left" valign="top"> VM? </th>
+<th align="left" valign="top"> On hosts </th>
+<th align="left" valign="top"> Special attributes </th>
+<th align="left" valign="top"> Notes</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_openstack_templates">5.1.5. OpenStack Templates</h4>
+<div class="paragraph"><p>Template creation was explained and the customer was able to create
+their own templates from VMs.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_create_vm">5.1.6. Create VM</h4>
+<div class="paragraph"><p>For demonstration purposes, two VMs were created, one from the RHEL 6
+DVD ISO and one from the RHEL 7 ISO.  The customer also was able to
+create virtual machines including demonstrating their ability to
+provision.</p></div>
+<div style="page-break-after:always"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_appendix_a_a_id_yalenus_rolebaseaccess_a_yalenus_basic_role_base_access">6. Appendix A - <a id="YaleNUS-RoleBaseAccess"></a>YaleNUS Basic Role Base Access</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>TODO: Add screenshots</p></div>
 <div style="page-break-after:always"></div>
@@ -2444,10 +3292,10 @@ cellspacing="0" cellpadding="4">
 </div>
 </div>
 <div class="sect1">
-<h2 id="_appendix_b_additional_resources">5. Appendix B - Additional Resources</h2>
+<h2 id="_appendix_b_additional_resources">7. Appendix B - Additional Resources</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_training">5.1. Training</h3>
+<h3 id="_training">7.1. Training</h3>
 <div class="paragraph"><p>For a solid grounding in the products deployed, Red Hat recommends staff
 be designated to attend the following training classes:</p></div>
 <div class="ulist"><ul>
@@ -2460,22 +3308,54 @@ be designated to attend the following training classes:</p></div>
 <div class="paragraph"><p>&#8212;&#8201;CL220 Red Hat CloudForms Hybrid Cloud Management</p></div>
 <div class="paragraph"><p>Red Hat CloudForms Hybrid Cloud Management teaches you how to perform an initial configuration and setup of Red Hat CloudForms.</p></div>
 <div class="paragraph"><p>This course can also help you in your preparation for the Red Hat Certificate of Expertise in Hybrid Cloud Management exam (EX220).</p></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>== Course content summary
-
-   ** Perform initial configuration of CloudForms appliance
-   ** Deploy virtual machines
-   ** Perform policy-based management
-   ** Customize a dashboard
-   ** Create a catalog
-   ** Provision services
-   ** Analyze timelines and events
-   ** Run automations</code></pre>
-</div></div>
 </div>
 <div class="sect2">
-<h3 id="_documentation">5.2. Documentation</h3>
+<h3 id="_course_content_summary">7.2. Course content summary</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Perform initial configuration of CloudForms appliance
+</p>
+</li>
+<li>
+<p>
+Deploy virtual machines
+</p>
+</li>
+<li>
+<p>
+Perform policy-based management
+</p>
+</li>
+<li>
+<p>
+Customize a dashboard
+</p>
+</li>
+<li>
+<p>
+Create a catalog
+</p>
+</li>
+<li>
+<p>
+Provision services
+</p>
+</li>
+<li>
+<p>
+Analyze timelines and events
+</p>
+</li>
+<li>
+<p>
+Run automations
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_documentation">7.3. Documentation</h3>
 </div>
 </div>
 </div>
@@ -2483,7 +3363,7 @@ be designated to attend the following training classes:</p></div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-05-31 22:17:15 MDT
+Last updated 2015-06-01 00:38:06 MDT
 </div>
 </div>
 </body>

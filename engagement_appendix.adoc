@@ -23,7 +23,6 @@ Red Hat CloudForms Hybrid Cloud Management teaches you how to perform an initial
 
 This course can also help you in your preparation for the Red Hat Certificate of Expertise in Hybrid Cloud Management exam (EX220).
 
-----------------------------------------------------------------------
 == Course content summary
 
    ** Perform initial configuration of CloudForms appliance
@@ -34,8 +33,6 @@ This course can also help you in your preparation for the Red Hat Certificate of
    ** Provision services
    ** Analyze timelines and events
    ** Run automations
-----------------------------------------------------------------------
-
 
 == Documentation
 

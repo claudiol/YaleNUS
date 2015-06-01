@@ -42,11 +42,11 @@ include::./engagement_list.adoc[]
 
 // Red Hat Storage
 :leveloffset: 1
-include::./engagement_rhstorage.adoc[]
+include::./engagement_cloudforms.adoc[]
 
 // RHEV
 :leveloffset: 1
-include::./engagement_rhev.adoc[]
+include::./engagement_openstack.adoc[]
 
 // Appendix
 :leveloffset: 1
