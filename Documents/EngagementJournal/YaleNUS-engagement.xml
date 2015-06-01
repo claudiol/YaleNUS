@@ -358,7 +358,34 @@ rowsep="1" colsep="1"
 <itemizedlist>
 <listitem>
 <simpara>
-TODO
+Web Browsers:
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Mozilla Firefox for versions supported under Mozilla&#8217;s Extended Support Release (ESR)
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Internet Explorer 8 or Higher
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>
+Adobe Flash Player 9 or above.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+The Cloudforms Management Engine Appliance must already be installed and activated in your enterprise.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+The SmartProxy must have visibility to the virtual machines and cloud instances that you want to control.
 </simpara>
 </listitem>
 <listitem>
@@ -391,7 +418,7 @@ rowsep="1" colsep="1"
 <entry align="left" valign="top"><simpara>RHEL 6.6 x86_64</simpara></entry>
 </row>
 <row>
-<entry align="left" valign="top"><simpara>Clloudforms Version</simpara></entry>
+<entry align="left" valign="top"><simpara>Cloudforms Version</simpara></entry>
 <entry align="left" valign="top"><simpara>Cloudforms 3.1</simpara></entry>
 </row>
 </tbody>
@@ -506,8 +533,7 @@ after looking at where the current VM count and number of VM&#8217;s that will b
 Database can be sized to 150GB. This will allow for growth over the next few years.</simpara>
 <simpara>Once started, the appliances need to be configured with basic network settings using the a console in
 the OpenStack client. Login as admin/smartvm and press Enter to go to the Advanced Settings menu.  Set Static
-Network Configuration, Set Hostname, Set Timezone, Date, and Time. When done entering the settings, select
-Summary Information to review.</simpara>
+Network Configuration, Set Hostname, Set Timezone, Date, and Time. When done entering the settings, select Summary Information to review.</simpara>
 <informalfigure>
 <mediaobject>
   <imageobject>
@@ -516,6 +542,329 @@ Summary Information to review.</simpara>
   <textobject><phrase>./images/CFME-Console-Menu.png</phrase></textobject>
 </mediaobject>
 </informalfigure>
+</section>
+<section id="_cfme_appliance_configuration">
+<title>CFME Appliance Configuration</title>
+<simpara>To configure the appliance(s), log on to the web server on each appliance at
+<ulink url="https://appliance-fqn-name">https://appliance-fqn-name</ulink>, using the default credentials admin/smartvm in
+the login screen. Use the Web UI to configure the system(s).</simpara>
+<simpara>NTP server for network time synchronization and SMTP server information
+(to enable CFME to send event triggered messages) were configured.</simpara>
+<simpara>TODO: Screen shots of YaleNUS CFME Engine</simpara>
+</section>
+<section id="_cfme_appliance_authentication">
+<title>CFME Appliance Authentication</title>
+<simpara>The default root password (smartvm) should be changed on all appliances as
+well as the Web UI Admin password. Here are the steps to change the password:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Configure &gt; Configuration.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Select Access Control &gt; Users &gt; Administrator &gt; User Information.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Password/Confirm Password.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Click Save.
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>YaleNUS wants to use LDAP authentication to leverage Yale&#8217;s Microsoft Active Directory infrastructure.</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Select Configure &gt; Configuration &lt;select zone, server&gt; &gt; Authentication &gt; Mode &gt; LDAPS.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+In Configure &gt; Configuration  &lt;select zone, server&gt; &gt; Authentication &gt; LDAP Settings
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Enter values for LDAP Host Names, LDAP Port, User Type and User Suffix.
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_zones">
+<title>Zones</title>
+<simpara>If YaleNUS decides to add more than one appliance Red hat suggests that the
+appliaces are organized the into zones to configure failover and isolate
+traffic. A Management System that is discovered by a Server in a specific
+zone gets monitored and managed in that zone. All jobs, such as a
+SmartState Analysis or VM power operation, dispatched by a Server in a
+specific zone can get processed by any CFME appliance assigned to that same
+zone.</simpara>
+</section>
+<section id="_yalenus_cfme_appliance">
+<title>YaleNUS CFME Appliance</title>
+<simpara>The UI appliance is the one that allows the user to interact with the
+Cloudforms user interface. Access to the UI appliance is achieved by using
+your favorite web browser such as Firefox or Google Chrome. The UI Appliance
+has a limited set of roles that it needs to support and they are:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Notifier
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Provider operations
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Reporting
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Scheduler
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+User Interface
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Web Services
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>YaleNUS has only one appliance in their architecture so ensure that all these
+roles are selected.</simpara>
+</section>
+<section id="_yalenus_cfme_appliance_tuning_tip">
+<title>YaleNUS CFME Appliance Tuning Tip</title>
+<simpara>As mentioned, the Worker Appliances will be doing most of the work collecting
+data from the virtualization environments and persisting the data by sending
+the information to the Database. The CFME Appliance will be the main appliance
+that the user will interact with. We want to make sure that it performs
+adequately for the user. A quick tuning for the YaleNUS CFME Appliance is to
+change the Count setting on the UI Worker to 2. The Count setting equates to
+how many threads the UI appliance will have to service the user interface.</simpara>
+<simpara>To change the setting attach to the UI Appliance, Navigate to
+Configure&#8594;Configuration first and select the Workers tab. Change the UI
+Worker entry count to 2. If you have other UI Appliances in your environment
+do ahead and change each of the appliances settings.</simpara>
+</section>
+<section id="_yalenus_worker_appliance">
+<title>YaleNUS Worker Appliance</title>
+<simpara>The Worker Appliance is the work horse which collects all the information
+from the virtualization environment and sends it to the database to be
+persisted.The server roles that should be configured in the Worker
+Appliances are:
+* Automation Engine
+* C&amp;U Coordinator
+* C&amp;U Data Collector
+* C&amp;U Data Processor
+* Event Monitor
+* Notifier
+* Provider Inventory
+* Provider Operations
+* Scheduler
+* SmartProxy
+* SmartState Analysis
+* User Interface
+* Web Services</simpara>
+<simpara>Notice that in the YaleNUS environment we currently have one appliance. All the
+above roles should be checked in that CFME appliance.</simpara>
+</section>
+<section id="_yalenus_cfme_database_appliance">
+<title>YaleNUS CFME Database Appliance</title>
+<simpara>The database appliance is one of the most important appliances since it holds
+all of the data collected by the workers from the virtualization environment.
+The server roles that should be configured in the DB appliances are:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+User Interface
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Web Services
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Database Operations
+</simpara>
+</listitem>
+</itemizedlist>
+<tip><simpara>The Database Appliance will also be working very hard depending on how
+     much data the Worker Appliances are collecting. One of the things that
+     needs to be adjusted are the setting for the shared_buffers in the
+     postgresql.conf file. Since we will have a dedicated database appliance
+     in our environment we will use the DEDICATED CONFIGURATION setting for
+     the shared_buffers variable. This will allow the database to be more
+     performant.</simpara></tip>
+<simpara>Here are the steps to change the settings from our tip above:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+First ssh to the appliance: ssh <ulink url="mailto:root@database-appliance">root@database-appliance</ulink>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Adjust postfix settings
+  [<ulink url="mailto:root@vm-dbappliance-01">root@vm-dbappliance-01</ulink> data]# cd /opt/rh/postgresql92/root/var/lib/pgsql/data
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Make a copy of the configuration file.
+  [<ulink url="mailto:root@vm-dbappliance-01">root@vm-dbappliance-01</ulink> data]# cp -p postgresql.conf{,.20150601}
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Edit the postgresql.conf file:
+  [<ulink url="mailto:root@vm-dbappliance-01">root@vm-dbappliance-01</ulink> data]# vi postgresql.conf
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Comment #shared_buffers = 128MB  # MIQ Value SHARED CONFIGURATION
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Uncomment shared_buffers = 1GB  # MIQ Value DEDICATED CONFIGURATION
+</simpara>
+<literallayout class="monospaced">[root@vm-dbappliance-01 data]# diff postgresql.conf{.20131021,}</literallayout>
+<literallayout class="monospaced">112,113c112,113</literallayout>
+<literallayout class="monospaced">&lt; shared_buffers = 128MB  # MIQ Value SHARED CONFIGURATION</literallayout>
+<literallayout class="monospaced">&lt; #shared_buffers = 1GB # MIQ Value DEDICATED CONFIGURATION</literallayout>
+<literallayout class="monospaced">---</literallayout>
+<literallayout class="monospaced">&gt; #shared_buffers = 128MB  # MIQ Value SHARED CONFIGURATION</literallayout>
+<literallayout class="monospaced">&gt; shared_buffers = 1GB # MIQ Value DEDICATED CONFIGURATION</literallayout>
+</listitem>
+</itemizedlist>
+<simpara>Note: Services are restarted on the appliance after saving the changes in the database settings.</simpara>
+</section>
+</section>
+<section id="_yalenus_requirements">
+<title>YaleNUS Requirements</title>
+<simpara>At Yale the objective of the engagement was to integrate the Red Hat OpenStack
+virtualization environment and Microsoft AD environment where they house their
+user base. YaleNUS would like to implement a Self-service provisioning system
+using Cloudforms as the front end where users would only see the VM&#8217;s that
+they owned.</simpara>
+<simpara>Yale uses Microsoft Active Directory (AD) as their directory service
+implemention.  An AD domain controller authenticates and authorizes Yale&#8217;s
+users assigning and enforcing security policies.</simpara>
+<simpara>There are two ways to use LDAP groups with CFME:
+* Create groups with a specific set of names as provided by Cloudforms.
+These groups automatically get assigned to a specific role.</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Assign pre-existing groups from your LDAP server to Cloudforms account role.
+</simpara>
+</listitem>
+</itemizedlist>
+<note><simpara>If the LDAP user is not a member of any defined groups, then the user
+will be denied access to CFME.</simpara></note>
+<simpara>Cloudforms uses role-based access to grant users only the rights they need.
+Some built-in roles are provided as part of the product.  User groups are then
+assigned to roles and users are assigned to the groups.  Finally, you can
+customize the roles to a fine level of detail, or create your own.</simpara>
+<simpara>TODO: Document requirements</simpara>
+</section>
+<section id="_yalenus_taxonomy">
+<title>YaleNUS Taxonomy</title>
+<simpara>During our time at Yale we started discussing briefly the taxonomy of their
+User and Group environment.  The purpose of a taxonomy is to attempt to create
+an orderly classification of users and groups according to their relationships
+in the IT environment and associate these relationships in the CFME Appliance.
+The taxonomy will be derived from analysis of usage patterns and information
+flow in the YaleNUS environment.</simpara>
+<simpara>The discussions were very brief due to the data center move activities.
+Nonetheless the goal of these discussions around User and Group environment is
+to provide YaleNUS with the following features:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+A view of how their users will be organized in the Microsoft AD environment.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Enable self-service and accelerate the delivery of IT services by giving
+  Students/Faculty direct access to customizable service catalogs and virtual
+  assets through role-based access.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Provide Infrastructure-as-a-Service (IaaS) to reduce provisioning and
+  approval times.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+VMs, complex services, and multi-tier applications can all be requested and
+  deployed automatically based on enforceable policies.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+When we build the taxonomy we need to think about the following:
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+The taxonomy will be hierarchical. The classification of users will be
+   multilevel, representing hierarchical relationships between their roles
+   within a defined scope and context.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+The taxonomy will be used to categorize roles that will define access to
+   different Virtual Machine templates and instances.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+An authorized user should be given a hierarchical listing of categories
+   from which he or she can assign labels to content items (tagging).
+   The assigned category should then be reviewed as part of the assessment and
+   approval process.
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_defined_user_groups">
+<title>Defined User Groups</title>
+<simpara>For YaleNUS we have defined the following groups:
+* YaleNUS-Admin - Basic YaleNUS Administrator group.
+  This group will have superuser capabilities.
+* YaleNUS-&lt;Project&gt; - User group to be associated with their current
+  project.
+* YaleNUS-&lt;Project&gt;-Admin - This is the Project Administrator
+  i.e. Group for Professors.</simpara>
+<simpara>TODO:</simpara>
 <informaltable
 frame="all"
 rowsep="1" colsep="1"
@@ -577,7 +926,6 @@ rowsep="1" colsep="1"
 </tbody>
 </tgroup>
 </informaltable>
-</section>
 </section>
 </section>
 <section id="_openstack_deployment">
