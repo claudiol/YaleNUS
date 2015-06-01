@@ -59,13 +59,13 @@ rowsep="1" colsep="1"
 <colspec colname="col_3" colwidth="142*"/>
 <tbody>
 <row>
-<entry align="left" valign="top"><simpara>Wallace</simpara></entry>
-<entry align="left" valign="top"><simpara></simpara></entry>
+<entry align="left" valign="top"><simpara>Wallace Tan</simpara></entry>
+<entry align="left" valign="top"><simpara><ulink url="mailto:wallace.tan@yale-nus.edu.sg">wallace.tan@yale-nus.edu.sg</ulink></simpara></entry>
 <entry align="left" valign="top"><simpara></simpara></entry>
 </row>
 <row>
 <entry align="left" valign="top"><simpara>Darwin</simpara></entry>
-<entry align="left" valign="top"><simpara></simpara></entry>
+<entry align="left" valign="top"><simpara><ulink url="mailto:darwin.gosal@yale-nus.edu.sg">darwin.gosal@yale-nus.edu.sg</ulink></simpara></entry>
 <entry align="left" valign="top"><simpara></simpara></entry>
 </row>
 </tbody>
@@ -96,8 +96,8 @@ rowsep="1" colsep="1"
 </row>
 <row>
 <entry align="left" valign="top"><simpara>George Goh</simpara></entry>
-<entry align="left" valign="top"><simpara></simpara></entry>
-<entry align="left" valign="top"><simpara></simpara></entry>
+<entry align="left" valign="top"><simpara><ulink url="mailto:george.goh@redhat.com">george.goh@redhat.com</ulink></simpara></entry>
+<entry align="left" valign="top"><simpara>+65-6490-4744</simpara></entry>
 </row>
 </tbody>
 </tgroup>
@@ -391,7 +391,33 @@ Rake scripts to import/export dialogs, buttons, service_dialogs etc
 </section>
 <section id="_george_goh_8217_s_activity_log">
 <title>George Goh&#8217;s activity log</title>
-<simpara>TODO: Please fill</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Added BuildRequest method for OpenStack provisioning. This adds the ability to provision more than 1 VM in a request.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Previously created tags/groups to represent projects in Yale-NUS. This was done on request of Yale-NUS due to their lack of control over the corporate(NUS) AD administration. However, integration with projects can be made more seamless if this can be modified in AD. We will need to discuss with Yale-NUS further on this.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Set up the Development machine for OpenStack on <ulink url="http://172.18.17.226">http://172.18.17.226</ulink> while issues with the target production hardware are being resolved.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Set up the Development CloudForms appliance on the dev OpenStack machine on <ulink url="https://172.18.17.126/">https://172.18.17.126/</ulink>. Accounts for AWS and the dev OpenStack machine, as well as Yale-NUS AD connections were set up on this instance.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Previously added Cinder volume functionality. Will need to revisit this to achieve parity with Lester&#8217;s work.
+</simpara>
+</listitem>
+</itemizedlist>
 </section>
 </section>
 <section id="_yalenus_cloudforms_environment">
@@ -1028,7 +1054,7 @@ rowsep="1" colsep="1"
 <itemizedlist>
 <listitem>
 <simpara>
-1x Manamgement Node
+1x Management Node
 </simpara>
 </listitem>
 <listitem>
