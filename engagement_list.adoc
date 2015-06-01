@@ -24,5 +24,9 @@
 * Rake scripts to import/export dialogs, buttons, service_dialogs etc 
 
 == George Goh's activity log
-TODO: Please fill
+* Added BuildRequest method for OpenStack provisioning. This adds the ability to provision more than 1 VM in a request.
+* Previously created tags/groups to represent projects in Yale-NUS. This was done on request of Yale-NUS due to their lack of control over the corporate(NUS) AD administration. However, integration with projects can be made more seamless if this can be modified in AD. We will need to discuss with Yale-NUS further on this.
+* Set up the Development machine for OpenStack on http://172.18.17.226 while issues with the target production hardware are being resolved.
+* Set up the Development CloudForms appliance on the dev OpenStack machine on https://172.18.17.126/. Accounts for AWS and the dev OpenStack machine, as well as Yale-NUS AD connections were set up on this instance.
+* Previously added Cinder volume functionality. Will need to revisit this to achieve parity with Lester's work.
 
