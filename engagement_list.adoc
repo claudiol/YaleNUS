@@ -12,5 +12,17 @@
 |====
 
 == Lester Claudio's activity log
+* Instance tagging is done.  We need to discuss how I came up with the use case.
+* reated an example Group and Role taxonomy that we will need to show Yale NUS to see if it works for them.
+* Sample groups created in support of YaleNUS Self-Service: 
+** YaleNUS-Admin - Basic YaleNUS Administrator group. Will have superuser capabilities.
+** YaleNUS-<Project> - User group to be associated with their current project.
+** YaleNUS-<Project>-Admin - This is the Project Administrator ... Professor.
+    Unfortunately we will have to have one of these for each project/course.  The group needs to be created in MS AD and the administrator will import it into Cloudforms.
+
+* Added the EBS dialogs and buttons.
+* Rake scripts to import/export dialogs, buttons, service_dialogs etc 
 
 == George Goh's activity log
+TODO: Please fill
+
