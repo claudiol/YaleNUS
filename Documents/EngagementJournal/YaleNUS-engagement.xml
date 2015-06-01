@@ -343,9 +343,55 @@ rowsep="1" colsep="1"
 </section>
 <section id="_lester_claudio_8217_s_activity_log">
 <title>Lester Claudio&#8217;s activity log</title>
+<itemizedlist>
+<listitem>
+<simpara>
+Instance tagging is done.  We need to discuss how I came up with the use case.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+reated an example Group and Role taxonomy that we will need to show Yale NUS to see if it works for them.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Sample groups created in support of YaleNUS Self-Service:
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+YaleNUS-Admin - Basic YaleNUS Administrator group. Will have superuser capabilities.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+YaleNUS-&lt;Project&gt; - User group to be associated with their current project.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+YaleNUS-&lt;Project&gt;-Admin - This is the Project Administrator &#8230; Professor.
+    Unfortunately we will have to have one of these for each project/course.  The group needs to be created in MS AD and the administrator will import it into Cloudforms.
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>
+Added the EBS dialogs and buttons.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Rake scripts to import/export dialogs, buttons, service_dialogs etc
+</simpara>
+</listitem>
+</itemizedlist>
 </section>
 <section id="_george_goh_8217_s_activity_log">
 <title>George Goh&#8217;s activity log</title>
+<simpara>TODO: Please fill</simpara>
 </section>
 </section>
 <section id="_yalenus_cloudforms_environment">
@@ -353,6 +399,7 @@ rowsep="1" colsep="1"
 <section id="_overview">
 <title>Overview</title>
 <simpara>TODO</simpara>
+</section>
 <section id="_pre_requisites">
 <title>Pre-requisites</title>
 <itemizedlist>
@@ -400,8 +447,8 @@ Switch configuration completed
 </listitem>
 </itemizedlist>
 </section>
-<section id="_versions">
-<title>Versions</title>
+<section id="_cloudform_appliance_version">
+<title>Cloudform Appliance Version</title>
 <informaltable
 frame="all"
 rowsep="1" colsep="1"
@@ -425,8 +472,8 @@ rowsep="1" colsep="1"
 </tgroup>
 </informaltable>
 </section>
-<section id="_architecture">
-<title>Architecture</title>
+<section id="_yalenus_cloudforms_architecture">
+<title>YaleNUS Cloudforms Architecture</title>
 <simpara>At YaleNUS we had some discussions around the size of the environment.  Some of the questions that were asked were:</simpara>
 <itemizedlist>
 <listitem>
@@ -518,8 +565,6 @@ server role to replicate its contents to a main database. Best practice states t
 have one database appliance handling the data for one data center.</simpara>
 <simpara>The current implementation for YaleNUS only has one appliance but this can easily be extended in future phases
 of the project.</simpara>
-</section>
-</section>
 <section id="_initial_cloudforms_engine_setup">
 <title>Initial Cloudforms Engine Setup</title>
 <simpara>To manage a <subscript>1500 virtual machines workload in a virtualization environment, multiple appliances should be created
@@ -599,6 +644,7 @@ Enter values for LDAP Host Names, LDAP Port, User Type and User Suffix.
 </listitem>
 </itemizedlist>
 </section>
+</section>
 <section id="_zones">
 <title>Zones</title>
 <simpara>If YaleNUS decides to add more than one appliance Red hat suggests that the
@@ -608,9 +654,8 @@ zone gets monitored and managed in that zone. All jobs, such as a
 SmartState Analysis or VM power operation, dispatched by a Server in a
 specific zone can get processed by any CFME appliance assigned to that same
 zone.</simpara>
-</section>
-<section id="_yalenus_cfme_appliance">
-<title>YaleNUS CFME Appliance</title>
+<section id="_yalenus_cfme_ui_appliance">
+<title>YaleNUS CFME UI Appliance</title>
 <simpara>The UI appliance is the one that allows the user to interact with the
 Cloudforms user interface. Access to the UI appliance is achieved by using
 your favorite web browser such as Firefox or Google Chrome. The UI Appliance
@@ -649,7 +694,6 @@ Web Services
 </itemizedlist>
 <simpara>YaleNUS has only one appliance in their architecture so ensure that all these
 roles are selected.</simpara>
-</section>
 <section id="_yalenus_cfme_appliance_tuning_tip">
 <title>YaleNUS CFME Appliance Tuning Tip</title>
 <simpara>As mentioned, the Worker Appliances will be doing most of the work collecting
@@ -663,6 +707,7 @@ how many threads the UI appliance will have to service the user interface.</simp
 Configure&#8594;Configuration first and select the Workers tab. Change the UI
 Worker entry count to 2. If you have other UI Appliances in your environment
 do ahead and change each of the appliances settings.</simpara>
+</section>
 </section>
 <section id="_yalenus_worker_appliance">
 <title>YaleNUS Worker Appliance</title>
@@ -761,8 +806,8 @@ Uncomment shared_buffers = 1GB  # MIQ Value DEDICATED CONFIGURATION
 <simpara>Note: Services are restarted on the appliance after saving the changes in the database settings.</simpara>
 </section>
 </section>
-<section id="_yalenus_requirements">
-<title>YaleNUS Requirements</title>
+<section id="_yalenus_self_service_requirements">
+<title>YaleNUS Self-Service Requirements</title>
 <simpara>At Yale the objective of the engagement was to integrate the Red Hat OpenStack
 virtualization environment and Microsoft AD environment where they house their
 user base. YaleNUS would like to implement a Self-service provisioning system
@@ -788,7 +833,6 @@ Some built-in roles are provided as part of the product.  User groups are then
 assigned to roles and users are assigned to the groups.  Finally, you can
 customize the roles to a fine level of detail, or create your own.</simpara>
 <simpara>TODO: Document requirements</simpara>
-</section>
 <section id="_yalenus_taxonomy">
 <title>YaleNUS Taxonomy</title>
 <simpara>During our time at Yale we started discussing briefly the taxonomy of their
@@ -864,35 +908,36 @@ An authorized user should be given a hierarchical listing of categories
   project.
 * YaleNUS-&lt;Project&gt;-Admin - This is the Project Administrator
   i.e. Group for Professors.</simpara>
-<simpara>TODO:</simpara>
-<informaltable
-frame="all"
-rowsep="1" colsep="1"
->
-<?dbhtml table-width="100%"?>
-<?dbfo table-width="100%"?>
-<?dblatex table-width="100%"?>
-<tgroup cols="2">
-<colspec colname="col_1" colwidth="213*"/>
-<colspec colname="col_2" colwidth="213*"/>
-<tbody>
-<row>
-<entry align="left" valign="top"><simpara>RAM</simpara></entry>
-<entry align="left" valign="top"><simpara>4 GB</simpara></entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+<note><simpara>Red Hat Consulting and YaleNUS need to have discussions around the
+      requirements around User Groups and Roles.</simpara></note>
+</section>
+<section id="_defined_roles">
+<title>Defined Roles</title>
+<simpara>As part of the Yale&#8217;s business requirements document the following AD groups
+will need to be defined at YaleNUS:</simpara>
 <itemizedlist>
 <listitem>
 <simpara>
-Detailed Hardware Specs per Hypervisor:
+YaleNUS System Administrator group = (YaleNUS-Admin)
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+YaleNUS Projects = (YaleNUS-History, YaleNUS-Geology, ??)
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+YaleNUS Project Admins = (YaleNUS-History-Admin, YaleNUS-Geology-Admin, ??)
 </simpara>
 </listitem>
 </itemizedlist>
-<screen></screen>
-<section id="_networks_information">
-<title>Networks Information</title>
+<note><simpara>Red Hat Consulting and YaleNUS need to have discussions around the
+      requirements around User Groups and Roles.</simpara></note>
+</section>
+</section>
+<section id="_yalenus_network_information">
+<title>YaleNUS Network Information</title>
 <informaltable
 frame="all"
 rowsep="1" colsep="1"
@@ -953,7 +998,7 @@ Switch configuration completed
 </listitem>
 </itemizedlist>
 </section>
-<section id="_versions_2">
+<section id="_versions">
 <title>Versions</title>
 <informaltable
 frame="all"
@@ -978,7 +1023,7 @@ rowsep="1" colsep="1"
 </tgroup>
 </informaltable>
 </section>
-<section id="_architecture_2">
+<section id="_architecture">
 <title>Architecture</title>
 <itemizedlist>
 <listitem>
