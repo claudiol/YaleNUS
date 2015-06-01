@@ -1,0 +1,40 @@
+= YaleNUS Cloudforms Environment
+
+== Overview
+TODO
+
+=== Pre-requisites
+* TODO
+* Server Racked, Stacked and Cabled
+* Switch configuration completed
+
+=== Versions
+[width="100%"]
+|====
+| OS Version | RHEL 6.6 x86_64
+| Clloudforms Version | Cloudforms 3.1
+|====
+
+=== Architecture
+* 
+
+[width="100%"]
+|====
+| RAM | 4 GB
+|====
+
+** Detailed Hardware Specs per Hypervisor:
+----
+
+----
+
+=== Networks Information
+
+[width="100%",options="header"]
+|====
+| Name | VM? | On hosts | Special attributes | Notes
+| CFME Engine | Y |  | | The default CFME Engine
+| 
+|====
+
+

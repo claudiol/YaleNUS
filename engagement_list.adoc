@@ -1,0 +1,16 @@
+= Activities
+
+== Issue status
+
+[width="100%",cols="9,1",options="header"]
+|====
+| Issue | Resolved?
+| AWS Cloudforms Provisioning  | Y
+| Data Center move | Y
+| Fibre Optic hardware compatibility | N
+| OpenStack Cloudforms Provisioning  | N
+|====
+
+== Lester Claudio's activity log
+
+== George Goh's activity log

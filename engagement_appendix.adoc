@@ -1,0 +1,41 @@
+<<<<
+= Appendix A - [[YaleNUS-RoleBaseAccess]]YaleNUS Basic Role Base Access 
+
+TODO: Add screenshots
+
+<<<<
+
+The first screen for YaleNUS student for AWS 
+
+
+= Appendix B - Additional Resources
+
+== Training
+
+For a solid grounding in the products deployed, Red Hat recommends staff
+be designated to attend the following training classes:
+
+* http://www.redhat.com/en/services/training/cl220-red-hat-cloudforms-hybrid-cloud-management
+
+-- CL220 Red Hat CloudForms Hybrid Cloud Management
+
+Red Hat CloudForms Hybrid Cloud Management teaches you how to perform an initial configuration and setup of Red Hat CloudForms.
+
+This course can also help you in your preparation for the Red Hat Certificate of Expertise in Hybrid Cloud Management exam (EX220).
+
+----------------------------------------------------------------------
+== Course content summary
+
+   ** Perform initial configuration of CloudForms appliance
+   ** Deploy virtual machines
+   ** Perform policy-based management
+   ** Customize a dashboard
+   ** Create a catalog
+   ** Provision services
+   ** Analyze timelines and events
+   ** Run automations
+----------------------------------------------------------------------
+
+
+== Documentation
+

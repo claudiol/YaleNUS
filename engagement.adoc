@@ -1,0 +1,53 @@
+:consultant1: Joe Thompson
+:consultant1_email: joe.thompson@redhat.com
+:consultant2: Jose Simonelli
+:consultant2_email: jose@redhat.com
+:asciidoc_dblatext_sty: ./asciidoc/asciidoc-dblatex-custom.sty
+:asciidoc_opts: -v
+:dblatex_opts: -V -Platex.hyperparam=colorlinks,linkcolor=blue,citecolor=blue,urlcolor=blue -Pdoc.publisher.show=0 -Platex.output.revhistory=0 -s {asciidoc_dblatext_sty}
+:data-uri:
+:icons: font
+:numbered:
+:toc2:
+:newline: \n
+:html:
+
+//include::./vars.adoc[]
+
+= {customer} - {project_title}
+
+// Include Document Header (copyright and other legal info)
+:leveloffset: 0
+include::./engagement_header.adoc[]
+
+// Include Contact Info
+:leveloffset: 2
+include::./engagement_contactinfo.adoc[]
+
+// Include Deliverables
+:leveloffset: 2
+include::./engagement_deliverables.adoc[]
+
+// Include Document Header (copyright and other legal info)
+:leveloffset: 1
+include::./engagement_summary.adoc[]
+
+// Overview
+//:leveloffset: 1
+//include::./engagement_overview.adoc[]
+
+// Issues & Tasks
+:leveloffset: 1
+include::./engagement_list.adoc[]
+
+// Red Hat Storage
+:leveloffset: 1
+include::./engagement_rhstorage.adoc[]
+
+// RHEV
+:leveloffset: 1
+include::./engagement_rhev.adoc[]
+
+// Appendix
+:leveloffset: 1
+include::./engagement_appendix.adoc[]

@@ -1,0 +1,8 @@
+= YaleNUS Cloudforms and OpenStack Implementation
+
+* To render the docs
+----
+sh render_docs.sh
+----
+
+NOTE: Use asciidoc to update/modify the endgagement journal, link::http://www.methods.co.nz/asciidoc/[]

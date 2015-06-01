@@ -1,0 +1,6 @@
+= Deliverables
+
+== Task List
+
+=== Red Hat Cloudforms Implementation tasks:
+

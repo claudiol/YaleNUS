@@ -1,0 +1,39 @@
+= Project Approach
+
+== Architecture Overview
+
+
+== Network
+
+=== Hostnames / IP Addresses
+
+[width="100%",options="header",cols="25,15,15,15,13,18"]
+|======================
+| Host      |   IP Address | Netmask | Gateway | DNS Server | Notes
+|======================
+
+=== VLANs Allocated
+[width="100%",align="center",options="header"]
+|====
+| VLAN ID | Purpose | Subnet | Netmask | Gateway | Default Gateway
+|====
+
+==== VLAN 670: Console Display Network
+[width="60%",options="header"]
+|====
+| Hostname | IP
+|====
+
+<<<<
+
+==== VLAN 804: Management Network
+[width="60%",options="header"]
+|====
+| Hostname | IP
+|====
+
+==== VLAN 805: Storage Network
+[width="60%",options="header"]
+|====
+| Hostname | IP
+|====
