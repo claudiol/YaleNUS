@@ -12,13 +12,53 @@ Overview of YaleNUS OpenStack environment
 === Versions
 [width="100%"]
 |====
-| OS Version | RHEL 6.6 x86_64
-| Red Hat OpenStack Version | RHOS Version x.x
+| Enovance Spinal Stack OpenStack Version | Juno Version
 |====
 
 === Architecture
-* 1x Manamgement Node 
-* 3x Nodes 
+* 1x Management Node 
+* 3x Controllers
+* 2 Load Balancers
+* 4x8 Nova Nodes
+* 6 Storage Nodes
+
+Below is a image of the white board depicting the architecture for OpenStack
+at YaleNUS.
+
+image::./images/OpenStack/YaleNUS-OpenStack-Architecture2.jpg[]
+
+
+==== Management, Load Balancer and Controller Hardware
+----
+Dell PowerEdge R720 
+
+Components:
+   1 PowerEdge R720/R720xd Motherboard TPM 
+   1 Intel Xeon E5-2650v2 2.6GHz, 20M Cache, 8.0GT/s QPI, Turbo, HT, 8C, 95W, Max Mem 1866MHz 
+   1 Intel Xeon E5-2650v2 2.6GHz, 20M Cache, 8.0GT/s QPI, Turbo, HT, 8C, 95W, Max Mem 1866MHz,2nd Proc 
+   1 3.5-Inch Chassis for PowerEdge R720 
+   1 Risers with up to 6, x8 PCIe Slots + 1, x16 PCIe Slot 
+   1 Electronic System Documentation and OpenManage DVD Kit for R720 
+   1 Bezel 
+   1 DIMM Blanks for Systems with 2 Processors 
+   1 1600 MHz RDIMMS 
+   1 Performance Optimized 
+   8 16GB RDIMM, 1600Mhz, Low Volt, Dual Rank, x4 Bandwidth 
+   4 2TB 7.2K RPM Near Line, 6Gbps SAS 3.5" Hot Plug Hard Drive 
+   1 PERC H710 Integrated RAID Controller, 512MB NV Cache, Mini-Type 
+   2 Heat Sink for PowerEdge R720 and R720xd 
+   1 12.7 Tray DVD ROM 
+   1 Dual, Hot-plug, Redundant Power Supply (1+1), 750W 
+   2 SFP+, Short Range Optical Tranceiver, LC Connector, 10Gb and 1Gb compatible 
+   1 No Monitor 
+   2 Long Jumper Cord, C13-C14,4m,12a (APCC) 
+   1 Broadcom 57800S 2x10Gb DA/SFP+ + 2x1Gb BT Network Daughter Card(Exclude SFP+ Optics/DA Cables) 
+   1 2U Cable Management Arm 
+   1 ReadyRails 2U Sliding Rails 
+   1 C5 - RAID 10 for H710p/H710/H310 (4-16 HDDs in pairs) 
+   1 iDRAC7 Enterprise 
+
+----
 
 [width="100%"]
 |====
@@ -26,29 +66,38 @@ Overview of YaleNUS OpenStack environment
 | OS Disk | 2x 300GB
 |====
 
-** Detailed Hardware Specs per Hypervisor:
+=== Yale-NUS Cloud – Existing hardware for compute nodes 
+[width="100%",options="header"]
+|====
+| Item | Qty 
+|
+| NOVATTE R2608 multi-node server (Option 3 with Dual | 2
+|====
+
+==== NOVATTE R2608 Server Hardware Details
 ----
-DELL: <Model>
-1 - <Model> Server with Dual 8C CPU, Dual QPI, 128GB
-1 - PowerEdge R720, Intel® Xeon® E-26XX v2 Processors
-1 - 2.5" Chassis with up to 16 Hard Drives
-2 - Intel® Xeon® E5-2650 v2 2.60GHz, 20M Cache, 8.0GT/s QPI, Turbo, HT,
-8C, 95W, Max Mem 1866MHz
-1 - Performance Optimized
-8 - 16GB RDIMM, 1866 MT/s, Standard Volt, Single Rank, x4 Data Width
-1 - PERC H710P Integrated RAID Controller, 1GB NV Cache
-2 - 300GB 10K RPM SAS 6Gbps 2.5in Hot-plug Hard Drive
-1 - iDRAC7, Enterprise with OpenManage Essentials,Server ConfigMgmt
-1 - Risers with up to 6, x8 PCIe Slots + 1, x16 PCIe Slot
-1 - Intel Ethernet I350 QP 1Gb Network Daughter Card
-1 - Intel Ethernet X540 Dual Port 10GBASE-T Server Adapter
-1 - No Internal Optical Drive
-1 - No Bezel
-1 - Dual, Hot-plug, Redundant Power Supply (1+1), 750W
-2 - Power Cord, C13 to C14, PDU Style, 12 Amps, 2 foot, Qty 1
-1 - ReadyRails Sliding Rails Without Cable Management Arm
-1 - 3 Year ProSupport and NBD On-site Service
-1 - PowerEdge R720 Shipping
+* 10GBASE-T ports per node via PCI-E adapter), comprising: 
+
+System:  
+** (4) node 2U Rackmount Server, 
+** (12)x 3.5" or (24)x 2.5" drive bays total, 
+** (2) High efficiency PSUs (platinum level)  
+
+Each node supports: 
+* (2) Intel® Xeon® processor E5-2600/ E5-2600 v2 product family, 
+* (16) DDR3 1066/1333/1600/1866 MHz RDIMM slots, 
+* (6) 2.5" 2.1.1. or (3) 3.5" hot-plug HDDs and (1) optional USB Flash Module, 
+* (1) PCIe x16 G3 riser slot for low-profile card, 
+* (2) Intel® I350 GbE RJ45 ports, 
+* (1) Dedicated 10/100 BASE-T RJ45 management port, 
+* (2) USB 2.0 ports per node, 
+* (1) VGA port per node, 
+* (1) RS232 serial port 
+* Processors per node: (2) Intel Xeon 8 Core 2.7/ 20M
+* 8.0GT/sec (E5-2680) 
+* Memory per node: 128GB by 16GB DDR3-1600 ECC REG modules 
+* SSD per node: (2)120GB Intel DCS3500 SATA, MLC 
+* 10GbE adapter: Intel dual X540 10GbE BASE-T RJ45 ports
 ----
 
 
@@ -66,7 +115,8 @@ DELL: <Model>
 === OpenStack Templates
 
 Template creation was explained and the customer was able to create
-their own templates from VMs.
+their own templates from VMs. Yale NUS will provide OpenStack templates
+for provisioning purposes.
 
 === Create VM
 
