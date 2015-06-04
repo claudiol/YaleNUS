@@ -17,3 +17,8 @@ curl -X GET "https://api.cloudflare.com/client/v4/zones"\
  -H "X-Auth-Key: 80ddf8458f30a996b7a6fdf3fa2c85d1ca03a"\
  -H "Content-Type: application/json"
 
+echo "Delete record ..."
+curl -X GET "https://api.cloudflare.com/client/v4/zones/f64975b2ef75e68498f5cf1237a6c05b/dns_records/93adb6035b5abba148a31f2ffcf47c61" \
+ -H "X-Auth-Email: it.service.subscriber@yale-nus.edu.sg"\
+ -H "X-Auth-Key: 80ddf8458f30a996b7a6fdf3fa2c85d1ca03a"\
+ -H "Content-Type: application/json"

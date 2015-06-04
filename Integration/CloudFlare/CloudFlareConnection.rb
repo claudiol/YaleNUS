@@ -53,10 +53,9 @@ class CloudFlareConnection
 
   end
 
-  def setup(tkn, email, zone, host, verifyssl=false)
+  def setup(tkn, email, host, verifyssl=false)
     @tkn = tkn
     @email = email
-    @zone = zone
     @verifyssl = verifyssl
     @url = host
   end
@@ -64,7 +63,7 @@ class CloudFlareConnection
   def get(location, json_data)
 
     response = nil
-    puts "#{location}"
+    puts "#{@url}#{location}"
 
     if json_data.nil?
       response = RestClient::Request.new(
