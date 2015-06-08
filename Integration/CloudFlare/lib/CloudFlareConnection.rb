@@ -63,7 +63,6 @@ class CloudFlareConnection
   def get(location, json_data)
 
     response = nil
-    puts "#{@url}#{location}"
 
     if json_data.nil?
       response = RestClient::Request.new(
@@ -107,7 +106,6 @@ class CloudFlareConnection
   def post(location, json_data)
 
     response = nil
-    puts "#{@url}#{location}"
     if json_data.nil?
       response = RestClient::Request.new(
           :method => :post,
@@ -150,7 +148,6 @@ class CloudFlareConnection
   def put(location, json_data)
 
     response = nil
-    puts "#{location}"
 
     if json_data.nil?
       response = RestClient::Request.new(
@@ -163,8 +160,6 @@ class CloudFlareConnection
                         :content_type => :json,
   			:'x-auth-key' => @tkn,
 			:'x-auth-email' => @email }
-  			#:'x-auth-key' => "80ddf8458f30a996b7a6fdf3fa2c85d1ca03a",
-			#:'x-auth-email' => "it.service.subscriber@yale-nus.edu.sg"}
       ).execute
     else
       response = RestClient::Request.new(
@@ -178,7 +173,13 @@ class CloudFlareConnection
   			:'x-auth-key' => @tkn,
 			:'x-auth-email' => @email },
           :payload => json_data #JSON.generate(json_data)
-      ).execute
+      ).execute { |response, request, result, &block|
+       	if [301, 302, 307].include? response.code
+         	response.follow_redirection(request, result, &block)
+       	else
+         	response.return!(request, result, &block)
+        end
+      }
     end
 
     if !response.nil?
@@ -195,7 +196,6 @@ class CloudFlareConnection
   def delete(location, json_data)
 
     response = nil
-    puts "#{location}"
 
     if json_data.nil?
       response = RestClient::Request.new(
@@ -208,20 +208,32 @@ class CloudFlareConnection
                         :content_type => :json,
   			:'x-auth-key' => @tkn,
 			:'x-auth-email' => @email }
-      ).execute
+      ).execute { |response, request, result, &block|
+       	if [301, 302, 307].include? response.code
+         	response.follow_redirection(request, result, &block)
+       	else
+         	response.return!(request, result, &block)
+        end
+      }
     else
       response = RestClient::Request.new(
           :method => :delete,
           :url => @url+location,
           :user => @user,
-          :verify_ssl => @verifyssl,
           :password => @password,
+          :verify_ssl => @verifyssl,
           :headers => { :accept => :json,
                         :content_type => :json,
   			:'x-auth-key' => @tkn,
 			:'x-auth-email' => @email },
-          :payload => json_data #JSON.generate(json_data)
-      ).execute
+          :payload => json_data 
+      ).execute { |response, request, result, &block|
+       	if [301, 302, 307].include? response.code
+         	response.follow_redirection(request, result, &block)
+       	else
+         	response.return!(request, result, &block)
+        end
+      }
     end
 
     if !response.nil?

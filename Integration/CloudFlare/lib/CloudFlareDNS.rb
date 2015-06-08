@@ -9,17 +9,46 @@ require 'CloudFlareConnection'
 class CloudFlareDNS
 
 
-  def initialize(config_name)
-    @config_name = config_name
+  def initialize(options)
 
-    # Read the YAML config file...
-    @config = read_config('cloudflare-config.yaml')
-    @tkn = @config['credentials']['tkn']
-    @email = @config['credentials']['email']
-    @zone  = @config['credentials']['zone-id']
-    # Set the Cloudflare host
-    @host = @config['credentials']['api-host']
+    if options.empty?
+       raise "Please pass appropriate options for CloudFlareDNS class"
+    end
 
+    if options.has_key?(:config_file) 
+      # Read values from Config File ...
+      @config_name = options[:config_file] 
+      # Read the YAML config file...
+      @config = read_config(@config_name)
+      @tkn = @config['credentials']['tkn']
+      @email = @config['credentials']['email']
+      @zone  = @config['credentials']['zoneid']
+      # Set the Cloudflare host
+      @host = @config['credentials']['apihost']
+    else
+      # We will get each option from the options hash
+      if options.has_key?(:tkn)
+         @tkn = options[:tkn]
+      else
+         raise "Need :tkn value for CloudFlare credentials"
+      end
+      if options.has_key?(:email)
+        @email = options[:email]
+      else
+        raise "Need :email value for CloudFlare credentials"
+      end
+      if options.has_key?(:zoneid)
+        @zone  = options[:zoneid]
+      else
+        raise "Need :zoneid value to execute to CloudFlare API "
+      end
+      if options.has_key?(:apihost)
+        # Set the Cloudflare host
+        @host = options[:apihost]
+      else
+        raise "Need :apihost value for CloudFlare credentials"
+      end
+    end
     # get the Cloudflare Instance - Singleton
     @client = CloudFlareConnection.instance
   end
@@ -109,13 +138,12 @@ class CloudFlareDNS
     # Set the location ... 
     @location = "/client/v4/zones/#{@zone}/dns_records/" + request
 
-    puts "#{@location}"
     @client.setup(@tkn, @email, @host)
 
     response = nil
 
     begin
-       response = @client.get(@location, nil)
+       response = @client.delete(@location, nil)
     rescue => ex
        puts ex.message
        puts ex.backtrace
