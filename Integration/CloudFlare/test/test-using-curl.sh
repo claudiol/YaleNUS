@@ -22,3 +22,9 @@ curl -X GET "https://api.cloudflare.com/client/v4/zones/f64975b2ef75e68498f5cf12
  -H "X-Auth-Email: it.service.subscriber@yale-nus.edu.sg"\
  -H "X-Auth-Key: 80ddf8458f30a996b7a6fdf3fa2c85d1ca03a"\
  -H "Content-Type: application/json"
+
+echo "Listing all records ..."
+curl -X GET "https://api.cloudflare.com/client/v4/zones/9a7806061c88ada191ed06f989cc3dac/dns_records" \
+ -H "X-Auth-Email: it.service.subscriber@yale-nus.edu.sg"\
+ -H "X-Auth-Key: 80ddf8458f30a996b7a6fdf3fa2c85d1ca03a"\
+ -H "Content-Type: application/json"
