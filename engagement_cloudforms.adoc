@@ -323,8 +323,11 @@ NOTE: Red Hat Consulting and YaleNUS need to have discussions around the
 [width="100%",options="header"]
 |====
 | Name | VM? | On hosts | Special attributes | Notes
-| CFME Engine | Y |  | | The default CFME Engine
-| 
+| CFME Engine | Y |  | | The default CFME Engine 
 |====
+
+= YaleNUS Amazon Implementation Details
+
+== YaleNUS AWS Service Dialog
 
 

@@ -17,9 +17,7 @@ Overview of YaleNUS OpenStack environment
 
 === Architecture
 * 1x Management Node 
-<<<<<<< HEAD
 * 3x Nodes 
-=======
 * 3x Controllers
 * 2 Load Balancers
 * 4x8 Nova Nodes
