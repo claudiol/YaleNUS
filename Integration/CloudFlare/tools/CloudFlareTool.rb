@@ -14,7 +14,7 @@ def on_ques (message)
   
   md = Gtk::MessageDialog.new :parent => nil, 
   :flags => :destroy_with_parent, :type => :question, 
-  :buttons_type => :yes_no, :message => "Are you sure to delete DNS Record #{message}?"
+  :buttons_type => :yes_no, :message => "#{message}?"
   response = md.run
   md.destroy
   if response == Gtk::ResponseType::YES
@@ -24,21 +24,21 @@ def on_ques (message)
   end
 end
 
-def on_info
+def on_info(message)
  
   md = Gtk::MessageDialog.new :parent => nil, 
   :flags => :destroy_with_parent, :type => :info, 
-  :buttons_type => :close, :message => "Download completed"
+  :buttons_type => :close, :message => "#{message}"
   md.run
   md.destroy
 end
 
 
-def on_erro
+def on_erro(message)
   
   md = Gtk::MessageDialog.new :parent => nil, 
   :flags => :modal, :type => :error, 
-  :buttons_type => :close, :message => "Error loading file"
+  :buttons_type => :close, :message => "#{message}"
   md.run
   md.destroy
 end
@@ -151,7 +151,7 @@ button.signal_connect("clicked") do
     dns_ip = iter.get_value(1)
     dns_record_id = iter.get_value(2)
     
-    if on_ques ( dns_name + " " + dns_ip + " " + dns_record_id )
+    if on_ques ( "Are you sure to delete DNS Record [" + dns_name + " " + dns_ip + " " + dns_record_id + "]" )
       puts "Deleting DNS record: #{dns_record_id}" if @debug
       response = cfdns.delete_cloudflare_dns_record ( dns_record_id)
       
@@ -180,7 +180,10 @@ box1.pack_start(box2, false, true, 0)
 
 button = Gtk::Button.new(:label => "close")
 button.signal_connect("clicked") do
-  Gtk.main_quit
+
+  if on_ques("Are you sure you want to quit")
+    Gtk.main_quit
+  end
 end
 box2.pack_start(button, true, true, 0)
 button.can_default=true
