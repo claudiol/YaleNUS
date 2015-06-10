@@ -8,7 +8,17 @@ require 'CloudFlareConnection'
 
 class CloudFlareDNS
 
+  # Constructor
+  #
+  # @param options - <Hash> that contains the following options:
+  #    -- :config_file - Name is the yaml config file
+  #    or all required keys 
+  #    -- :tkn - CloudFlare Authentication Token
+  #    -- :email - CloudFlare Authentication Email
+  #    -- :zoneid - CloudFlare zone id
+  #    -- :apihost - CloudFlare REST API host
 
+  # @return none
   def initialize(options)
 
     if options.empty?
@@ -160,6 +170,24 @@ class CloudFlareDNS
   def list_all_cloudflare_zones()
     # Set the location ... 
     @location = "/client/v4/zones"
+
+    @client.setup(@tkn, @email, @host)
+
+    response = nil
+
+    begin
+       response = @client.get(@location, nil)
+    rescue => ex
+       puts ex.message
+       puts ex.backtrace
+    end
+
+    return response
+  end
+
+  def list_all_dns_records(page_number=1)
+    # Set the location ... 
+    @location = "/client/v4/zones/#{@zone}/dns_records?page=#{page_number}&per_page=100"
 
     @client.setup(@tkn, @email, @host)
 

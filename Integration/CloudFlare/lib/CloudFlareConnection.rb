@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 #####################################################################################
-# Copyright 2015 Lester Claudio <lester@redhat.com>
-# Copyright 2015 Kenneth Evensen <kenneth.evensen@redhat.com>
+# @author Copyright 2015 Lester Claudio <lester@redhat.com>
+# @author Copyright 2015 Kenneth Evensen <kenneth.evensen@redhat.com>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -44,6 +44,10 @@ class CloudFlareConnection
 
   attr_reader :url
 
+  # Constructor
+  #
+  # @param none.
+  # @return none
   def initialize
     @method = nil
     @url = nil
@@ -53,12 +57,29 @@ class CloudFlareConnection
 
   end
 
+  # Sets up the internal class instance variables. 
+  #
+  # @param       tkn - Authentication token for CloudFlare 
+  # @param     email - Authentication email attached to the CloudFlare account
+  # @param      host - CloudFlare connection host - e.g. api.cloudflare.com
+  # @param verifyssl - Whether or not to use SSL (true/false)
+  #
+  # @return none
+  #
+  
   def setup(tkn, email, host, verifyssl=false)
     @tkn = tkn
     @email = email
     @verifyssl = verifyssl
     @url = host
   end
+
+  # Handles the GET requests
+  # @param location - Location for REST API e.g. /zones/:zone_identifier/dns_records
+  # @param json_data - Data paylod for API.
+  #
+  # @return results - Response from CloudFlare REST API
+  #
 
   def get(location, json_data)
 
@@ -103,6 +124,12 @@ class CloudFlareConnection
     end
   end
 
+  # Handles the POST requests
+  # @param location - Location for REST API e.g. /zones/:zone_identifier/dns_records
+  # @param json_data - Data paylod for API.
+  #
+  # @return results - Response from CloudFlare REST API
+  #
   def post(location, json_data)
 
     response = nil
@@ -144,6 +171,13 @@ class CloudFlareConnection
       return results
     end
   end
+
+  # Handles the PUT requests 
+  # @param location - Location for REST API e.g. /zones/:zone_identifier/dns_records 
+  # @param json_data - Data paylod for API.
+  #
+  # @return results - Response from CloudFlare REST API
+  #
 
   def put(location, json_data)
 
@@ -188,10 +222,12 @@ class CloudFlareConnection
     end
   end
 
-  def api_version
-    @api_ver = "v4"
-    return @api_ver
-  end
+  # Handles the DELETE requests
+  # @param location - Location for REST API e.g. /zones/:zone_identifier/dns_records/:identifier
+  # @param json_data - Data paylod for API.
+  #
+  # @return results - Response from CloudFlare REST API
+  #
 
   def delete(location, json_data)
 
@@ -242,6 +278,7 @@ class CloudFlareConnection
     end
   end
 
+  # Returns the CloudFlareConnection Version
   def api_version
     @api_ver = "v4"
     return @api_ver
