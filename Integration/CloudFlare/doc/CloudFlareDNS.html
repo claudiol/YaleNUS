@@ -64,7 +64,7 @@
     <iframe id="search_frame"></iframe>
 
     <div id="content"><h1>Class: CloudFlareDNS
-  <span class="abstract note title">Abstract</span>
+  
   
   
 </h1>
@@ -101,16 +101,11 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <div class="note abstract">
-  <strong>This class is abstract.</strong>
-  <div class='inline'>
-<p>CloudFlareDNS This class supports DNS requests to the CloudFlare DNS
-Service.</p>
-</div>
-</div>
+    
+<p>CloudFlareDNS</p>
 
-<p>It uses the CloudFlareConnection class to send GET, POST, DELETE HTTP
-Request to the CloudFlare REST API.</p>
+<pre class="code ruby"><code class="ruby">This class supports DNS requests to the CloudFlare DNS Service.
+It uses the CloudFlareConnection class to send GET, POST, DELETE HTTP Request to the CloudFlare REST API.</code></pre>
 
 
   </div>
@@ -136,7 +131,7 @@ Request to the CloudFlare REST API.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#add_cloudflare_record-instance_method" title="#add_cloudflare_record (instance method)">- (Collection) <strong>add_cloudflare_record</strong> </a>
+      <a href="#add_cloudflare_record-instance_method" title="#add_cloudflare_record (instance method)">- (Hash) <strong>add_cloudflare_record</strong> </a>
     
 
     
@@ -151,7 +146,7 @@ Request to the CloudFlare REST API.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the YAML collection of configuration items.</p>
+<p>Returns the REST API Response from CloudFlareDNS.</p>
 </div></span>
   
 </li>
@@ -160,7 +155,7 @@ Request to the CloudFlare REST API.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#delete_cloudflare_dns_record-instance_method" title="#delete_cloudflare_dns_record (instance method)">- (Collection) <strong>delete_cloudflare_dns_record</strong> </a>
+      <a href="#delete_cloudflare_dns_record-instance_method" title="#delete_cloudflare_dns_record (instance method)">- (Hash) <strong>delete_cloudflare_dns_record</strong> </a>
     
 
     
@@ -210,7 +205,7 @@ Request to the CloudFlare REST API.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#list_all_cloudflare_zones-instance_method" title="#list_all_cloudflare_zones (instance method)">- (Collection) <strong>list_all_cloudflare_zones</strong> </a>
+      <a href="#list_all_cloudflare_zones-instance_method" title="#list_all_cloudflare_zones (instance method)">- (Hash) <strong>list_all_cloudflare_zones</strong> </a>
     
 
     
@@ -225,7 +220,7 @@ Request to the CloudFlare REST API.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Zone records.</p>
+<p>Zone records will be in <a href="'result'">response</a>.</p>
 </div></span>
   
 </li>
@@ -234,7 +229,7 @@ Request to the CloudFlare REST API.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#list_all_dns_records-instance_method" title="#list_all_dns_records (instance method)">- (Collection) <strong>list_all_dns_records</strong> </a>
+      <a href="#list_all_dns_records-instance_method" title="#list_all_dns_records (instance method)">- (Hash) <strong>list_all_dns_records</strong> </a>
     
 
     
@@ -258,7 +253,7 @@ Request to the CloudFlare REST API.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#list_cloudflare_dns_record-instance_method" title="#list_cloudflare_dns_record (instance method)">- (Collection) <strong>list_cloudflare_dns_record</strong>(request) </a>
+      <a href="#list_cloudflare_dns_record-instance_method" title="#list_cloudflare_dns_record (instance method)">- (Hash) <strong>list_cloudflare_dns_record</strong>(request) </a>
     
 
     
@@ -282,7 +277,7 @@ Request to the CloudFlare REST API.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#list_cloudflare_dns_records-instance_method" title="#list_cloudflare_dns_records (instance method)">- (Collection) <strong>list_cloudflare_dns_records</strong> </a>
+      <a href="#list_cloudflare_dns_records-instance_method" title="#list_cloudflare_dns_records (instance method)">- (Hash) <strong>list_cloudflare_dns_records</strong> </a>
     
 
     
@@ -489,7 +484,7 @@ Email – :zoneid - CloudFlare zone id – :apihost - CloudFlare REST API host</
       <div class="method_details first">
   <h3 class="signature first" id="add_cloudflare_record-instance_method">
   
-    - (<tt>Collection</tt>) <strong>add_cloudflare_record</strong> 
+    - (<tt>Hash</tt>) <strong>add_cloudflare_record</strong> 
   
 
   
@@ -498,7 +493,7 @@ Email – :zoneid - CloudFlare zone id – :apihost - CloudFlare REST API host</
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the YAML collection of configuration items.</p>
+<p>Returns the REST API Response from CloudFlareDNS</p>
 
 
   </div>
@@ -532,13 +527,13 @@ Email – :zoneid - CloudFlare zone id – :apihost - CloudFlare REST API host</
     <li>
       
       
-        <span class='type'>(<tt>Collection</tt>)</span>
+        <span class='type'>(<tt>Hash</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
-<p>Returns the YAML collection of configuration items.</p>
+<p>Returns the REST API Response from CloudFlareDNS</p>
 </div>
       
     </li>
@@ -609,7 +604,7 @@ Email – :zoneid - CloudFlare zone id – :apihost - CloudFlare REST API host</
       <div class="method_details ">
   <h3 class="signature " id="delete_cloudflare_dns_record-instance_method">
   
-    - (<tt>Collection</tt>) <strong>delete_cloudflare_dns_record</strong> 
+    - (<tt>Hash</tt>) <strong>delete_cloudflare_dns_record</strong> 
   
 
   
@@ -657,7 +652,7 @@ API call. Example: /client/v4/zones/:zone/dns_records/“ + request</p>
     <li>
       
       
-        <span class='type'>(<tt>Collection</tt>)</span>
+        <span class='type'>(<tt>Hash</tt>)</span>
       
       
       
@@ -730,7 +725,7 @@ API call. Example: /client/v4/zones/:zone/dns_records/“ + request</p>
       <div class="method_details ">
   <h3 class="signature " id="list_all_cloudflare_zones-instance_method">
   
-    - (<tt>Collection</tt>) <strong>list_all_cloudflare_zones</strong> 
+    - (<tt>Hash</tt>) <strong>list_all_cloudflare_zones</strong> 
   
 
   
@@ -739,7 +734,7 @@ API call. Example: /client/v4/zones/:zone/dns_records/“ + request</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns Zone records</p>
+<p>Returns Zone records will be in <a href="'result'">response</a></p>
 
 
   </div>
@@ -767,13 +762,13 @@ API call. Example: /client/v4/zones/:zone/dns_records/“ + request</p>
     <li>
       
       
-        <span class='type'>(<tt>Collection</tt>)</span>
+        <span class='type'>(<tt>Hash</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
-<p>Zone records</p>
+<p>Zone records will be in <a href="'result'">response</a></p>
 </div>
       
     </li>
@@ -832,7 +827,7 @@ API call. Example: /client/v4/zones/:zone/dns_records/“ + request</p>
       <div class="method_details ">
   <h3 class="signature " id="list_all_dns_records-instance_method">
   
-    - (<tt>Collection</tt>) <strong>list_all_dns_records</strong> 
+    - (<tt>Hash</tt>) <strong>list_all_dns_records</strong> 
   
 
   
@@ -905,13 +900,13 @@ maximum number of records.</p>
     <li>
       
       
-        <span class='type'>(<tt>Collection</tt>)</span>
+        <span class='type'>(<tt>Hash</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
-<p>DNS records</p>
+<p>DNS records will be in <a href="'result'">response</a></p>
 </div>
       
     </li>
@@ -970,7 +965,7 @@ maximum number of records.</p>
       <div class="method_details ">
   <h3 class="signature " id="list_cloudflare_dns_record-instance_method">
   
-    - (<tt>Collection</tt>) <strong>list_cloudflare_dns_record</strong>(request) 
+    - (<tt>Hash</tt>) <strong>list_cloudflare_dns_record</strong>(request) 
   
 
   
@@ -1015,13 +1010,13 @@ type=A&amp;name=example.com&amp;content=127.0.0.1&amp;page=1&amp;per_page=20&amp
     <li>
       
       
-        <span class='type'>(<tt>Collection</tt>)</span>
+        <span class='type'>(<tt>Hash</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
-<p>Returns the YAML collection of configuration items.</p>
+<p>Returns response from CloudFlare REST API</p>
 </div>
       
     </li>
@@ -1092,7 +1087,7 @@ type=A&amp;name=example.com&amp;content=127.0.0.1&amp;page=1&amp;per_page=20&amp
       <div class="method_details ">
   <h3 class="signature " id="list_cloudflare_dns_records-instance_method">
   
-    - (<tt>Collection</tt>) <strong>list_cloudflare_dns_records</strong> 
+    - (<tt>Hash</tt>) <strong>list_cloudflare_dns_records</strong> 
   
 
   
@@ -1137,13 +1132,13 @@ type=A&amp;name=example.com&amp;content=127.0.0.1&amp;page=1&amp;per_page=20&amp
     <li>
       
       
-        <span class='type'>(<tt>Collection</tt>)</span>
+        <span class='type'>(<tt>Hash</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
-<p>Returns the YAML collection of configuration items.</p>
+<p>Returns response from CloudFlare REST API</p>
 </div>
       
     </li>
@@ -1303,7 +1298,7 @@ type=A&amp;name=example.com&amp;content=127.0.0.1&amp;page=1&amp;per_page=20&amp
 </div>
 
     <div id="footer">
-  Generated on Thu Jun 11 03:18:23 2015 by
+  Generated on Thu Jun 11 03:40:10 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-2.0.0).
 </div>

@@ -5,9 +5,9 @@ require 'yaml'
 require 'CloudFlareConnection'
 #load "CloudFlareConnection.rb"
 
-# @abstract CloudFlareDNS
+#  CloudFlareDNS
 #  This class supports DNS requests to the CloudFlare DNS Service.
-# It uses the CloudFlareConnection class to send GET, POST, DELETE HTTP Request to the CloudFlare REST API.
+#  It uses the CloudFlareConnection class to send GET, POST, DELETE HTTP Request to the CloudFlare REST API.
 #
 class CloudFlareDNS
 
@@ -86,7 +86,7 @@ class CloudFlareDNS
   #
   # @param json_data - Data paylod for API.
   #
-  # @return [Collection] Returns the YAML collection of configuration items. 
+  # @return [Hash] Returns the REST API Response from CloudFlareDNS
   def add_cloudflare_record(json_data)
 
     # Add a record to Cloudflare 
@@ -120,7 +120,7 @@ class CloudFlareDNS
   # 
   # @param request - Data request payload for API.
   #
-  # @return [Collection] Returns the YAML collection of configuration items. 
+  # @return [Hash] Returns response from CloudFlare REST API
 
   def list_cloudflare_dns_record(request)
 
@@ -159,7 +159,7 @@ class CloudFlareDNS
   #
   # @param request - Data request payload for API.
   #
-  # @return [Collection] Returns the response from the REST API
+  # @return [Hash] Returns the response from the REST API
 
   def delete_cloudflare_dns_record(request)
 
@@ -188,7 +188,7 @@ class CloudFlareDNS
   # 
   # @param none 
   #
-  # @return [Collection] Zone records
+  # @return [Hash] Zone records will be in response['result']
 
   def list_all_cloudflare_zones()
     # Set the location ... 
@@ -244,7 +244,7 @@ class CloudFlareDNS
   #
   # @param page_number - Which page to return DNS Records data for 
   #
-  # @return [Collection] DNS records
+  # @return [Hash] DNS records will be in response['result']
 
   def list_all_dns_records(page_number=1)
     # Set the location ... 
