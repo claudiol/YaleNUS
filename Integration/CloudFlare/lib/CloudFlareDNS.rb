@@ -5,9 +5,13 @@ require 'yaml'
 require 'CloudFlareConnection'
 #load "CloudFlareConnection.rb"
 
-
+# @abstract CloudFlareDNS
+#  This class supports DNS requests to the CloudFlare DNS Service.
+# It uses the CloudFlareConnection class to send GET, POST, DELETE HTTP Request to the CloudFlare REST API.
+#
 class CloudFlareDNS
 
+  # @!method initialize
   # Constructor
   #
   # @param options - <Hash> that contains the following options:
@@ -17,7 +21,6 @@ class CloudFlareDNS
   #    -- :email - CloudFlare Authentication Email
   #    -- :zoneid - CloudFlare zone id
   #    -- :apihost - CloudFlare REST API host
-
   # @return none
   def initialize(options)
 
@@ -78,6 +81,12 @@ class CloudFlareDNS
   end
 
 
+  # 
+  # @!method add_cloudflare_record
+  #
+  # @param json_data - Data paylod for API.
+  #
+  # @return [Collection] Returns the YAML collection of configuration items. 
   def add_cloudflare_record(json_data)
 
     # Add a record to Cloudflare 
@@ -102,19 +111,16 @@ class CloudFlareDNS
     response
   end
 
-  ###  {"id"=>"93adb6035b5abba148a31f2ffcf47c61", "type"=>"A", "name"=>"another.yale-nus.edu.sg", "content"=>"172.19.17.227", "proxiable"=>false, "proxied"=>false, "ttl"=>120, "locked"=>false, "zone_id"=>"f64975b2ef75e68498f5cf1237a6c05b", "zone_name"=>"yale-nus.edu.sg", "modified_on"=>"2015-05-28T18:19:28.339841Z", "created_on"=>"2015-05-28T18:19:28.339841Z", "meta"=>{"auto_added"=>false}
-  #json_data = '{"type":"A","name":"another.yale-nus.edu.sg","content":"172.19.17.227","page"="1", "per_page"="20", "order"="type", "direction"="desc", "match"="all"}'
-  #https://api.cloudflare.com/client/v4/zones/9a7806061c88ada191ed06f989cc3dac/dns_records?type=A&name=example.com&content=127.0.0.1&page=1&per_page=20&order=type&direction=desc&match=all"\
-  #-H "X-Auth-Email: user@example.com"\
-  #-H "X-Auth-Key: c2547eb745079dac9320b638f5e225cf483cc5cfdda41"\
-  #-H "Content-Type: application/json"
-  #type=A
-  #name=example.com
-  #content=127.0.0.1
-  #page=1
-  #per_page=20
-  #order=type
-  #direction=desc&match=all"
+  # 
+  # @!method list_cloudflare_dns_records
+  # 
+  # With this method you can list one or more records depending on the request.
+  # The request payload to CloudFlare would look something like this:
+  # type=A&name=example.com&content=127.0.0.1&page=1&per_page=20&order=type&direction=desc&match=all
+  # 
+  # @param request - Data request payload for API.
+  #
+  # @return [Collection] Returns the YAML collection of configuration items. 
 
   def list_cloudflare_dns_record(request)
 
@@ -140,6 +146,21 @@ class CloudFlareDNS
     return response
   end
 
+  # 
+  # @!method delete_cloudflare_dns_record
+  # 
+  # With this method you can delete a record depending on the request.
+  # The request payload to CloudFlare would look something like this:
+  # Example request looks like this:
+  # c04e7e5094eb510a7241c30688fcbf0b
+  # 
+  # Basically we pass in the ID for the DNS record and append it to the REST API call.
+  # Example: /client/v4/zones/:zone/dns_records/" + request
+  #
+  # @param request - Data request payload for API.
+  #
+  # @return [Collection] Returns the response from the REST API
+
   def delete_cloudflare_dns_record(request)
 
     # get the Cloudflare Instance - Singleton
@@ -162,10 +183,12 @@ class CloudFlareDNS
     return response
   end
 
-  ### List ALl CloudFlare Zones
-  ###{"id":"f64975b2ef75e68498f5cf1237a6c05b","name":"yale-nus.edu.sg","status":"active","paused":false,"type":"full","development_mode":0,"name_servers":["fred.ns.cloudflare.com","pam.ns.cloudflare.com"],"original_name_servers":["NS1.WEBVIS.NET","NS2.WEBVIS.NET"],"original_registrar":"ICONZ-WEBVISIONS PTE LTD","original_dnshost":null,"modified_on":"2015-05-28T18:19:28.339841Z","created_on":"2013-08-30T16:15:27.503857Z","meta":{"step":4,"wildcard_proxiable":false,"custom_certificate_quota":0,"page_rule_quota":"3","phishing_detected":false,"multiple_railguns_allowed":false},"owner":{"type":"user","id":"7ff7e3b16eedf3d282bcb92a66af9db2","email":"it.service.subscriber@yale-nus.edu.sg"},"permissions":["#analytics:read","#billing:edit","#billing:read","#cache_purge:edit","#dns_records:edit","#dns_records:read","#organization:edit","#organization:read","#ssl:edit","#ssl:read","#waf:edit","#waf:read","#zone:edit","#zone:read","#zone_settings:edit","#zone_settings:read"],"plan":{"id":"0feeeeeeeeeeeeeeeeeeeeeeeeeeeeee","name":"Free Website","price":0,"currency":"USD","frequency":"","legacy_id":"free","is_subscribed":true,"can_subscribe":true,"externally_managed":false}}
-  # Zone result data
-  #{"id":"f64975b2ef75e68498f5cf1237a6c05b","name":"yale-nus.edu.sg","status":"active","paused":false,"type":"full","development_mode":0,"name_servers":["fred.ns.cloudflare.com","pam.ns.cloudflare.com"],"original_name_servers":["NS1.WEBVIS.NET","NS2.WEBVIS.NET"],"original_registrar":"ICONZ-WEBVISIONS PTE LTD","original_dnshost":null,"modified_on":"2015-05-28T18:19:28.339841Z","created_on":"2013-08-30T16:15:27.503857Z","meta":{"step":4,"wildcard_proxiable":false,"custom_certificate_quota":0,"page_rule_quota":"3","phishing_detected":false,"multiple_railguns_allowed":false},"owner":{"type":"user","id":"7ff7e3b16eedf3d282bcb92a66af9db2","email":"it.service.subscriber@yale-nus.edu.sg"},"permissions":["#analytics:read","#billing:edit","#billing:read","#cache_purge:edit","#dns_records:edit","#dns_records:read","#organization:edit","#organization:read","#ssl:edit","#ssl:read","#waf:edit","#waf:read","#zone:edit","#zone:read","#zone_settings:edit","#zone_settings:read"],"plan":{"id":"0feeeeeeeeeeeeeeeeeeeeeeeeeeeeee","name":"Free Website","price":0,"currency":"USD","frequency":"","legacy_id":"free","is_subscribed":true,"can_subscribe":true,"externally_managed":false}}
+  # 
+  # @!method list_all_cloudflare_zones
+  # 
+  # @param none 
+  #
+  # @return [Collection] Zone records
 
   def list_all_cloudflare_zones()
     # Set the location ... 
@@ -184,6 +207,44 @@ class CloudFlareDNS
 
     return response
   end
+
+
+  # 
+  # @!method list_all_dns_records
+  # The CloudFlare API returns up to 100 records per page.  We request the maximum number of records.
+  # 
+  #
+  #  #Lets use the CloudFlareDNS to get DNS records ...     
+  #  cfdns = CloudFlareDNS.new(options)
+  #
+  #  page_number = 1
+  #  response = cfdns.list_all_dns_records(page_number)
+  #
+  #  #Check the reponse ... page through each if necessary
+  #  unless response.nil?
+  #    if response["success"]
+  #      puts "Success" if @debug
+  #      records = response['result']
+  #      result_info = response['result_info']
+  #      total_count = result_info['total_count']
+  #      count = result_info['count']
+  #      #
+  #      # Check to see if there are more than one page of results ...
+  #      # CloudFlareDNS only gives you a maximum of 100 records per page.
+  #      # The records variable will hold all the records from CloudFlare. Just return it to the caller 
+  #      # iterate through the records.
+  #      while count*page_number < total_count
+  #        page_number += 1
+  #        response = cfdns.list_all_dns_records(page_number)
+  #        records += response['result']
+  #      end
+  #      puts "Total Records: #{total_count} Count: #{count}" if @debug
+  #    end
+  #  end
+  #
+  # @param page_number - Which page to return DNS Records data for 
+  #
+  # @return [Collection] DNS records
 
   def list_all_dns_records(page_number=1)
     # Set the location ... 

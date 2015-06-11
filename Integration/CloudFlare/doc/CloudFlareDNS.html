@@ -1,0 +1,1312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: CloudFlareDNS
+  
+    &mdash; Documentation by YARD 0.8.7
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (C)</a> &raquo;
+    
+    
+    <span class="title">CloudFlareDNS</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: CloudFlareDNS
+  <span class="abstract note title">Abstract</span>
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">CloudFlareDNS</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/CloudFlareDNS.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This class is abstract.</strong>
+  <div class='inline'>
+<p>CloudFlareDNS This class supports DNS requests to the CloudFlare DNS
+Service.</p>
+</div>
+</div>
+
+<p>It uses the CloudFlareConnection class to send GET, POST, DELETE HTTP
+Request to the CloudFlare REST API.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_cloudflare_record-instance_method" title="#add_cloudflare_record (instance method)">- (Collection) <strong>add_cloudflare_record</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the YAML collection of configuration items.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete_cloudflare_dns_record-instance_method" title="#delete_cloudflare_dns_record (instance method)">- (Collection) <strong>delete_cloudflare_dns_record</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>With this method you can delete a record depending on the request.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Object) <strong>initialize</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Constructor.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#list_all_cloudflare_zones-instance_method" title="#list_all_cloudflare_zones (instance method)">- (Collection) <strong>list_all_cloudflare_zones</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Zone records.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#list_all_dns_records-instance_method" title="#list_all_dns_records (instance method)">- (Collection) <strong>list_all_dns_records</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The CloudFlare API returns up to 100 records per page.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#list_cloudflare_dns_record-instance_method" title="#list_cloudflare_dns_record (instance method)">- (Collection) <strong>list_cloudflare_dns_record</strong>(request) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>With this method you can list one or more records depending on the request.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#list_cloudflare_dns_records-instance_method" title="#list_cloudflare_dns_records (instance method)">- (Collection) <strong>list_cloudflare_dns_records</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>With this method you can list one or more records depending on the request.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read_config-instance_method" title="#read_config (instance method)">- (Collection) <strong>read_config</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the YAML collection of configuration items.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt>Object</tt>) <strong>initialize</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Constructor</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul><li>
+<p>&lt;Hash&gt; that contains the following options:</p>
+</li></ul>
+
+<p>– :config_file - Name is the yaml config file or all required keys  – :tkn
+- CloudFlare Authentication Token – :email - CloudFlare Authentication
+Email – :zoneid - CloudFlare zone id – :apihost - CloudFlare REST API host</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/CloudFlareDNS.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+     <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Please pass appropriate options for CloudFlareDNS class</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='symbol'>:config_file</span><span class='rparen'>)</span> 
+    <span class='comment'># Read values from Config File ...
+</span>    <span class='ivar'>@config_name</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:config_file</span><span class='rbracket'>]</span> 
+    <span class='comment'># Read the YAML config file...
+</span>    <span class='ivar'>@config</span> <span class='op'>=</span> <span class='id identifier rubyid_read_config'>read_config</span><span class='lparen'>(</span><span class='ivar'>@config_name</span><span class='rparen'>)</span>
+    <span class='ivar'>@tkn</span> <span class='op'>=</span> <span class='ivar'>@config</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>credentials</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tkn</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+    <span class='ivar'>@email</span> <span class='op'>=</span> <span class='ivar'>@config</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>credentials</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>email</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+    <span class='ivar'>@zone</span>  <span class='op'>=</span> <span class='ivar'>@config</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>credentials</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>zoneid</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+    <span class='comment'># Set the Cloudflare host
+</span>    <span class='ivar'>@host</span> <span class='op'>=</span> <span class='ivar'>@config</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>credentials</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>apihost</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='kw'>else</span>
+    <span class='comment'># We will get each option from the options hash
+</span>    <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='symbol'>:tkn</span><span class='rparen'>)</span>
+       <span class='ivar'>@tkn</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:tkn</span><span class='rbracket'>]</span>
+    <span class='kw'>else</span>
+       <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Need :tkn value for CloudFlare credentials</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='symbol'>:email</span><span class='rparen'>)</span>
+      <span class='ivar'>@email</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:email</span><span class='rbracket'>]</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Need :email value for CloudFlare credentials</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='symbol'>:zoneid</span><span class='rparen'>)</span>
+      <span class='ivar'>@zone</span>  <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:zoneid</span><span class='rbracket'>]</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Need :zoneid value to execute to CloudFlare API </span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='symbol'>:apihost</span><span class='rparen'>)</span>
+      <span class='comment'># Set the Cloudflare host
+</span>      <span class='ivar'>@host</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:apihost</span><span class='rbracket'>]</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Need :apihost value for CloudFlare credentials</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='comment'># get the Cloudflare Instance - Singleton
+</span>  <span class='ivar'>@client</span> <span class='op'>=</span> <span class='const'>CloudFlareConnection</span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="add_cloudflare_record-instance_method">
+  
+    - (<tt>Collection</tt>) <strong>add_cloudflare_record</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the YAML collection of configuration items.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>json_data</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul><li>
+<p>Data paylod for API.</p>
+</li></ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Collection</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Returns the YAML collection of configuration items.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/CloudFlareDNS.rb', line 90</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_add_cloudflare_record'>add_cloudflare_record</span><span class='lparen'>(</span><span class='id identifier rubyid_json_data'>json_data</span><span class='rparen'>)</span>
+
+  <span class='comment'># Add a record to Cloudflare 
+</span>
+  <span class='comment'># get the Cloudflare Instance - Singleton
+</span>  <span class='ivar'>@client</span> <span class='op'>=</span> <span class='const'>CloudFlareConnection</span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span>
+
+  <span class='comment'># Set the location ... 
+</span>  <span class='ivar'>@location</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/client/v4/zones/</span><span class='embexpr_beg'>#{</span><span class='ivar'>@zone</span><span class='embexpr_end'>}</span><span class='tstring_content'>/dns_records/</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_setup'>setup</span><span class='lparen'>(</span><span class='ivar'>@tkn</span><span class='comma'>,</span> <span class='ivar'>@email</span><span class='comma'>,</span> <span class='ivar'>@host</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+  <span class='kw'>begin</span>
+     <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='ivar'>@location</span><span class='comma'>,</span> <span class='id identifier rubyid_json_data'>json_data</span><span class='rparen'>)</span>
+  <span class='kw'>rescue</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_ex'>ex</span>
+     <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_ex'>ex</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span>
+     <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_ex'>ex</span><span class='period'>.</span><span class='id identifier rubyid_response'>response</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_response'>response</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="delete_cloudflare_dns_record-instance_method">
+  
+    - (<tt>Collection</tt>) <strong>delete_cloudflare_dns_record</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>With this method you can delete a record depending on the request. The
+request payload to CloudFlare would look something like this: Example
+request looks like this: c04e7e5094eb510a7241c30688fcbf0b</p>
+
+<p>Basically we pass in the ID for the DNS record and append it to the REST
+API call. Example: /client/v4/zones/:zone/dns_records/“ + request</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>request</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul><li>
+<p>Data request payload for API.</p>
+</li></ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Collection</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Returns the response from the REST API</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/CloudFlareDNS.rb', line 164</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_delete_cloudflare_dns_record'>delete_cloudflare_dns_record</span><span class='lparen'>(</span><span class='id identifier rubyid_request'>request</span><span class='rparen'>)</span>
+
+  <span class='comment'># get the Cloudflare Instance - Singleton
+</span>  <span class='ivar'>@client</span> <span class='op'>=</span> <span class='const'>CloudFlareConnection</span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span>
+
+  <span class='comment'># Set the location ... 
+</span>  <span class='ivar'>@location</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/client/v4/zones/</span><span class='embexpr_beg'>#{</span><span class='ivar'>@zone</span><span class='embexpr_end'>}</span><span class='tstring_content'>/dns_records/</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_request'>request</span>
+
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_setup'>setup</span><span class='lparen'>(</span><span class='ivar'>@tkn</span><span class='comma'>,</span> <span class='ivar'>@email</span><span class='comma'>,</span> <span class='ivar'>@host</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+  <span class='kw'>begin</span>
+     <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='ivar'>@location</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='kw'>rescue</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_ex'>ex</span>
+     <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_ex'>ex</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span>
+     <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_ex'>ex</span><span class='period'>.</span><span class='id identifier rubyid_backtrace'>backtrace</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>return</span> <span class='id identifier rubyid_response'>response</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="list_all_cloudflare_zones-instance_method">
+  
+    - (<tt>Collection</tt>) <strong>list_all_cloudflare_zones</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns Zone records</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>none</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Collection</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Zone records</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/CloudFlareDNS.rb', line 193</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_list_all_cloudflare_zones'>list_all_cloudflare_zones</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='comment'># Set the location ... 
+</span>  <span class='ivar'>@location</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/client/v4/zones</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_setup'>setup</span><span class='lparen'>(</span><span class='ivar'>@tkn</span><span class='comma'>,</span> <span class='ivar'>@email</span><span class='comma'>,</span> <span class='ivar'>@host</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+  <span class='kw'>begin</span>
+     <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='ivar'>@location</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='kw'>rescue</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_ex'>ex</span>
+     <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_ex'>ex</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span>
+     <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_ex'>ex</span><span class='period'>.</span><span class='id identifier rubyid_backtrace'>backtrace</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>return</span> <span class='id identifier rubyid_response'>response</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="list_all_dns_records-instance_method">
+  
+    - (<tt>Collection</tt>) <strong>list_all_dns_records</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The CloudFlare API returns up to 100 records per page.  We request the
+maximum number of records.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='comment'>#Lets use the CloudFlareDNS to get DNS records ...     
+</span><span class='id identifier rubyid_cfdns'>cfdns</span> <span class='op'>=</span> <span class='const'>CloudFlareDNS</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_page_number'>page_number</span> <span class='op'>=</span> <span class='int'>1</span>
+<span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_cfdns'>cfdns</span><span class='period'>.</span><span class='id identifier rubyid_list_all_dns_records'>list_all_dns_records</span><span class='lparen'>(</span><span class='id identifier rubyid_page_number'>page_number</span><span class='rparen'>)</span>
+
+<span class='comment'>#Check the reponse ... page through each if necessary
+</span><span class='kw'>unless</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>success</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Success</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@debug</span>
+    <span class='id identifier rubyid_records'>records</span> <span class='op'>=</span> <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>result</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_result_info'>result_info</span> <span class='op'>=</span> <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>result_info</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_total_count'>total_count</span> <span class='op'>=</span> <span class='id identifier rubyid_result_info'>result_info</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>total_count</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_count'>count</span> <span class='op'>=</span> <span class='id identifier rubyid_result_info'>result_info</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>count</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+    <span class='comment'>#
+</span>    <span class='comment'># Check to see if there are more than one page of results ...
+</span>    <span class='comment'># CloudFlareDNS only gives you a maximum of 100 records per page.
+</span>    <span class='comment'># The records variable will hold all the records from CloudFlare. Just return it to the caller 
+</span>    <span class='comment'># iterate through the records.
+</span>    <span class='kw'>while</span> <span class='id identifier rubyid_count'>count</span><span class='op'>*</span><span class='id identifier rubyid_page_number'>page_number</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_total_count'>total_count</span>
+      <span class='id identifier rubyid_page_number'>page_number</span> <span class='op'>+=</span> <span class='int'>1</span>
+      <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_cfdns'>cfdns</span><span class='period'>.</span><span class='id identifier rubyid_list_all_dns_records'>list_all_dns_records</span><span class='lparen'>(</span><span class='id identifier rubyid_page_number'>page_number</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_records'>records</span> <span class='op'>+=</span> <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>result</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+    <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Total Records: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_total_count'>total_count</span><span class='embexpr_end'>}</span><span class='tstring_content'> Count: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_count'>count</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@debug</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>page_number</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul><li>
+<p>Which page to return DNS Records data for</p>
+</li></ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Collection</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>DNS records</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/CloudFlareDNS.rb', line 249</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_list_all_dns_records'>list_all_dns_records</span><span class='lparen'>(</span><span class='id identifier rubyid_page_number'>page_number</span><span class='op'>=</span><span class='int'>1</span><span class='rparen'>)</span>
+  <span class='comment'># Set the location ... 
+</span>  <span class='ivar'>@location</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/client/v4/zones/</span><span class='embexpr_beg'>#{</span><span class='ivar'>@zone</span><span class='embexpr_end'>}</span><span class='tstring_content'>/dns_records?page=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_page_number'>page_number</span><span class='embexpr_end'>}</span><span class='tstring_content'>&amp;per_page=100</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_setup'>setup</span><span class='lparen'>(</span><span class='ivar'>@tkn</span><span class='comma'>,</span> <span class='ivar'>@email</span><span class='comma'>,</span> <span class='ivar'>@host</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+  <span class='kw'>begin</span>
+     <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='ivar'>@location</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='kw'>rescue</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_ex'>ex</span>
+     <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_ex'>ex</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span>
+     <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_ex'>ex</span><span class='period'>.</span><span class='id identifier rubyid_backtrace'>backtrace</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>return</span> <span class='id identifier rubyid_response'>response</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="list_cloudflare_dns_record-instance_method">
+  
+    - (<tt>Collection</tt>) <strong>list_cloudflare_dns_record</strong>(request) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>With this method you can list one or more records depending on the request.
+The request payload to CloudFlare would look something like this:
+type=A&amp;name=example.com&amp;content=127.0.0.1&amp;page=1&amp;per_page=20&amp;order=type&amp;direction=desc&amp;match=all</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>request</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul><li>
+<p>Data request payload for API.</p>
+</li></ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Collection</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Returns the YAML collection of configuration items.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/CloudFlareDNS.rb', line 125</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_list_cloudflare_dns_record'>list_cloudflare_dns_record</span><span class='lparen'>(</span><span class='id identifier rubyid_request'>request</span><span class='rparen'>)</span>
+
+  <span class='comment'># list records from Cloudflare 
+</span>
+  <span class='comment'># get the Cloudflare Instance - Singleton
+</span>  <span class='ivar'>@client</span> <span class='op'>=</span> <span class='const'>CloudFlareConnection</span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span>
+
+  <span class='comment'># Set the location ... 
+</span>  <span class='ivar'>@location</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/client/v4/zones/</span><span class='embexpr_beg'>#{</span><span class='ivar'>@zone</span><span class='embexpr_end'>}</span><span class='tstring_content'>/dns_records?</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_request'>request</span>
+
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_setup'>setup</span><span class='lparen'>(</span><span class='ivar'>@tkn</span><span class='comma'>,</span> <span class='ivar'>@email</span><span class='comma'>,</span> <span class='ivar'>@host</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+  <span class='kw'>begin</span>
+     <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='ivar'>@location</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='kw'>rescue</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_ex'>ex</span>
+     <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_ex'>ex</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span>
+     <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_ex'>ex</span><span class='period'>.</span><span class='id identifier rubyid_backtrace'>backtrace</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>return</span> <span class='id identifier rubyid_response'>response</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="list_cloudflare_dns_records-instance_method">
+  
+    - (<tt>Collection</tt>) <strong>list_cloudflare_dns_records</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>With this method you can list one or more records depending on the request.
+The request payload to CloudFlare would look something like this:
+type=A&amp;name=example.com&amp;content=127.0.0.1&amp;page=1&amp;per_page=20&amp;order=type&amp;direction=desc&amp;match=all</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>request</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul><li>
+<p>Data request payload for API.</p>
+</li></ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Collection</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Returns the YAML collection of configuration items.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/CloudFlareDNS.rb', line 125</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_list_cloudflare_dns_record'>list_cloudflare_dns_record</span><span class='lparen'>(</span><span class='id identifier rubyid_request'>request</span><span class='rparen'>)</span>
+
+  <span class='comment'># list records from Cloudflare 
+</span>
+  <span class='comment'># get the Cloudflare Instance - Singleton
+</span>  <span class='ivar'>@client</span> <span class='op'>=</span> <span class='const'>CloudFlareConnection</span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span>
+
+  <span class='comment'># Set the location ... 
+</span>  <span class='ivar'>@location</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/client/v4/zones/</span><span class='embexpr_beg'>#{</span><span class='ivar'>@zone</span><span class='embexpr_end'>}</span><span class='tstring_content'>/dns_records?</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_request'>request</span>
+
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_setup'>setup</span><span class='lparen'>(</span><span class='ivar'>@tkn</span><span class='comma'>,</span> <span class='ivar'>@email</span><span class='comma'>,</span> <span class='ivar'>@host</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+  <span class='kw'>begin</span>
+     <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='ivar'>@location</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='kw'>rescue</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_ex'>ex</span>
+     <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_ex'>ex</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span>
+     <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_ex'>ex</span><span class='period'>.</span><span class='id identifier rubyid_backtrace'>backtrace</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>return</span> <span class='id identifier rubyid_response'>response</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="read_config-instance_method">
+  
+    - (<tt>Collection</tt>) <strong>read_config</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the YAML collection of configuration items.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>config_name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Configuration file name</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Collection</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Returns the YAML collection of configuration items.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+75
+76
+77
+78
+79
+80
+81</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/CloudFlareDNS.rb', line 75</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_read_config'>read_config</span><span class='lparen'>(</span><span class='id identifier rubyid_config_name'>config_name</span><span class='rparen'>)</span>
+    <span class='kw'>begin</span>
+      <span class='kw'>return</span> <span class='const'>YAML</span><span class='period'>.</span><span class='id identifier rubyid_load_file'>load_file</span><span class='lparen'>(</span><span class='id identifier rubyid_config_name'>config_name</span><span class='rparen'>)</span>
+    <span class='kw'>rescue</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_exception'>exception</span>
+      <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_exception'>exception</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span>
+    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Thu Jun 11 03:18:23 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7 (ruby-2.0.0).
+</div>
+
+  </body>
+</html>

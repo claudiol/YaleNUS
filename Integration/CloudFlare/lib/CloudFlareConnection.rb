@@ -39,11 +39,18 @@ require 'rest-client'
 require 'json'
 require 'singleton'
 
+# @abstract CloudFlareConnection
+#  Singleton connection class to support CloudFlare DNS service calls.
+# This class could be used for any generic REST API service calls.
+#
 class CloudFlareConnection
   include Singleton
 
   attr_reader :url
 
+  # 
+  # @!method initialize
+  #
   # Constructor
   #
   # @param none.
@@ -57,6 +64,9 @@ class CloudFlareConnection
 
   end
 
+  # 
+  # @!method set_up
+  #
   # Sets up the internal class instance variables. 
   #
   # @param       tkn - Authentication token for CloudFlare 
@@ -66,7 +76,6 @@ class CloudFlareConnection
   #
   # @return none
   #
-  
   def setup(tkn, email, host, verifyssl=false)
     @tkn = tkn
     @email = email
@@ -74,13 +83,13 @@ class CloudFlareConnection
     @url = host
   end
 
+  # @!method get
   # Handles the GET requests
   # @param location - Location for REST API e.g. /zones/:zone_identifier/dns_records
   # @param json_data - Data paylod for API.
   #
   # @return results - Response from CloudFlare REST API
   #
-
   def get(location, json_data)
 
     response = nil
@@ -124,6 +133,7 @@ class CloudFlareConnection
     end
   end
 
+  # @!method post
   # Handles the POST requests
   # @param location - Location for REST API e.g. /zones/:zone_identifier/dns_records
   # @param json_data - Data paylod for API.
@@ -172,13 +182,13 @@ class CloudFlareConnection
     end
   end
 
+  # @!method put
   # Handles the PUT requests 
   # @param location - Location for REST API e.g. /zones/:zone_identifier/dns_records 
   # @param json_data - Data paylod for API.
   #
   # @return results - Response from CloudFlare REST API
   #
-
   def put(location, json_data)
 
     response = nil
@@ -222,13 +232,13 @@ class CloudFlareConnection
     end
   end
 
+  # @!method delete
   # Handles the DELETE requests
   # @param location - Location for REST API e.g. /zones/:zone_identifier/dns_records/:identifier
   # @param json_data - Data paylod for API.
   #
   # @return results - Response from CloudFlare REST API
   #
-
   def delete(location, json_data)
 
     response = nil
@@ -278,12 +288,11 @@ class CloudFlareConnection
     end
   end
 
+  # @!method api_version
   # Returns the CloudFlareConnection Version
   def api_version
     @api_ver = "v4"
     return @api_ver
   end
-
-
 end
 
