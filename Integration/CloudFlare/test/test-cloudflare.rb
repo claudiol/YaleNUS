@@ -57,7 +57,7 @@ end
 
 ##
 ## Delete CloudFlare DNS Record
-##
+## 
 
 if dns_record_id.nil?
    puts "No DNS record to delete"
