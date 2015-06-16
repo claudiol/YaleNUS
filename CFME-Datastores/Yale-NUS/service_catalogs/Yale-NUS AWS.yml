@@ -1,0 +1,131 @@
+---
+- Yale-NUS AWS:
+    name: Yale-NUS AWS
+    description: ! 'Yale-NUS AWS Services and Provisioning '
+    template:
+    - name: Create AWS Storage Volume
+      description: Amazon EBS Volume Create
+      type: 
+      display: true
+      service_type: atomic
+      prov_type: generic
+      provision_cost: 
+      long_description: ! "<h1> Create Amazon Elastic Block Store </h1>\n<br> This
+        <b>Cloudforms Service Catalog</b> allows you to create an <b>Amazon Elastic
+        Block Store (Amazon EBS)</b> in a specified\n<br> <b>Region</b> and <b> Availability
+        Zone </b>.  \n<br>\n<br> <b> Required Information to create an Amazon EBS
+        </b> volume:\n<br> \n<br>   - <b> Volume Name </b> \n<br>   - <b> Amazon Region
+        </b> \n<br>   - <b> Amazon Availability Zone </b> \n<br>   - <b> Volume Size
+        </b> \n<br>\n<br><b>Amazon Elastic Block Store</b> (Amazon EBS) provides persistent
+        block level storage volumes for use with Amazon \n<br> EC2 instances in the
+        AWS Cloud.  Each Amazon EBS volume is automatically replicated within its
+        Availability \n<br> Zone to protect you from component failure, offering high
+        availability and durability. Amazon EBS volumes offer the \n<br> consistent
+        and low-latency performance needed to run your workloads. With Amazon EBS,
+        you can scale your usage \n<br> up or down within minutes – all while paying
+        a low price for only what you provision.\n<br> "
+      options: {}
+      service_template_catalog_name: Yale-NUS AWS
+      resource_actions:
+      - action: Provision
+        ae_namespace: Yale-NUS/Cloud/VM/Provisioning/StateMachines/Yale-NUS-AWS-Services
+        ae_class: AWS-EBS-Create
+        ae_instance: create_ebs
+        ae_message: 
+        ae_attributes: {}
+        dialog_label: Create EBS Volume
+      - action: Retirement
+        ae_namespace: ''
+        ae_class: 
+        ae_instance: 
+        ae_message: 
+        ae_attributes: {}
+        dialog_label: Create EBS Volume
+      - action: Reconfigure
+        ae_namespace: ''
+        ae_class: 
+        ae_instance: 
+        ae_message: 
+        ae_attributes: {}
+        dialog_label: Create EBS Volume
+      custom_buttons: []
+      custom_button_sets: []
+    - name: Delete AWS Storage Volume
+      description: AWS EBS Volume Delete
+      type: 
+      display: true
+      service_type: atomic
+      prov_type: generic
+      provision_cost: 
+      long_description: ! "<h1><b>Delete an Amazon EBS Volume</b></h1>\n<br> <font
+        size=\"4\">CAUTION: Before deletion, you should store a snapshot of the volume,
+        which you can use to \n  recreate the volume later. Please do this via the
+        AWS Console!</font>\n<br>\n<br> This particular <b> Cloudforms Catalog Item
+        </b> will allow you to delete an <b> Amazon EBS </b> volume after you no \n<br>
+        longer need it. You will see a list of available Amazon EBS volumes that can
+        be deleted. This task will go through\n<br> an approval process prior to deletion.\n<br>\n<br>
+        After deletion, its data is gone and the volume can't be attached to any instance.
+        \n<br>\n"
+      options: {}
+      service_template_catalog_name: Yale-NUS AWS
+      resource_actions:
+      - action: Provision
+        ae_namespace: Yale-NUS/Cloud/VM/Provisioning/StateMachines/Yale-NUS-AWS-Services
+        ae_class: AWS-EBS-Delete
+        ae_instance: AWS-EBS-Delete
+        ae_message: 
+        ae_attributes: {}
+        dialog_label: Delete EBS Volume
+      - action: Retirement
+        ae_namespace: ''
+        ae_class: 
+        ae_instance: 
+        ae_message: 
+        ae_attributes: {}
+        dialog_label: Delete EBS Volume
+      - action: Reconfigure
+        ae_namespace: ''
+        ae_class: 
+        ae_instance: 
+        ae_message: 
+        ae_attributes: {}
+        dialog_label: Delete EBS Volume
+      custom_buttons: []
+      custom_button_sets: []
+    - name: Create Server Instance(s) on AWS
+      description: AWS Provision Instance(s)
+      type: 
+      display: true
+      service_type: atomic
+      prov_type: generic
+      provision_cost: 
+      long_description: ! "<h1>Vision</h1>\n<i>A community of learning,\nFounded by
+        two great universities,\n  In Asia, for the world.</i>\n<br>\n<p> This catalog
+        item will allow you to provision one or more instances to Amazon Web Services
+        (AWS).\n  \n    \n</p>"
+      options: {}
+      service_template_catalog_name: Yale-NUS AWS
+      resource_actions:
+      - action: Provision
+        ae_namespace: Yale-NUS/Cloud/VM/Provisioning/StateMachines/Yale-NUS-AWS-Services
+        ae_class: aws_provision_instance_state_machine
+        ae_instance: aws_provision_instance
+        ae_message: 
+        ae_attributes: {}
+        dialog_label: Yale-NUS AWS Provisioning
+      - action: Reconfigure
+        ae_namespace: ''
+        ae_class: 
+        ae_instance: 
+        ae_message: 
+        ae_attributes: {}
+        dialog_label: Yale-NUS AWS Provisioning
+      - action: Retirement
+        ae_namespace: ''
+        ae_class: 
+        ae_instance: 
+        ae_message: 
+        ae_attributes: {}
+        dialog_label: Yale-NUS AWS Provisioning
+      custom_buttons: []
+      custom_button_sets: []

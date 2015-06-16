@@ -1,0 +1,5 @@
+---
+- AWS S3 Bucket:
+    name: AWS S3 Bucket
+    description: Provision an AWS S3 Bucket
+    template: []

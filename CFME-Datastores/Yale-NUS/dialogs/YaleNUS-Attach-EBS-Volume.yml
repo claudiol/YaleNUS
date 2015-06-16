@@ -1,0 +1,43 @@
+---
+- description: ! 'Attach an EBS Volume to an existing AWS instance. '
+  buttons: submit,cancel
+  label: YaleNUS-Attach-EBS-Volume
+  dialog_tabs:
+  - description: Attach EBS Volume to an existing AWS instance
+    display: edit
+    label: Attach EBS Volume
+    display_method: 
+    display_method_options: 
+    position: 0
+    dialog_groups:
+    - description: 
+      display: edit
+      label: AWS Volumes
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: aws_ebs_volume
+        description: 
+        type: DialogFieldDropDownList
+        data_type: string
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: []
+        values_method: 
+        values_method_options: {}
+        options:
+          :sort_by: :description
+          :sort_order: :ascending
+        label: AWS EBS Volume
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 

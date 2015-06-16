@@ -1,0 +1,44 @@
+---
+- description: 
+  buttons: submit,cancel
+  label: test-aws
+  dialog_tabs:
+  - description: 
+    display: edit
+    label: AWS
+    display_method: 
+    display_method_options: 
+    position: 0
+    dialog_groups:
+    - description: 
+      display: edit
+      label: AWS Info
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: aws_regions
+        description: 
+        type: DialogFieldDynamicList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :load_values_on_init: true
+          :show_refresh_button: true
+        label: AWS Regions
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        resource_action_fqname: /Yale-NUS/Cloud/VM/Provisioning/Methods/AWS-Methods/AWS-EC2-Services/aws-ec2-list-all-regions

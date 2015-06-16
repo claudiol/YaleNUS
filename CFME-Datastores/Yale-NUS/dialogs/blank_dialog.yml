@@ -1,0 +1,5 @@
+---
+- description: 
+  buttons: submit,cancel
+  label: blank_dialog
+  dialog_tabs: []

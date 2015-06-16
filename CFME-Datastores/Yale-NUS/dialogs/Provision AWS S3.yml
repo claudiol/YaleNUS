@@ -1,0 +1,90 @@
+---
+- description: Provision an AWS S3 Bucket
+  buttons: submit,cancel
+  label: Provision AWS S3
+  dialog_tabs:
+  - description: AWS S3 Bucket creation information
+    display: edit
+    label: AWS S3 Service Info
+    display_method: 
+    display_method_options: 
+    position: 0
+    dialog_groups:
+    - description: S3 Bucket Information
+      display: edit
+      label: S3 Bucket Information
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: bucket_name
+        description: Name for the AWS S3 bucket
+        type: DialogFieldTextBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: <Enter S3 Bucket Name>
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :protected: false
+        label: S3 bucket name
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: aws_region
+        description: Region where the AWS S3 bucket will be created
+        type: DialogFieldDynamicList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :load_values_on_init: true
+          :show_refresh_button: true
+        label: AWS EC2 Region
+        position: 1
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        resource_action_fqname: /Customer/claudiol-SA3/Methods/AWS-Methods/AWS-EC2-Services/aws_ec2_allowed_regions
+      - name: email_address
+        description: Email address for the recipient of the AWS S3 bucket
+        type: DialogFieldTextBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: <Enter Requester Email Address>
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :protected: false
+        label: Notification Email Address
+        position: 2
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 

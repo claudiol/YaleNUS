@@ -1,0 +1,23 @@
+---
+- name: RHEL 7.1 cloud-init
+  description: Cloud Init script for RHEL 7
+  script: ! "#cloud-config\n\n<% # Global variables\n    instance_name = evm[:vm_target_name]\n
+    \   root_password = MiqPassword.decrypt(evm[:\"password::dialog_root_password\"])\n
+    \   pub_key = evm[:dialog_pub_key] rescue nil %>\n\nssh_pwauth: True\ndisable_root:
+    False\nchpasswd:\n    list: |\n        root:<%=root_password%>\n    expire: False\n\nssh_authorized_keys:\n<%
+    if pub_key.nil? %>\n    - echo \"WARN --: No public key provided\"\n<% else %>\n
+    \   - <%=pub_key%>\n<% end %>\nbootcmd:\n    - setenforce 0\n  "
+  pxe_image_type_id: 1000000000003
+  type: CustomizationTemplateCloudInit
+  system: 
+- name: make this work
+  description: hope this works
+  script: ! "#cloud-config\n\n<% # Global variables\n    instance_name = evm[:vm_target_name]\n
+    \   root_password = MiqPassword.decrypt(evm[:\"password::dialog_root_password\"])\n
+    \   pub_key = evm[:dialog_pub_key] rescue nil %>\n\nssh_pwauth: True\ndisable_root:
+    False\nchpasswd:\n    list: |\n        root:<%=root_password%>\n    expire: False\n\nssh_authorized_keys:\n<%
+    if pub_key.nil? %>\n    - echo \"WARN --: No public key provided\"\n<% else %>\n
+    \   - <%=pub_key%>\n<% end %>\nbootcmd:\n    - setenforce 0\n  "
+  pxe_image_type_id: 1000000000003
+  type: CustomizationTemplateCloudInit
+  system: 

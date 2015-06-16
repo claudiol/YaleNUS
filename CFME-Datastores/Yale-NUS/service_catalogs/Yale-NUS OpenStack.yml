@@ -1,0 +1,126 @@
+---
+- Yale-NUS OpenStack:
+    name: Yale-NUS OpenStack
+    description: Yale-NUS OpenStack Services and Provisioning
+    template:
+    - name: Create Server Instance(s) on OpenStack
+      description: OpenStack Provision Instance(s)
+      type: 
+      display: true
+      service_type: atomic
+      prov_type: generic
+      provision_cost: 
+      long_description: ! "<h1> Create OpenStack Instance </h1>\n\n<br>The <b>Red
+        Hat® Enterprise Linux® OpenStack® Platform</b> combines the power of \n<br>Red
+        Hat Enterprise Linux with the Red Hat's OpenStack cloud platform \n<br>to
+        deliver a scalable and secure foundation for building a private or public
+        cloud.\n<br>\n<br> The <b> Create OpenStack Instance </b> catalog allows you
+        to provision one or more instances to the <b>YaleNUS OpenStack® </b> environment.\n"
+      options: {}
+      service_template_catalog_name: Yale-NUS OpenStack
+      resource_actions:
+      - action: Reconfigure
+        ae_namespace: ''
+        ae_class: 
+        ae_instance: 
+        ae_message: 
+        ae_attributes: {}
+        dialog_label: Create Server on OpenStack (without sponsor)
+      - action: Retirement
+        ae_namespace: ''
+        ae_class: 
+        ae_instance: 
+        ae_message: 
+        ae_attributes: {}
+        dialog_label: Create Server on OpenStack (without sponsor)
+      - action: Provision
+        ae_namespace: Yale-NUS/Cloud/VM/Provisioning/StateMachines
+        ae_class: OpenStackBuildRequest
+        ae_instance: OpenStackBuildRequest
+        ae_message: 
+        ae_attributes: {}
+        dialog_label: Create Server on OpenStack (without sponsor)
+      custom_buttons: []
+      custom_button_sets: []
+    - name: Create OpenStack Storage Volume
+      description: OpenStack Cinder Volume Create
+      type: 
+      display: true
+      service_type: atomic
+      prov_type: generic
+      provision_cost: 
+      long_description: ! "<h1> Create OpenStack Volume </h1>\n\n<br>The <b>Red Hat®
+        Enterprise Linux® OpenStack® Platform</b> combines the power of \n<br>Red
+        Hat Enterprise Linux with the Red Hat's OpenStack cloud platform \n<br>to
+        deliver a scalable and secure foundation for building a private or public
+        cloud.\n<br>\n<br> The <b> Create OpenStack Volume </b> catalog allows you
+        to create a Cinder volume in the <b>YaleNUS OpenStack® </b> environment. This
+        will\n<br> allow you to attach the volume to an instance at a later time.\n\n"
+      options: {}
+      service_template_catalog_name: Yale-NUS OpenStack
+      resource_actions:
+      - action: Provision
+        ae_namespace: Yale-NUS/Integration/OpenStack/Cinder
+        ae_class: VolumeCreate
+        ae_instance: CatalogItemInvocation
+        ae_message: 
+        ae_attributes: {}
+        dialog_label: Create Cinder Volume
+      - action: Reconfigure
+        ae_namespace: ''
+        ae_class: 
+        ae_instance: 
+        ae_message: 
+        ae_attributes: {}
+        dialog_label: Create Cinder Volume
+      - action: Retirement
+        ae_namespace: ''
+        ae_class: 
+        ae_instance: 
+        ae_message: 
+        ae_attributes: {}
+        dialog_label: Create Cinder Volume
+      custom_buttons: []
+      custom_button_sets: []
+    - name: Delete OpenStack Storage Volume
+      description: OpenStack Cinder Volume Delete
+      type: 
+      display: true
+      service_type: atomic
+      prov_type: generic
+      provision_cost: 
+      long_description: ! "<h1> Delete OpenStack Volume </h1>\n\n<br> <font size=\"4\">CAUTION:
+        Before deletion, you should store a snapshot of the volume, which you can
+        use to recreate the volume later. \n  Please do this via the Horizon Console!
+        </font>\n<br>\n<br>The <b>Cloudforms Delete OpenStack Volume </b> Catalog
+        Item will allow you to delete an OpenStack Cinder volume after you no\n<br>longer
+        need it. You will see a list of available <b>OpenStack Cinder</b> volumes
+        that can be deleted. This task will go through\n<br>an approval process prior
+        to deletion.\n<br>\n<br>After deletion, its data is gone and the volume can't
+        be attached to any instance. "
+      options: {}
+      service_template_catalog_name: Yale-NUS OpenStack
+      resource_actions:
+      - action: Provision
+        ae_namespace: Yale-NUS/Integration/OpenStack/Cinder
+        ae_class: VolumeDelete
+        ae_instance: CatalogItemInvocation
+        ae_message: 
+        ae_attributes: {}
+        dialog_label: Delete Unattached Cinder Volume
+      - action: Reconfigure
+        ae_namespace: ''
+        ae_class: 
+        ae_instance: 
+        ae_message: 
+        ae_attributes: {}
+        dialog_label: Delete Unattached Cinder Volume
+      - action: Retirement
+        ae_namespace: ''
+        ae_class: 
+        ae_instance: 
+        ae_message: 
+        ae_attributes: {}
+        dialog_label: Delete Unattached Cinder Volume
+      custom_buttons: []
+      custom_button_sets: []
