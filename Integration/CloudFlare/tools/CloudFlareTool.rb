@@ -33,6 +33,14 @@ def on_info(message)
   md.destroy
 end
 
+def status_info(message, parent)
+ 
+  md = Gtk::MessageDialog.new :parent => parent, 
+  :flags => :destroy_with_parent, :type => :info, 
+  :buttons_type => :none, :message => "#{message}"
+  return md
+end
+
 
 def on_erro(message)
   
@@ -53,12 +61,38 @@ def on_warn(message)
   md.destroy
 end
 
+def get_dns_records()
+  page_number = 1
+  response = @cfdns.list_all_dns_records(page_number)
 
+  unless response.nil?
+    if response["success"]
+      puts "Success" if @debug
+      records = response['result']
+      result_info = response['result_info']
+      total_count = result_info['total_count']
+      count = result_info['count']
+      
+      #
+      # Check to see if there are more than one page of results ...
+      # CloudFlareDNS only gives you a maximum of 100 records per page.
+      #
+      while count*page_number < total_count
+        page_number += 1
+        response = @cfdns.list_all_dns_records(page_number)
+        records += response['result']
+      end 
+      puts "Total Records: #{total_count} Count: #{count}" if @debug
+    end 
+  end
+  return records
+end
 
 options={}
 options[:config_file] = '../test/cloudflare-config.yaml'
 	
 window = Gtk::Window.new("CloudFlareDNS Tool")
+window.realize
 window.border_width = 0
 	
 box1 = Gtk::Box.new(:vertical, 0)
@@ -87,33 +121,15 @@ treeview.append_column(column3)
 treeview.selection.set_mode(:single)
 scrolled_win.add_with_viewport(treeview)
 
+watch = Gdk::Cursor.new(:watch)
+arrow = Gdk::Cursor.new(:arrow)
+
 # Lets use the CloudFlareDNS to get DNS records ...	
-cfdns = CloudFlareDNS.new(options)
+@cfdns = CloudFlareDNS.new(options)
 
-page_number = 1
-response = cfdns.list_all_dns_records(page_number)
+window.window.set_cursor(watch)
 
-unless response.nil?
-  if response["success"]
-    puts "Success" if @debug
-    records = response['result']
-    result_info = response['result_info']
-    total_count = result_info['total_count']
-    count = result_info['count']
-    
-    #
-    # Check to see if there are more than one page of results ...
-    # CloudFlareDNS only gives you a maximum of 100 records per page.
-    #
-    while count*page_number < total_count
-      page_number += 1
-      response = cfdns.list_all_dns_records(page_number)
-      records += response['result']
-    end 
-    puts "Total Records: #{total_count} Count: #{count}" if @debug
-  end 
-end
-
+records = get_dns_records()
 unless records.nil?
   records.each do |dns_record|
     iter = model.append
@@ -124,8 +140,10 @@ unless records.nil?
     iter.set_value(2, dns_record['id'])
   end
 else
-  on_warn("No records retireved from CloudFlareDNS service")
+  on_warn("No records retrieved from CloudFlareDNS service")
 end
+
+window.window.set_cursor(arrow)
 
 # Phase 2 functionality ;-)
 #button = Gtk::Button.new(:label => "add")
@@ -140,9 +158,31 @@ end
 	
 #box2.pack_start(button, false, true, 0)
 
+refresh_button = Gtk::Button.new(:label => "Refresh List")
+refresh_button.can_focus=true
+refresh_button.signal_connect("clicked") do
+  records = get_dns_records()
+  model.clear
+  unless records.nil?
+    records.each do |dns_record|
+      iter = model.append
+  
+      # Add the DNS record data to the model
+      iter.set_value(0, dns_record['name'])
+      iter.set_value(1, dns_record['content'])
+      iter.set_value(2, dns_record['id'])
+    end
+    on_info("All records retrieved from CloudFlareDNS service successfully")
+  else
+    on_warn("No records retrieved from CloudFlareDNS service")
+  end
+end
+box2.pack_start(refresh_button, false, true, 0)
+
 button = Gtk::Button.new(:label => "Remove DNS Entry")
 button.can_focus=true
 button.signal_connect("clicked") do
+  window.window.set_cursor(watch)
   iter = treeview.selection.selected
 
   unless iter.nil?
@@ -153,19 +193,17 @@ button.signal_connect("clicked") do
     
     if on_ques ( "Are you sure to delete DNS Record [" + dns_name + " " + dns_ip + " " + dns_record_id + "]" )
       puts "Deleting DNS record: #{dns_record_id}" if @debug
-      response = cfdns.delete_cloudflare_dns_record ( dns_record_id)
+      response = @cfdns.delete_cloudflare_dns_record ( dns_record_id)
       
       if response['success']
-        puts "Deleted record successully #{dns_record_id}" 
         model.remove(iter) if iter
+        on_info "Deleted record successully #{dns_record_id}" 
       end
-    else
-      puts "no"
     end
   else
     on_warn("No record selected to remove.")
   end
-
+  window.window.set_cursor(arrow)
 end
 
 box2.pack_start(button, false, true, 0)
@@ -189,7 +227,8 @@ box2.pack_start(button, true, true, 0)
 button.can_default=true
 button.grab_default
 
-window.set_default_size(300, 300)
+window.set_default_size(600, 400)
 window.show_all
 
+window.window.set_cursor(arrow)
 Gtk.main
