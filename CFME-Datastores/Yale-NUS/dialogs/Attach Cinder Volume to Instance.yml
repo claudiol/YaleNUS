@@ -1,0 +1,44 @@
+---
+- description: Attach a Cinder Volume to an existing instance
+  buttons: submit,cancel
+  label: Attach Cinder Volume to Instance
+  dialog_tabs:
+  - description: OpenStack Info
+    display: edit
+    label: OpenStack Info
+    display_method: 
+    display_method_options: 
+    position: 0
+    dialog_groups:
+    - description: OpenStack Volume
+      display: edit
+      label: OpenStack Volume
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: cinder_volume_id
+        description: List of OpenStack Volumes
+        type: DialogFieldDynamicList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :load_values_on_init: false
+          :show_refresh_button: false
+        label: OpenStack Volume
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        resource_action_fqname: /Yale-NUS/ServiceDialog/Methods/populateUnattachedCinderVolumes

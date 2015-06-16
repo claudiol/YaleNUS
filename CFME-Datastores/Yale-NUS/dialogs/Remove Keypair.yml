@@ -1,0 +1,41 @@
+---
+- description: Remove Keypair
+  buttons: submit,cancel
+  label: Remove Keypair
+  dialog_tabs:
+  - description: User
+    display: edit
+    label: User
+    display_method: 
+    display_method_options: 
+    position: 0
+    dialog_groups:
+    - description: Remove Keypair
+      display: edit
+      label: Remove Keypair
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: remove_keys
+        description: This cannot be undone, but you can then add more keys.
+        type: DialogFieldCheckBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: f
+        values: 
+        values_method: 
+        values_method_options: {}
+        options: {}
+        label: Are you sure you want to permanently remove your key!
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 

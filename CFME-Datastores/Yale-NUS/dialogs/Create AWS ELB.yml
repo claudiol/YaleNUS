@@ -1,0 +1,140 @@
+---
+- description: Create Dialog for an Amazon Elastic Load Balancer
+  buttons: submit,cancel
+  label: Create AWS ELB
+  dialog_tabs:
+  - description: Amazon ELB Provisioning Info
+    display: edit
+    label: Amazon Elastic Load Balancer Service
+    display_method: 
+    display_method_options: 
+    position: 0
+    dialog_groups:
+    - description: ELB Information
+      display: edit
+      label: ELB Information
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: elb_name
+        description: Name for the Elastic Load Balancer
+        type: DialogFieldTextBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :protected: false
+        label: ELB Name
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: aws_region
+        description: Amazon region where we should create the ELB
+        type: DialogFieldDynamicList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :load_values_on_init: false
+          :show_refresh_button: true
+        label: Target Amazon Region
+        position: 1
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        resource_action_fqname: /claudiol-SA3/Methods/AWS-Methods/AWS-EC2-Services/AWS-Regions
+      - name: availability_zone
+        description: Choose target Availability Zone
+        type: DialogFieldDynamicList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :load_values_on_init: false
+          :show_refresh_button: true
+        label: Target Availability Zone
+        position: 2
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        resource_action_fqname: /claudiol-SA3/Methods/AWS-Methods/AWS-EC2-Services/aws_ec2_availability_zones
+      - name: aws_vpc
+        description: VPC to attach to the ELB
+        type: DialogFieldDynamicList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :load_values_on_init: true
+          :show_refresh_button: true
+        label: AWS VPCs
+        position: 3
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        resource_action_fqname: /claudiol-SA3/Methods/AWS-Methods/AWS-EC2-Services/aws_ec2_vpcs
+      - name: email_address
+        description: Email address of the requester
+        type: DialogFieldTextBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :protected: false
+        label: Requester Email Address
+        position: 4
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 

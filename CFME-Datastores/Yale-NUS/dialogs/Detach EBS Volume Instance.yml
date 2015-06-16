@@ -1,0 +1,45 @@
+---
+- description: Detach EBS Volume from Attached Instance
+  buttons: submit,cancel
+  label: Detach EBS Volume Instance
+  dialog_tabs:
+  - description: Amazon Info
+    display: edit
+    label: Amazon Info
+    display_method: 
+    display_method_options: 
+    position: 0
+    dialog_groups:
+    - description: ! 'Action - This will detach the selected EBS Volume from you instance. '
+      display: edit
+      label: AWS Instance EBS Volume Information - This will detach the selected EBS
+        Volume from you instance
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: aws_ec2_ebs_list_attachments
+        description: List All EBS
+        type: DialogFieldDynamicList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :load_values_on_init: false
+          :show_refresh_button: true
+        label: Attached EBS Volume List
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        resource_action_fqname: /Yale-NUS/Cloud/VM/Provisioning/Methods/AWS-Methods/YaleNUS-AWS-EC2-Services/aws_ec2_ebs_list_attachments

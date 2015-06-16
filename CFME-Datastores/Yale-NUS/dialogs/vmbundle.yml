@@ -1,0 +1,42 @@
+---
+- description: vmbundle
+  buttons: submit,cancel
+  label: vmbundle
+  dialog_tabs:
+  - description: 
+    display: edit
+    label: Details
+    display_method: 
+    display_method_options: 
+    position: 0
+    dialog_groups:
+    - description: 
+      display: edit
+      label: Details
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: order_product_id
+        description: 
+        type: DialogFieldTextBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :protected: false
+        label: order_product_id
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 

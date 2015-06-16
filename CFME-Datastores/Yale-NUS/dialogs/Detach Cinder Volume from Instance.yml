@@ -1,0 +1,44 @@
+---
+- description: Remove an attached disk from an instance
+  buttons: submit,cancel
+  label: Detach Cinder Volume from Instance
+  dialog_tabs:
+  - description: 
+    display: edit
+    label: Disk selection
+    display_method: 
+    display_method_options: 
+    position: 0
+    dialog_groups:
+    - description: 
+      display: edit
+      label: Main
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: cinder_volume_id
+        description: Select a disk for removal from this VM
+        type: DialogFieldDynamicList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :load_values_on_init: false
+          :show_refresh_button: false
+        label: Select disk to remove
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        resource_action_fqname: /Yale-NUS/ServiceDialog/Methods/populateAttachedCinderVolumes

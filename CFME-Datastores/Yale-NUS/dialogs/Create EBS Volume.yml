@@ -1,0 +1,136 @@
+---
+- description: Create EBS Volume
+  buttons: submit,cancel
+  label: Create EBS Volume
+  dialog_tabs:
+  - description: Amazon Info
+    display: edit
+    label: Amazon Info
+    display_method: 
+    display_method_options: 
+    position: 0
+    dialog_groups:
+    - description: Amazon EBS
+      display: edit
+      label: Amazon EBS
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: aws_region
+        description: Amazon Region
+        type: DialogFieldDynamicList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :load_values_on_init: false
+          :show_refresh_button: true
+        label: Amazon Region
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        resource_action_fqname: /Yale-NUS/Cloud/VM/Provisioning/Methods/AWS-Methods/YaleNUS-AWS-EC2-Services/aws_ec2_all_regions
+      - name: availability_zone
+        description: Amazon Availability Zone
+        type: DialogFieldDynamicList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :load_values_on_init: false
+          :show_refresh_button: true
+        label: Amazon Availability Zone
+        position: 1
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        resource_action_fqname: /Yale-NUS/Cloud/VM/Provisioning/Methods/AWS-Methods/YaleNUS-AWS-EC2-Services/aws_availability_zones
+      - name: aws_ebs_volume_name
+        description: EBS Volume Name For Tagging
+        type: DialogFieldTextBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: ! '&lt;volume_name&gt;'
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :protected: false
+        label: EBS Volume Name
+        position: 2
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: ebs_size
+        description: EBS Size
+        type: DialogFieldDropDownList
+        data_type: integer
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: '50'
+        values:
+        - - '50'
+          - 50GB
+        - - '100'
+          - 100GB
+        - - '150'
+          - 150GB
+        - - '200'
+          - 200GB
+        - - '250'
+          - 250GB
+        - - '300'
+          - 300GB
+        - - '350'
+          - 350GB
+        - - '400'
+          - 400GB
+        - - '450'
+          - 450GB
+        - - '500'
+          - 500GB
+        values_method: 
+        values_method_options: {}
+        options:
+          :sort_by: :value
+          :sort_order: :ascending
+        label: EBS Size
+        position: 3
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 

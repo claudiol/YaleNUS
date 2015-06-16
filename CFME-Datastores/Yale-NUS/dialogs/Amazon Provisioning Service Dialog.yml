@@ -1,0 +1,290 @@
+---
+- description: 
+  buttons: submit,cancel
+  label: Amazon Provisioning Service Dialog
+  dialog_tabs:
+  - description: Amazon Instance Information
+    display: edit
+    label: Amazon Provisioning
+    display_method: 
+    display_method_options: 
+    position: 0
+    dialog_groups:
+    - description: Amazon Instance Information
+      display: edit
+      label: Instance Information
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: instance_name
+        description: Amazon Instance Name
+        type: DialogFieldTextBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :protected: false
+        label: Instance Name
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: number_instances
+        description: Number of instances to Launch
+        type: DialogFieldDropDownList
+        data_type: string
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values:
+        - - '1'
+          - '1'
+        - - '10'
+          - '10'
+        - - '11'
+          - '11'
+        - - '12'
+          - '12'
+        - - '13'
+          - '13'
+        - - '14'
+          - '14'
+        - - '15'
+          - '15'
+        - - '16'
+          - '16'
+        - - '17'
+          - '17'
+        - - '18'
+          - '18'
+        - - '19'
+          - '19'
+        - - '2'
+          - '2'
+        - - '20'
+          - '20'
+        - - '3'
+          - '3'
+        - - '4'
+          - '4'
+        - - '5'
+          - '5'
+        - - '6'
+          - '6'
+        - - '7'
+          - '7'
+        - - '8'
+          - '8'
+        - - '9'
+          - '9'
+        values_method: 
+        values_method_options: {}
+        options:
+          :sort_by: :description
+          :sort_order: :ascending
+        label: Number of Instances
+        position: 1
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: aws_region
+        description: Amazon Region
+        type: DialogFieldDynamicList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :load_values_on_init: false
+          :show_refresh_button: true
+        label: Amazon Region
+        position: 2
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        resource_action_fqname: /Yale-NUS/Cloud/VM/Provisioning/Methods/AWS-Methods/AWS-EC2-Services/aws_ec2_regions
+      - name: aws_availability_zone
+        description: Amazon Availability Zone
+        type: DialogFieldDynamicList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :load_values_on_init: false
+          :show_refresh_button: true
+        label: Availability Zone
+        position: 3
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        resource_action_fqname: /Yale-NUS/Cloud/VM/Provisioning/Methods/AWS-Methods/AWS-EC2-Services/aws_ec2_availability_zones
+      - name: aws_subnet
+        description: 
+        type: DialogFieldDynamicList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :load_values_on_init: false
+          :show_refresh_button: true
+        label: Amazon Subnet
+        position: 4
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        resource_action_fqname: /Yale-NUS/Cloud/VM/Provisioning/Methods/AWS-Methods/AWS-EC2-Services/aws_ec2_subnets
+      - name: instance_type
+        description: Amazon Instance Type
+        type: DialogFieldDropDownList
+        data_type: string
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values:
+        - - m1.small
+          - small instance
+        - - t1.micro
+          - micro instance
+        values_method: 
+        values_method_options: {}
+        options:
+          :sort_by: :value
+          :sort_order: :ascending
+        label: Instance Type
+        position: 5
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: guest_access_key_pair
+        description: 
+        type: DialogFieldDropDownList
+        data_type: string
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values:
+        - - Test-Pair
+          - SSH Key
+        - - another-pair
+          - Second SSH Key
+        values_method: 
+        values_method_options: {}
+        options:
+          :sort_by: :description
+          :sort_order: :ascending
+        label: SSH Key Pair
+        position: 6
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: template
+        description: Amazon Image
+        type: DialogFieldDropDownList
+        data_type: string
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values:
+        - - Another Image
+          - Another Image
+        - - RedHatImage
+          - Red Hat 6 Image
+        values_method: 
+        values_method_options: {}
+        options:
+          :sort_by: :description
+          :sort_order: :ascending
+        label: Amazon Image
+        position: 7
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: aws_check_box
+        description: 
+        type: DialogFieldDynamicList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :load_values_on_init: false
+          :show_refresh_button: true
+        label: VPC
+        position: 8
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        resource_action_fqname: /claudiol-SA3/Methods/AWS-Methods/AWS-EC2-Services/aws_ec2_vpcs

@@ -1,0 +1,42 @@
+---
+- description: Create and Attach Dialog for an Amazon Elastic Load Balancer
+  buttons: submit,cancel
+  label: Create Attach ELB
+  dialog_tabs:
+  - description: Amazon ELB Provisioning Info
+    display: edit
+    label: Amazon Elastic Load Balancer Service
+    display_method: 
+    display_method_options: 
+    position: 0
+    dialog_groups:
+    - description: ELB Information
+      display: edit
+      label: ELB Information
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: elb_name
+        description: Name for the Elastic Load Balancer
+        type: DialogFieldTextBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :protected: false
+        label: ELB Name
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 

@@ -1,0 +1,118 @@
+---
+- description: Provision Amazon VPC
+  buttons: submit,cancel
+  label: Provision AWS VPC
+  dialog_tabs:
+  - description: Amazon VPC
+    display: edit
+    label: ! 'Amazon VPC '
+    display_method: 
+    display_method_options: 
+    position: 0
+    dialog_groups:
+    - description: Information required for VPC
+      display: edit
+      label: VPC Information
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: aws_region
+        description: Amazon Region to create VPC
+        type: DialogFieldDynamicList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :load_values_on_init: true
+          :show_refresh_button: true
+        label: Amazon Region
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        resource_action_fqname: /claudiol-SA3/Methods/AWS-Methods/AWS-EC2-Services/AWS-Regions
+      - name: cidr_block
+        description: CIDR Block
+        type: DialogFieldTextBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: ! '&lt;Enter CIDR Block&gt;'
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :protected: false
+        label: CIDR Block
+        position: 1
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: tenancy
+        description: ! 'Choose Tenenacy: default or dedicated'
+        type: DialogFieldDropDownList
+        data_type: string
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: default
+        values:
+        - - dedicated
+          - Dedicated Tenancy
+        - - default
+          - Default Tenancy
+        values_method: 
+        values_method_options: {}
+        options:
+          :sort_by: :description
+          :sort_order: :ascending
+        label: Tenancy
+        position: 2
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: email_address
+        description: Email Address
+        type: DialogFieldTextBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: claudiol@redhat.com
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :protected: false
+        label: Email
+        position: 3
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 

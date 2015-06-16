@@ -1,0 +1,41 @@
+---
+- description: Add Self Service keypair to AWS
+  buttons: submit,cancel
+  label: Add Keypair Self Service
+  dialog_tabs:
+  - description: User Info
+    display: edit
+    label: User Info
+    display_method: 
+    display_method_options: 
+    position: 0
+    dialog_groups:
+    - description: Key Info - This will overwrite any current key!
+      display: edit
+      label: Key Info - This will overwrite any current key!
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: ssh_key
+        description: ! 'Your OpenSSH Public key - Begins with: ssh-rsa AAAAB3NzaC1yc2EA'
+        type: DialogFieldTextAreaBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options: {}
+        label: Your OpenSSH Public Key
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 

@@ -1,0 +1,260 @@
+---
+- description: For provisioning a generic server or servers
+  buttons: submit,cancel
+  label: Create Server on OpenStack (without sponsor)
+  dialog_tabs:
+  - description: General Information
+    display: edit
+    label: General
+    display_method: 
+    display_method_options: 
+    position: 0
+    dialog_groups:
+    - description: Service Information
+      display: edit
+      label: Service
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: service_name
+        description: Name of the service
+        type: DialogFieldTextBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :protected: false
+        label: Name*
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: project
+        description: The project to attribute this resource to
+        type: DialogFieldDynamicList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :load_values_on_init: false
+          :show_refresh_button: true
+        label: Project*
+        position: 1
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        resource_action_fqname: /Yale-NUS/ServiceDialog/Methods/populateProjects
+    - description: Virtual Machine Details
+      display: edit
+      label: Virtual Machines
+      display_method: 
+      display_method_options: 
+      position: 1
+      dialog_fields:
+      - name: vm_qty
+        description: Number of VMs to be provisioned under this service.
+        type: DialogFieldDropDownList
+        data_type: string
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values:
+        - - '1'
+          - '1'
+        - - '2'
+          - '2'
+        - - '3'
+          - '3'
+        - - '4'
+          - '4'
+        - - '5'
+          - '5'
+        - - '6'
+          - '6'
+        - - '7'
+          - '7'
+        - - '8'
+          - '8'
+        - - '9'
+          - '9'
+        values_method: 
+        values_method_options: {}
+        options:
+          :sort_by: :description
+          :sort_order: :ascending
+        label: Quantity*
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: vm_name
+        description: Naming scheme for the VMs in this service. If only one VM is
+          provisioned, then the name will be , if
+        type: DialogFieldTextBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :protected: false
+        label: Name*
+        position: 1
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: image
+        description: The type of image to provision, typically associated with different
+          OS types, but can be anything wi
+        type: DialogFieldDynamicList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :load_values_on_init: false
+          :show_refresh_button: true
+        label: Image Type*
+        position: 2
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        resource_action_fqname: /Yale-NUS/ServiceDialog/Methods/populateOpenStackImageTypes
+      - name: vm_size
+        description: Size of the instances corresponding to the types in AWS (e.g.,
+          m2.micro, m1.small, etc., but display
+        type: DialogFieldDynamicList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :load_values_on_init: false
+          :show_refresh_button: true
+        label: Size*
+        position: 3
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        resource_action_fqname: /Yale-NUS/ServiceDialog/Methods/populateOpenStackInstanceSizes
+      - name: root_password
+        description: Enter Root Password Here
+        type: DialogFieldTextBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :protected: true
+        label: Root Password
+        position: 4
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: pub_key
+        description: Public key to SSH into the box
+        type: DialogFieldTextAreaBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options: {}
+        label: SSH Public Key
+        position: 5
+        validator_type: 
+        validator_rule: 
+        reconfigurable: true
+      - name: retirement_date
+        description: Date to retire this machine
+        type: DialogFieldDateControl
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :show_past_dates: false
+        label: Retirement Date
+        position: 6
+        validator_type: 
+        validator_rule: 
+        reconfigurable: false

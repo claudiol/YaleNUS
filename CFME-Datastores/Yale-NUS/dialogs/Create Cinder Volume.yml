@@ -1,0 +1,88 @@
+---
+- description: Create a Cinder Volume on OpenStack
+  buttons: submit,cancel
+  label: Create Cinder Volume
+  dialog_tabs:
+  - description: Enter new disk details
+    display: edit
+    label: New Disk Details
+    display_method: 
+    display_method_options: 
+    position: 0
+    dialog_groups:
+    - description: Entries for details
+      display: edit
+      label: Detail Entry
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: cinder_volume_name
+        description: Name of volume to create
+        type: DialogFieldTextBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :protected: false
+        label: Name*
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: cinder_volume_size
+        description: Enter size of desired disk in GB
+        type: DialogFieldTextBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: '10'
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :protected: false
+        label: Desired Size (GB)*
+        position: 1
+        validator_type: regex
+        validator_rule: \d+
+        reconfigurable: 
+      - name: cinder_volume_description
+        description: Description of the new volume
+        type: DialogFieldTextBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :protected: false
+        label: Description
+        position: 2
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 

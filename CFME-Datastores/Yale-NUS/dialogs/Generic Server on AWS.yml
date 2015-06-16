@@ -1,0 +1,314 @@
+---
+- description: For provisioning a generic server or servers
+  buttons: submit,cancel
+  label: Generic Server on AWS
+  dialog_tabs:
+  - description: General Information
+    display: edit
+    label: General
+    display_method: 
+    display_method_options: 
+    position: 0
+    dialog_groups:
+    - description: Application Information
+      display: edit
+      label: Application
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: app_name
+        description: Name of the application
+        type: DialogFieldTextBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :protected: false
+        label: Name*
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: project
+        description: VMs provisioned will be tagged to this project
+        type: DialogFieldTextBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :protected: false
+        label: Project*
+        position: 1
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: ems
+        description: Provider (and location) of the instances
+        type: DialogFieldDynamicList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :load_values_on_init: false
+          :show_refresh_button: false
+        label: Provider*
+        position: 2
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        resource_action_fqname: /Yale-NUS/ServiceDialog/Methods/populateAwsProviders
+    - description: Virtual Machine Details
+      display: edit
+      label: Virtual Machines
+      display_method: 
+      display_method_options: 
+      position: 1
+      dialog_fields:
+      - name: vm_qty
+        description: Number of VMs to be provisioned under this service.
+        type: DialogFieldDropDownList
+        data_type: string
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values:
+        - - '1'
+          - '1'
+        - - '10'
+          - '10'
+        - - '2'
+          - '2'
+        - - '3'
+          - '3'
+        - - '4'
+          - '4'
+        - - '5'
+          - '5'
+        - - '6'
+          - '6'
+        - - '7'
+          - '7'
+        - - '8'
+          - '8'
+        - - '9'
+          - '9'
+        values_method: 
+        values_method_options: {}
+        options:
+          :sort_by: :value
+          :sort_order: :ascending
+        label: Quantity*
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: vm_name
+        description: Naming scheme for the VMs in this service. If only one VM is
+          provisioned, then the name will be , if
+        type: DialogFieldTextBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :protected: false
+        label: Name*
+        position: 1
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: image
+        description: The type of image to provision, typically associated with different
+          OS types, but can be anything wi
+        type: DialogFieldDynamicList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :load_values_on_init: false
+          :show_refresh_button: true
+        label: Image Type*
+        position: 2
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        resource_action_fqname: /Yale-NUS/ServiceDialog/Methods/populateImageTypes
+      - name: vm_size
+        description: Size of the instances corresponding to the types in AWS (e.g.,
+          m2.micro, m1.small, etc., but display
+        type: DialogFieldDynamicList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :load_values_on_init: false
+          :show_refresh_button: true
+        label: Size*
+        position: 3
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        resource_action_fqname: /Yale-NUS/ServiceDialog/Methods/populateInstanceSizes
+      - name: root_password
+        description: Enter root password here
+        type: DialogFieldTextBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :protected: true
+        label: Root Password
+        position: 4
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: pub_key
+        description: 
+        type: DialogFieldTextAreaBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options: {}
+        label: SSH Public Key
+        position: 5
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+    - description: 
+      display: edit
+      label: Metadata
+      display_method: 
+      display_method_options: 
+      position: 2
+      dialog_fields:
+      - name: description
+        description: Free text description of this service
+        type: DialogFieldTextAreaBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options: {}
+        label: Description
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: tags
+        description: Comma-separated list of tags to assign to this service
+        type: DialogFieldTextBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :protected: false
+        label: Tags
+        position: 1
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 

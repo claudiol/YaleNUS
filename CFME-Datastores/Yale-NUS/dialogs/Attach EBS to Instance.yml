@@ -1,0 +1,69 @@
+---
+- description: Attach an EBS Volume to an existing instance
+  buttons: submit,cancel
+  label: Attach EBS to Instance
+  dialog_tabs:
+  - description: Amazon Info
+    display: edit
+    label: Amazon Info
+    display_method: 
+    display_method_options: 
+    position: 0
+    dialog_groups:
+    - description: Amazon EBS
+      display: edit
+      label: Amazon EBS
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: aws_list_ebs
+        description: List all Amazon EBS
+        type: DialogFieldDynamicList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :load_values_on_init: false
+          :show_refresh_button: true
+        label: AWS EBS
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        resource_action_fqname: /Yale-NUS/Cloud/VM/Provisioning/Methods/AWS-Methods/YaleNUS-AWS-EC2-Services/aws_ec2_ebs_list_available_button
+      - name: ebs_device_list
+        description: List All available devices
+        type: DialogFieldDynamicList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :load_values_on_init: false
+          :show_refresh_button: true
+        label: EBS Device List
+        position: 1
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        resource_action_fqname: /Yale-NUS/Cloud/VM/Provisioning/Methods/AWS-Methods/YaleNUS-AWS-EC2-Services/aws_ec2_ebs_device_list

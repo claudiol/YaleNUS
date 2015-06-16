@@ -1,0 +1,298 @@
+---
+:custom_buttons_sets:
+- name: OpenStack|Vm|
+  description: OpenStack Services
+  set_type: CustomButtonSet
+  read_only: 
+  mode: 
+  custom_buttons:
+  - description: Allow external access to this machine
+    applies_to_class: Vm
+    applies_to_exp: 
+    options:
+      :button_image: 3
+      :display: true
+    userid: admin
+    wait_for_complete: 
+    name: Assign Floating IP
+    visibility:
+      :roles:
+      - _ALL_
+    applies_to_id: 
+    resource_actions:
+      action: 
+      ae_namespace: SYSTEM
+      ae_class: PROCESS
+      ae_instance: Request
+      ae_message: create
+      ae_attributes:
+        request: floating_ip_attach
+      dialog_label: Attach Floating IP to Instance
+  - description: Release Floating IP
+    applies_to_class: Vm
+    applies_to_exp: 
+    options:
+      :button_image: 8
+      :display: true
+    userid: admin
+    wait_for_complete: 
+    name: Release Floating IP
+    visibility:
+      :roles:
+      - _ALL_
+    applies_to_id: 
+    resource_actions:
+      action: 
+      ae_namespace: SYSTEM
+      ae_class: PROCESS
+      ae_instance: Request
+      ae_message: create
+      ae_attributes:
+        request: floating_ip_detach
+  - description: Attach a Cinder Volume to the Instance
+    applies_to_class: Vm
+    applies_to_exp: 
+    options:
+      :button_image: 2
+      :display: true
+    userid: admin
+    wait_for_complete: 
+    name: Attach Volume to Instance
+    visibility:
+      :roles:
+      - _ALL_
+    applies_to_id: 
+    resource_actions:
+      action: 
+      ae_namespace: SYSTEM
+      ae_class: PROCESS
+      ae_instance: Request
+      ae_message: create
+      ae_attributes:
+        request: attach_disk_btn
+      dialog_label: Attach Cinder Volume to Instance
+  - description: Detach an existing disk from the system
+    applies_to_class: Vm
+    applies_to_exp: 
+    options:
+      :button_image: 8
+      :display: true
+    userid: admin
+    wait_for_complete: 
+    name: Detach Volume from Instance
+    visibility:
+      :roles:
+      - _ALL_
+    applies_to_id: 
+    resource_actions:
+      action: 
+      ae_namespace: SYSTEM
+      ae_class: PROCESS
+      ae_instance: Request
+      ae_message: create
+      ae_attributes:
+        request: detach_disk_btn
+      dialog_label: Detach Cinder Volume from Instance
+  - description: Add a disk to this VM
+    applies_to_class: Vm
+    applies_to_exp: 
+    options:
+      :button_image: 12
+      :display: true
+    userid: admin
+    wait_for_complete: 
+    name: Create and Attach New Disk
+    visibility:
+      :roles:
+      - _ALL_
+    applies_to_id: 
+    resource_actions:
+      action: 
+      ae_namespace: SYSTEM
+      ae_class: PROCESS
+      ae_instance: Request
+      ae_message: create
+      ae_attributes:
+        request: create_disk_btn
+      dialog_label: Create Cinder Volume
+  set_data:
+    :button_order:
+    - Attach Volume to Instance
+    - Create and Attach New Disk
+    - Detach Volume from Instance
+    - Assign Floating IP
+    - Release Floating IP
+    :button_image: 3
+    :display: true
+    :group_index: 1
+- name: Amazon|Vm|
+  description: Amazon Services
+  set_type: CustomButtonSet
+  read_only: 
+  mode: 
+  custom_buttons:
+  - description: Attach EBS Volume to Instance
+    applies_to_class: Vm
+    applies_to_exp: 
+    options:
+      :button_image: 2
+      :display: true
+    userid: admin
+    wait_for_complete: 
+    name: Attach EBS Volume to Instance
+    visibility:
+      :roles:
+      - _ALL_
+    applies_to_id: 
+    resource_actions:
+      action: 
+      ae_namespace: SYSTEM
+      ae_class: PROCESS
+      ae_instance: Request
+      ae_message: create
+      ae_attributes:
+        request: AttachEBSInstance
+      dialog_label: Attach EBS to Instance
+  - description: Detach EBS From Instance
+    applies_to_class: Vm
+    applies_to_exp: 
+    options:
+      :button_image: 8
+      :display: true
+    userid: admin
+    wait_for_complete: 
+    name: Detach EBS From Instance
+    visibility:
+      :roles:
+      - _ALL_
+    applies_to_id: 
+    resource_actions:
+      action: 
+      ae_namespace: SYSTEM
+      ae_class: PROCESS
+      ae_instance: Request
+      ae_message: create
+      ae_attributes:
+        request: DetachEBSInstance
+      dialog_label: Detach EBS Volume Instance
+  - description: Create and Attach EBS Volume
+    applies_to_class: Vm
+    applies_to_exp: 
+    options:
+      :button_image: 12
+      :display: true
+    userid: admin
+    wait_for_complete: 
+    name: Create and Attach EBS Volume
+    visibility:
+      :roles:
+      - _ALL_
+    applies_to_id: 
+    resource_actions:
+      action: 
+      ae_namespace: SYSTEM
+      ae_class: PROCESS
+      ae_instance: Request
+      ae_message: create
+      ae_attributes:
+        request: CreateAttachEBSVolumeButton
+      dialog_label: Create and Attach EBS Volume Button
+  set_data:
+    :button_order:
+    - Detach EBS From Instance
+    - Create and Attach EBS Volume
+    - Attach EBS Volume to Instance
+    :button_image: 14
+    :display: true
+    :group_index: 3
+- name: CD-ROM|Vm|
+  description: CD-ROM
+  set_type: CustomButtonSet
+  read_only: 
+  mode: 
+  custom_buttons:
+  - description: ! 'Mount: rhel-server-7.0-x86_64'
+    applies_to_class: Vm
+    applies_to_exp: 
+    options:
+      :button_image: 12
+      :display: true
+    userid: admin
+    wait_for_complete: 
+    name: ! 'Mount: rhel-server-7.0-x86_64'
+    visibility:
+      :roles:
+      - _ALL_
+    applies_to_id: 
+    resource_actions:
+      action: 
+      ae_namespace: SYSTEM
+      ae_class: PROCESS
+      ae_instance: Request
+      ae_message: create
+      ae_attributes:
+        datastore: datastore1
+        filename: ISO/rhel-server-7.0-x86_64-dvd.iso
+        operation: mount
+        request: CDROM_Mount
+  - description: Unmount
+    applies_to_class: Vm
+    applies_to_exp: 
+    options:
+      :button_image: 8
+      :display: true
+    userid: admin
+    wait_for_complete: 
+    name: Unmount
+    visibility:
+      :roles:
+      - _ALL_
+    applies_to_id: 
+    resource_actions:
+      action: 
+      ae_namespace: SYSTEM
+      ae_class: PROCESS
+      ae_instance: Request
+      ae_message: create
+      ae_attributes:
+        request: CDROM_unmount
+  set_data:
+    :button_order:
+    - ! 'Mount: rhel-server-7.0-x86_64'
+    - Unmount
+    :button_image: 5
+    :display: true
+    :group_index: 4
+- name: Provisioned|Vm|
+  description: Provisioned
+  set_type: CustomButtonSet
+  read_only: 
+  mode: 
+  custom_buttons:
+  - description: Complete Post-Provisioning
+    applies_to_class: Vm
+    applies_to_exp: 
+    options:
+      :button_image: 12
+      :display: true
+    userid: admin
+    wait_for_complete: 
+    name: Complete Post-Provisioning
+    visibility:
+      :roles:
+      - EvmRole-super_administrator
+    applies_to_id: 
+    resource_actions:
+      action: 
+      ae_namespace: SYSTEM
+      ae_class: PROCESS
+      ae_instance: Request
+      ae_message: create
+      ae_attributes:
+        request: CompletePostProvision
+  set_data:
+    :button_order:
+    - Complete Post-Provisioning
+    :button_image: 3
+    :display: true
+    :group_index: 1

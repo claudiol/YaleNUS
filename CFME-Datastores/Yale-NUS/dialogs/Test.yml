@@ -1,0 +1,66 @@
+---
+- description: test
+  buttons: submit,cancel
+  label: Test
+  dialog_tabs:
+  - description: 
+    display: edit
+    label: mylabel
+    display_method: 
+    display_method_options: 
+    position: 0
+    dialog_groups:
+    - description: 
+      display: edit
+      label: info
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: aws_instances
+        description: 
+        type: DialogFieldDynamicList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :load_values_on_init: true
+          :show_refresh_button: true
+        label: Instances
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        resource_action_fqname: /claudiol-SA3/Methods/AWS-Methods/AWS-EC2-Services/aws_ec2_retrieve_instances
+      - name: testing_box
+        description: testing box
+        type: DialogFieldTextAreaBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options: {}
+        label: testing box
+        position: 1
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 

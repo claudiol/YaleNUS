@@ -1,0 +1,539 @@
+---
+- description: Provision a AWS Relational Database Service Instance
+  buttons: submit,cancel
+  label: Provision AWS RDS Instance
+  dialog_tabs:
+  - description: 
+    display: edit
+    label: AWS RDS Info
+    display_method: 
+    display_method_options: 
+    position: 0
+    dialog_groups:
+    - description: Select DB Engine to provision
+      display: edit
+      label: DB Engine Information
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: rds_db_engine
+        description: Select the DB Engine for the RDS Instance
+        type: DialogFieldDropDownList
+        data_type: string
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: postgres
+        values:
+        - - MySQL
+          - MySQL Database
+        - - oracle-ee
+          - Oracle EE Database
+        - - oracle-se
+          - Oracle SE Database
+        - - oracle-se1
+          - Oracle SE1 Database
+        - - postgres
+          - Postgres Database
+        - - sqlserver-ee
+          - SQL Server EE Database
+        - - sqlserver-ex
+          - SQL Server EX Database
+        - - sqlserver-se
+          - SQL Server SE Database
+        values_method: 
+        values_method_options: {}
+        options:
+          :sort_by: :description
+          :sort_order: :ascending
+        label: DB Engine
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: rds_db_version
+        description: Select the version of the DB Engine
+        type: DialogFieldDynamicList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :load_values_on_init: true
+          :show_refresh_button: true
+        label: DB Engine Version
+        position: 1
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        resource_action_fqname: /claudiol-SA3/Methods/AWS-Methods/AWS-RDS-Services/Retrieve_RDS_DB_Engine_Versions
+      - name: rds_db_instance_class
+        description: ! 'Class for the instance: e.g. db.t1.micro'
+        type: DialogFieldDropDownList
+        data_type: string
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values:
+        - - db.cr1.8xlarge
+          - db.cr1.8xlarge
+        - - db.m1.large
+          - db.m1.large
+        - - db.m1.medium
+          - db.m1.medium
+        - - db.m1.small
+          - db.m1.small
+        - - db.m1.xlarge
+          - db.m1.xlarge
+        - - db.m2.2xlarge
+          - db.m2.2xlarge
+        - - db.m2.4xlarge
+          - db.m2.4xlarge
+        - - db.m2.xlarge
+          - db.m2.xlarge
+        - - db.m3.2xlarge
+          - db.m3.2xlarge
+        - - db.m3.large
+          - db.m3.large
+        - - db.m3.medium
+          - db.m3.medium
+        - - db.m3.xlarge
+          - db.m3.xlarge
+        - - db.t1.micro
+          - db.t1.micro
+        values_method: 
+        values_method_options: {}
+        options:
+          :sort_by: :description
+          :sort_order: :ascending
+        label: DB Instance Class
+        position: 2
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: auto_upgrade
+        description: Auto Minor Version Upgrade
+        type: DialogFieldCheckBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: f
+        values: 
+        values_method: 
+        values_method_options: {}
+        options: {}
+        label: Auto Minor Version Upgrade
+        position: 3
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+    - description: RDS Instance Information
+      display: edit
+      label: RDS Instance Information
+      display_method: 
+      display_method_options: 
+      position: 1
+      dialog_fields:
+      - name: rds_alloc_storage
+        description: ! 'Storage to allocate for the DB Instance: Minimum: 5 GB, Maximum:
+          3072 GB) Higher allocated storage m'
+        type: DialogFieldTextBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :protected: false
+        label: Allocated Storage
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: rds_use_iops
+        description: Use IOPS
+        type: DialogFieldCheckBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: f
+        values: 
+        values_method: 
+        values_method_options: {}
+        options: {}
+        label: Use IOPS
+        position: 1
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: rds_instance_name
+        description: Name for the RDS DB Instance
+        type: DialogFieldTextBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :protected: false
+        label: RDS DB Instance Identifier
+        position: 2
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: rds_db_user_id
+        description: User ID for the RDS DB Instance
+        type: DialogFieldTextBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :protected: false
+        label: Master User ID
+        position: 3
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: rds_db_az_deployment
+        description: Multi AZ Deploymeny
+        type: DialogFieldCheckBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: f
+        values: 
+        values_method: 
+        values_method_options: {}
+        options: {}
+        label: Multi AZ Deployment
+        position: 4
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+  - description: Additional RDS Instance Config
+    display: edit
+    label: Additional RDS Instance Config
+    display_method: 
+    display_method_options: 
+    position: 1
+    dialog_groups:
+    - description: Additional Config Info
+      display: edit
+      label: Additional Config Info
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: rds_db_name
+        description: Name of the Database
+        type: DialogFieldTextBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :protected: false
+        label: Database Name
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: rds_db_port
+        description: Port for the database
+        type: DialogFieldTextBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :protected: false
+        label: Database Port
+        position: 1
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: rds_db_vpc
+        description: VPC where the instance will live
+        type: DialogFieldDynamicList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :load_values_on_init: true
+          :show_refresh_button: true
+        label: Choose a VPC
+        position: 2
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        resource_action_fqname: /claudiol-SA3/Methods/AWS-Methods/AWS-EC2-Services/aws_ec2_vpcs
+      - name: rds_db_subnet
+        description: DB Subnet Group
+        type: DialogFieldDynamicList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          :load_values_on_init: false
+          :show_refresh_button: true
+        label: DB Subnet Group
+        position: 3
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        resource_action_fqname: /claudiol-SA3/Methods/AWS-Methods/AWS-RDS-Services/Retrieve_RDS_DB_Subnets_for_VPC
+      - name: rds_public_access
+        description: Publicly Accessible
+        type: DialogFieldCheckBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: f
+        values: 
+        values_method: 
+        values_method_options: {}
+        options: {}
+        label: Publicly Accessible
+        position: 4
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+  - description: Management Options
+    display: edit
+    label: Management Options
+    display_method: 
+    display_method_options: 
+    position: 2
+    dialog_groups:
+    - description: RDS Management Options
+      display: edit
+      label: RDS Management Options
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: rds_db_auto_backups
+        description: Enable Automatic Backups for your database
+        type: DialogFieldCheckBox
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: f
+        values: 
+        values_method: 
+        values_method_options: {}
+        options: {}
+        label: Enable Automatic Backups
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+      - name: rds_backup_period
+        description: Backup Retention Period
+        type: DialogFieldDropDownList
+        data_type: string
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values:
+        - - '1'
+          - '1'
+        - - '10'
+          - '10'
+        - - '11'
+          - '11'
+        - - '12'
+          - '12'
+        - - '13'
+          - '13'
+        - - '14'
+          - '14'
+        - - '15'
+          - '15'
+        - - '16'
+          - '16'
+        - - '17'
+          - '17'
+        - - '18'
+          - '18'
+        - - '19'
+          - '19'
+        - - '2'
+          - '2'
+        - - '20'
+          - '20'
+        - - '21'
+          - '21'
+        - - '22'
+          - '22'
+        - - '23'
+          - '23'
+        - - '24'
+          - '24'
+        - - '25'
+          - '25'
+        - - '26'
+          - '26'
+        - - '27'
+          - '27'
+        - - '28'
+          - '28'
+        - - '29'
+          - '29'
+        - - '3'
+          - '3'
+        - - '30'
+          - '30'
+        - - '31'
+          - '31'
+        - - '32'
+          - '32'
+        - - '33'
+          - '33'
+        - - '34'
+          - '34'
+        - - '35'
+          - '35'
+        - - '4'
+          - '4'
+        - - '5'
+          - '5'
+        - - '6'
+          - '6'
+        - - '7'
+          - '7'
+        - - '8'
+          - '8'
+        - - '9'
+          - '9'
+        values_method: 
+        values_method_options: {}
+        options:
+          :sort_by: :description
+          :sort_order: :ascending
+        label: Backup Retention Period
+        position: 1
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
