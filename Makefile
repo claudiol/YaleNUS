@@ -7,8 +7,9 @@ ASCIIDOC_OPTS=-v
 DBLATEX_OPTS=-V -Platex.hyperparam=colorlinks,linkcolor=blue,citecolor=blue,urlcolor=blue -Pdoc.publisher.show=0 -P latex.output.revhistory=0 -s $(ASCIIDOC_DBLATEX_STY)
 ASCIIDOC_CONF="./asciidoc/xhtml11.conf"
 OUTPUTDIR="./Documents/EngagementJournal"
+GRAPHVIZ_SRCDIR="./images/Cloudforms-Diagrams"
 
-.PHONY: clean html xml pdf
+.PHONY: clean diagrams html xml pdf
 
 html: $(TARGET).html
 
@@ -17,6 +18,9 @@ xml: $(TARGET).xml
 pdf: $(TARGET).pdf
 
 epub: $(TARGET).epub
+
+diagrams:
+	cd $(GRAPHVIZ_SRCDIR) && make
 
 %.html: %.adoc
 	$(ASCIIDOC) --conf ${ASCIIDOC_CONF} $(ASCIIDOC_OPTS) -a customer="$(CUSTOMER)" -a project_title=$(PROJECT) -o $(OUTPUTDIR)/$(CUSTOMER)-$(TARGET).html $<
@@ -29,3 +33,5 @@ epub: $(TARGET).epub
 
 clean:
 	rm -f *~ $(OUTPUTDIR)/$(CUSTOMER)-$(TARGET).xml $(OUTPUTDIR)/$(CUSTOMER)-$(TARGET).pdf $(OUTPUTDIR)/$(CUSTOMER)-$(TARGET).html
+	cd $(GRAPHVIZ_SRCDIR) && make clean
+
