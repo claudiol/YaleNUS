@@ -1,4 +1,4 @@
-= YaleNUS Cloudforms and OpenStack Implementation
+= Yale-NUS Cloudforms and OpenStack Implementation
 
 * To render the docs
 ----

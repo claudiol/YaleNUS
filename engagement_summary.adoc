@@ -22,7 +22,7 @@ We educate citizens of the world and uphold the principles of free exchange of i
 
 Red Hat Consulting was engaged by the infrasturecture at Yale NUS to assist in deploying CloudForms 3.1 (Red Hat CloudForms Management Engine, CFME), integrate Cloudforms with Amazon Web Services (AWS), and deploy Red Hat OpenStack in their current infrastructure.
 
-This document details the strategies, implementations, and recommendations that Red Hat Consulting services provided for YaleNUS in Singapore, Singapore.
+This document details the strategies, implementations, and recommendations that Red Hat Consulting services provided for Yale-NUS in Singapore, Singapore.
 
 == Architecture Overview
 Cloudforms is a powerful tool that allows customers to build and manage their current virtualization environment 
@@ -32,7 +32,7 @@ This technology enables enterprises with existing virtual infrastructures to imp
 those just starting virtualization deployments to build and operate a well-managed virtual infrastructure.
 
 
-== Network Details for YaleNUS
+== Network Details for Yale-NUS
 
 === Hostnames / IP Addresses
 

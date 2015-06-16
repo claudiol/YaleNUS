@@ -1,7 +1,7 @@
 = OpenStack Deployment
 
 == Overview
-Overview of YaleNUS OpenStack environment 
+Overview of Yale-NUS OpenStack environment 
 
 === Pre-requisites
 * List pre-requisites
@@ -24,9 +24,9 @@ Overview of YaleNUS OpenStack environment
 * 6 Storage Nodes
 
 Below is a image of the white board depicting the architecture for OpenStack
-at YaleNUS.
+at Yale-NUS.
 
-image::./images/OpenStack/YaleNUS-OpenStack-Architecture2.jpg[]
+image::./images/OpenStack/Yale-NUS-OpenStack-Architecture2.jpg[]
 
 
 ==== Management, Load Balancer and Controller Hardware
