@@ -1,11 +1,11 @@
 <<<<
-= Appendix A - [[YaleNUS-RoleBaseAccess]]YaleNUS Basic Role Base Access 
+= Appendix A - [[Yale-NUS-RoleBaseAccess]]Yale-NUS Basic Role Base Access 
 
 TODO: Add screenshots
 
 <<<<
 
-The first screen for YaleNUS student for AWS 
+The first screen for Yale-NUS student for AWS 
 
 
 = Appendix B - Additional Resources
