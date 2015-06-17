@@ -1,24 +1,19 @@
 digraph G {
-  #rankdir=LR;
+  label="OpenStack";
+  rankdir=LR;
+  splines=ortho;
+  compound=true;
   node [ shape=box ];
 
-  subgraph request {
-    style=filled;
-    color=lightgrey;
-    label = "GUI Request";
-    node [style=filled,color=white];
-
-    OpenStackBuildRequest -> Process;
-  }
-
-  subgraph VMProvision_VM {
+  subgraph cluster0 {
     node [style=filled];
     color=blue;
-    label = "VMProvision_VM/OpenStack_template State Machine";
+    label="VMProvision_VM/OpenStack_template State Machine";
 
     "CustomizeRequest#openstack" -> Placement -> PreProvision;
-    PreProvision -> Provision -> CheckProvisioned;
-    CheckProvisioned -> PostProvision -> AddVMToService;
+      PreProvision -> Provision [ constraint = false ];
+    Provision -> CheckProvisioned -> PostProvision;
+      PostProvision -> AddVMToService [constraint = false ];
     AddVMToService -> RegisterWithCloudFlare -> EmailOwner;
 
     "CustomizeRequest#openstack" [color=lightblue];
@@ -26,14 +21,11 @@ digraph G {
     RegisterWithCloudFlare [color=lightblue];
   }
 
-  subgraph CustomizeRequest {
-    
-  }
+  OpenStackBuildRequest -> "CloudForms MIQ\nAutomate Engine" -> VMProvision_VM;
+  "CloudForms MIQ\nAutomate Engine" [shape = doublecircle];
 
-  user -> OpenStackBuildRequest [label="orders Service Catalog Item"]
-
-  VMProvision_VM -> "CustomizeRequest#openstack";
-  EmailOwner -> Finish;
+  VMProvision_VM -> "CustomizeRequest#openstack" [lhead=cluster0];
+  EmailOwner -> Finish [ltail=cluster0];
 
 }
 
