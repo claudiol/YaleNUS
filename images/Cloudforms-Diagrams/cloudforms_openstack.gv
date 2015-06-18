@@ -29,16 +29,22 @@ digraph G {
 #  }
 
   subgraph clusterCustomizeRequest { label="openstack_CustomizeRequest";
+    node [style=filled;color=white];
+    style=filled;color=lightgrey;
     "Set Tags(project, owner association)" -> "Set flavor(CPU, RAM)" ->
     "Set placement(tenant,network,etc)" -> "Set customization template(cloud-init)";
   }
 
   subgraph clusterAddVMToService { label="add_vm_to_service";
+    node [style=filled;color=white];
+    style=filled;color=lightgrey;
     "Set retirement date" -> "Lookup parent service and tag this VM to it" ->
     "Lookup and tag ownership of this VM";
   }
 
   subgraph clusterRegisterWithCloudFlare { label="register_openstack_vm";
+    node [style=filled;color=white];
+    style=filled;color=lightgrey;
     "VM has public IP?":s -> "Create\n<vm-name>.yale-nus.edu.sg\nrecord" [label="yes"];
     "VM has public IP?":e -> "VM has private IP?":n [label="no"];
     "Create\n<vm-name>.yale-nus.edu.sg\nrecord" -> "VM has private IP?";
@@ -58,8 +64,8 @@ digraph G {
   EmailOwner -> Finish [ltail=cluster0];
   
   # Link relationships.
-  "CustomizeRequest#openstack" -> "Set Tags(project, owner association)" [lhead=clusterCustomizeRequest];
-  "AddVMToService" -> "Set retirement date" [lhead=clusterAddVMToService];
-  RegisterWithCloudFlare -> "VM has public IP?";
+  "CustomizeRequest#openstack" -> "Set Tags(project, owner association)" [style=dashed,arrowhead=none;lhead=clusterCustomizeRequest];
+  "AddVMToService" -> "Set retirement date" [style=dashed,arrowhead=none,lhead=clusterAddVMToService];
+  RegisterWithCloudFlare -> "VM has public IP?" [style=dashed,arrowhead=none,lhead=clusterRegisterWithCloudFlare];
 }
 
