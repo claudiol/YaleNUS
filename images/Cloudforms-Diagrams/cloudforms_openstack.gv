@@ -1,7 +1,7 @@
 digraph G {
-  label="OpenStack";
-  rankdir=LR;
-  splines=ortho;
+  label="CloudForms OpenStack Create Server Workflow";
+#  rankdir=LR;
+#  splines=ortho;
   compound=true;
   node [ shape=box ];
 
@@ -9,16 +9,52 @@ digraph G {
     node [style=filled];
     color=blue;
     label="VMProvision_VM/OpenStack_template State Machine";
-
-    "CustomizeRequest#openstack" -> Placement -> PreProvision;
-      PreProvision -> Provision [ constraint = false ];
-    Provision -> CheckProvisioned -> PostProvision;
-      PostProvision -> AddVMToService [constraint = false ];
+    
+    # have only 3 nodes per row.
+    "CustomizeRequest#openstack" -> Placement -> PreProvision ->
+    Provision -> CheckProvisioned -> PostProvision ->
     AddVMToService -> RegisterWithCloudFlare -> EmailOwner;
+
+    # connect the rows together.
+#    PreProvision -> Provision [ constraint = false ];
+#    PostProvision -> AddVMToService [constraint = false ];
 
     "CustomizeRequest#openstack" [color=lightblue];
     AddVMToService [color=lightblue]
     RegisterWithCloudFlare [color=lightblue];
+  }
+
+#  subgraph clusterBuildRequest { label="OpenStackBuildRequest";
+#    "Tag request with project" -> "Set VM params" -> "Set placement options";
+#  }
+
+  subgraph clusterCustomizeRequest { label="openstack_CustomizeRequest";
+    node [style=filled;color=white];
+    style=filled;color=lightgrey;
+    "Set Tags(project, owner association)" -> "Set flavor(CPU, RAM)" ->
+    "Set placement(tenant,network,etc)" -> "Set customization template(cloud-init)";
+  }
+
+  subgraph clusterAddVMToService { label="add_vm_to_service";
+    node [style=filled;color=white];
+    style=filled;color=lightgrey;
+    "Set retirement date" -> "Lookup parent service and tag this VM to it" ->
+    "Lookup and tag ownership of this VM";
+  }
+
+  subgraph clusterRegisterWithCloudFlare { label="register_openstack_vm";
+    node [style=filled;color=white];
+    style=filled;color=lightgrey;
+    "VM has public IP?":s -> "Create\n<vm-name>.yale-nus.edu.sg\nrecord" [label="yes"];
+    "VM has public IP?":e -> "VM has private IP?":n [label="no"];
+    "Create\n<vm-name>.yale-nus.edu.sg\nrecord" -> "VM has private IP?";
+    "VM has private IP?":s -> "Create\n<vm-name>-int.yale-nus.edu.sg\nrecord" [label="yes"];
+    "VM has private IP?":e -> "end" [label="no"];
+    "Create\n<vm-name>-int.yale-nus.edu.sg\nrecord" -> end;
+
+    "VM has public IP?" [shape=Mdiamond];
+    "VM has private IP?" [shape=Mdiamond];
+    end [shape=Msquare];
   }
 
   OpenStackBuildRequest -> "CloudForms MIQ\nAutomate Engine" -> VMProvision_VM;
@@ -26,6 +62,10 @@ digraph G {
 
   VMProvision_VM -> "CustomizeRequest#openstack" [lhead=cluster0];
   EmailOwner -> Finish [ltail=cluster0];
-
+  
+  # Link relationships.
+  "CustomizeRequest#openstack" -> "Set Tags(project, owner association)" [style=dashed,arrowhead=none;lhead=clusterCustomizeRequest];
+  "AddVMToService" -> "Set retirement date" [style=dashed,arrowhead=none,lhead=clusterAddVMToService];
+  RegisterWithCloudFlare -> "VM has public IP?" [style=dashed,arrowhead=none,lhead=clusterRegisterWithCloudFlare];
 }
 
