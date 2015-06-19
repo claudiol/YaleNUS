@@ -1,7 +1,7 @@
-:consultant1: Hwee Ming - Principal Architect
+:consultant1: George Goh - Senior Consultant
 :consultant1_email: hwng@redhat.com
-:consultant2: George Goh
-:consultant2_email: ggoh@redhat.com
+:consultant2: Ng Hwee Ming
+:consultant2_email: hwng@redhat.com
 :asciidoc_dblatext_sty: ./asciidoc/asciidoc-dblatex-custom.sty
 :asciidoc_opts: -v
 :dblatex_opts: -V -Platex.hyperparam=colorlinks,linkcolor=blue,citecolor=blue,urlcolor=blue -Pdoc.publisher.show=0 -Platex.output.revhistory=0 -s {asciidoc_dblatext_sty}
