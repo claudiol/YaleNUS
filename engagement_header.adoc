@@ -32,6 +32,7 @@ All information supplied to {customer} for the purpose of this project is to be 
 === Additional copies
 Further copies of this document can be obtained from:
 
-Hwee Ming +
-{consultant2}
+{consultant1} <{consultant1_email}>
+
+{consultant2} <{consultant2_email}>
 

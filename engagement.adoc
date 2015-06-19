@@ -1,5 +1,5 @@
 :consultant1: George Goh - Senior Consultant
-:consultant1_email: hwng@redhat.com
+:consultant1_email: george.goh@redhat.com
 :consultant2: Ng Hwee Ming
 :consultant2_email: hwng@redhat.com
 :asciidoc_dblatext_sty: ./asciidoc/asciidoc-dblatex-custom.sty
