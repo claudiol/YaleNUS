@@ -4,15 +4,15 @@
 .{customer} Contact Information
 [width="100%"]
 |====
-| Wallace Tan | wallace.tan@yale-nus.edu.sg |
-| Darwin | darwin.gosal@yale-nus.edu.sg |
+| Darwin Gosal | darwin.gosal@yale-nus.edu.sg |
+| Vanessa Bernabe | vanessa.bernabe@yale-nus.edu.sg |
 |====
 
 .Red Hat Contact Information
 [width="100%"]
 |====
 | Lester Claudio | lester@redhat.com | +1-719-331-0726
-| Hwee Ming |  |
 | George Goh | george.goh@redhat.com | +65-6490-4744
+| Ng Hwee Ming | hwng@redhat.com |
 |====
 
