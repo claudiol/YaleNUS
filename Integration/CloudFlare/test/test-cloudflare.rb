@@ -2,6 +2,7 @@ require 'rest-client'
 require 'json'
 require 'singleton'
 require 'yaml'
+gem 'CloudFlareDNS', '= 0.1'
 require 'CloudFlareDNS'
 
 ### MAIN ROUTINE STARTS HERE ######

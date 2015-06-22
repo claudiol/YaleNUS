@@ -12,6 +12,7 @@ require 'CloudFlareConnection'
 class CloudFlareDNS
 
   # @!method initialize
+  # @version 0.2
   # Constructor
   #
   # @param options - <Hash> that contains the following options:
@@ -60,7 +61,7 @@ class CloudFlareDNS
 
   # 
   # @!method read_config
-  #
+  # @version 0.2
   # @param config_name [String] Configuration file name
   #
   # @return [Collection] Returns the YAML collection of configuration items. 
@@ -75,6 +76,7 @@ class CloudFlareDNS
 
   # 
   # @!method add_cloudflare_record
+  # @version 0.2
   #
   # @param options - Options Hash with the following required parameters:
   #  :type 
@@ -129,6 +131,7 @@ class CloudFlareDNS
 
   # 
   # @!method list_cloudflare_dns_records
+  # @version 0.2
   # 
   #  With this method you can list one or more records depending on the request.
   #  The request payload to CloudFlare would look something like this:
@@ -202,6 +205,7 @@ class CloudFlareDNS
 
   # 
   # @!method delete_cloudflare_dns_record
+  # @version 0.2
   # 
   #  With this method you can delete a record depending on the request.
   #  The request payload to CloudFlare would look something like this:
@@ -242,6 +246,7 @@ class CloudFlareDNS
 
   # 
   # @!method list_all_cloudflare_zones
+  # @version 0.2
   # 
   # @param none 
   #
@@ -267,6 +272,7 @@ class CloudFlareDNS
 
   # 
   # @!method list_all_dns_records
+  # @version 0.2
   #  The CloudFlare API returns up to 100 records per page.  We request the maximum number of records.
   # 
   #
