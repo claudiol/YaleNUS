@@ -2,7 +2,7 @@ require 'rest-client'
 require 'json'
 require 'singleton'
 require 'yaml'
-gem 'CloudFlareDNS', '= 0.1'
+gem 'CloudFlareDNS', '= 0.2'
 require 'CloudFlareDNS'
 
 ### MAIN ROUTINE STARTS HERE ######
@@ -36,11 +36,15 @@ request_data[:ttl] = "120"
 
 json_data = JSON.generate(request_data)
 puts "Adding DNS Record #{json_data} to CloudFlare Service ..."
-response = cfdns.add_cloudflare_record(json_data)
+response = cfdns.add_cloudflare_record(request_data)
 
 # List DNS Records from CloudFlare
 puts "Verify that DNS Record #{json_data} to CloudFlare Service ..."
-request_data = "type=A&name=another.yale-nus.edu.sg&content=172.19.17.227&match=all"
+#request_data = "type=A&name=another.yale-nus.edu.sg&content=172.19.17.227&match=all"
+request_data[:type]="A"
+request_data[:name]="another.yale-nus.edu.sg"
+request_data[:content]="172.19.17.227"
+request_data[:match]="all"
 response = cfdns.list_cloudflare_dns_record(request_data)
 
 dns_record_id = nil

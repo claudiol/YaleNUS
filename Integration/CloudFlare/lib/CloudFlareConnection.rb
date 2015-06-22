@@ -66,7 +66,7 @@ class CloudFlareConnection
 
   # 
   # @!method set_up
-  #
+  # @version 0.2
   # Sets up the internal class instance variables. 
   #
   # @param       tkn - Authentication token for CloudFlare 
@@ -84,6 +84,7 @@ class CloudFlareConnection
   end
 
   # @!method get
+  # @version 0.2
   # Handles the GET requests
   # @param location - Location for REST API e.g. /zones/:zone_identifier/dns_records
   # @param json_data - Data paylod for API.
@@ -134,6 +135,7 @@ class CloudFlareConnection
   end
 
   # @!method post
+  # @version 0.2
   # Handles the POST requests
   # @param location - Location for REST API e.g. /zones/:zone_identifier/dns_records
   # @param json_data - Data paylod for API.
@@ -183,6 +185,7 @@ class CloudFlareConnection
   end
 
   # @!method put
+  # @version 0.2
   # Handles the PUT requests 
   # @param location - Location for REST API e.g. /zones/:zone_identifier/dns_records 
   # @param json_data - Data paylod for API.
@@ -233,6 +236,7 @@ class CloudFlareConnection
   end
 
   # @!method delete
+  # @version 0.2
   # Handles the DELETE requests
   # @param location - Location for REST API e.g. /zones/:zone_identifier/dns_records/:identifier
   # @param json_data - Data paylod for API.
@@ -291,7 +295,7 @@ class CloudFlareConnection
   # @!method api_version
   # Returns the CloudFlareConnection Version
   def api_version
-    @api_ver = "v4"
+    @api_ver = "v0.2"
     return @api_ver
   end
 end
