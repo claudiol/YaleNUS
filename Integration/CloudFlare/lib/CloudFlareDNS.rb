@@ -29,7 +29,7 @@ class CloudFlareDNS
        raise "Please pass appropriate options for CloudFlareDNS class"
     end
 
-    if options.has_key?(:config_file) 
+    if options.key?(:config_file) 
       # Read values from Config File ...
       @config_name = options[:config_file] 
       # Read the YAML config file...
@@ -41,10 +41,10 @@ class CloudFlareDNS
       @host = @config['credentials']['apihost']
     else
       # We will get each option from the options hash
-      if options.has_key?(:tkn) == false || 
-	 options.has_key?(:email) == false ||
-         options.has_key?(:zoneid) == false ||
-         options.has_key?(:apihost) == false 
+      if options.key?(:tkn) == false || 
+	 options.key?(:email) == false ||
+         options.key?(:zoneid) == false ||
+         options.key?(:apihost) == false 
 	raise "Please pass all required options :tkn, :email, :zoneid, :apihost"
       end
 	 
@@ -102,7 +102,7 @@ class CloudFlareDNS
   def add_cloudflare_record(options)
 
     # Check required options
-    if options.has_key?(:type) == false || options.has_key?(:name) == false || options.has_key?(:content) == false
+    if options.key?(:type) == false || options.key?(:name) == false || options.key?(:content) == false
 	raise "Required options :type, :name and :content need to be present"
     end
 
