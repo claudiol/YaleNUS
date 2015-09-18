@@ -345,35 +345,35 @@ OpenStack functionality.
 
 Here are the dialogs that were whiteboarded for each of the use cases.
 
-image::./images/YaleNUS-EBS-Use-Cases.png[]
+image::./images/Cloudforms-ScreenShots/YaleNUS-EBS-Use-Cases.png[]
 
 === YaleNUS AWS Workflow Screen Shots
 
 The functionality for Yale NUS was done via the Service Catalog.  The first
 screen viewed by the user is the login screen of Cloudforms.
 
-image::./images/YaleNUS-CFME-Login-Screen.png[]
+image::./images/Cloudforms-ScreenShots/YaleNUS-CFME-Login-Screen.png[]
 
 On successful login the user would see the initial dashboard screen which shows
 detail information about the OpenStack and AWS environments.
 
-image::./images/YaleNUS-Dashboard.png[]
+image::./images/Cloudforms-ScreenShots/YaleNUS-Dashboard.png[]
 
 Requirement 5 was implemented using the Service Catalog functionality.  The
 following screen shows the Service Catalog button used to create a new
 AWS instance.
 
-image::./images/YaleNUS-Amazon-Provisioning-Service_catalog.png[]
+image::./images/Cloudforms-ScreenShots/YaleNUS-Amazon-Provisioning-Service_catalog.png[]
 
 By selecting this service the user would see the AWS Instance dialog that would
 allow them to enter the information to create the AWS instance.
 
-image::./images/YaleNUS-Amazon-Provisioning.png[]
+image::./images/Cloudforms-ScreenShots/YaleNUS-Amazon-Provisioning.png[]
 
 The user can see the instance details in their MyServices option once the instance
 was created.
 
-image::./images/YaleNUS-Service-with-VM-Instance-View.png[]
+image::./images/Cloudforms-ScreenShots/YaleNUS-Service-with-VM-Instance-View.png[]
 
 All instances created in AWS can be viewed under the **Clouds** > **Instances**
 menu option.
@@ -382,7 +382,7 @@ Once the instance was created in AWS the user could create and attach a new EBS
 volume to the new instance by using the drop down menu found under the
 Cloud > Instance view.
 
-image::./images/AWS-Services-Instance-Button.png[]
+image::./images/Cloudforms-ScreenShots/AWS-Services-Instance-Button-Options.png[]
 
 The user would select the instance and select the the appropriate action needed.
 Here are the actions that the user could take:
@@ -392,7 +392,7 @@ Here are the actions that the user could take:
 By selecting the Create and Attach EBS volume option the user would see the
 following screen and enter the appropriate information.
 
-image::./images/YaleNUS-Create-and-Attach-EBS-to-Instance-Dialog.png[]
+image::./images/Cloudforms-ScreenShots/YaleNUS-Create-and-Attach-EBS-to-Instance-Dialog.png[]
 
 Once the EBS volume is attached an administrator could confirm that the action
 was successful by verifying the instance via the AWS console.  Cloudforms
@@ -407,7 +407,7 @@ Detach EBS from Instance option.
 
 The user would be presented with the following Dialog.
 
-image::./images/Detach-EBS-from-Instance.png[]
+image::./images/Cloudforms-ScreenShots/Detach-EBS-from-Instance.png[]
 
 Again, the request verification would be done by ssh'ing to the instance or via
 the AWS Console.
@@ -417,7 +417,7 @@ the AWS Console.
 This option deletes the EBS volume all together.  A warning is given to the user
 which is required to be selected.
 
-image::./images/YaleNUS-Delete-EBS-from-Instance-Dialog.png[]
+image::./images/Cloudforms-ScreenShots/YaleNUS-Delete-EBS-from-Instance-Dialog.png[]
 
 The action can be verified using the AWS console.
 
@@ -428,7 +428,7 @@ A demonstration of the functionality was presented to the YaleNUS leadership
 for Phase 1.  The following is a white board capture of what was presented to
 YaleNUS.
 
-image::./images/YaleNUS-Demonstration-Workflow.png[]
+image::./images/Cloudforms-ScreenShots/YaleNUS-Demonstration-Workflow.png[]
 
 The main use case was for a professor to use the Cloudforms portal to create
 instances for a class.  The professor would login, create instances for the

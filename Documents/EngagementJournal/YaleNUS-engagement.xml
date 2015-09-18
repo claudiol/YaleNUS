@@ -1003,6 +1003,195 @@ rowsep="1" colsep="1"
 <title>YaleNUS Amazon Implementation Details</title>
 <section id="_yalenus_aws_service_dialog">
 <title>YaleNUS AWS Service Dialog</title>
+<simpara>The AWS implementation for Yale NUS consisted of the following requirements:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Req 1: Attach an EBS Volume to an existing instance in AWS.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Req 2: Detach an EBS Volume from an existing instance.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Req 3: Create an EBS volume and attach it to an instance.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Req 4: Delete an EBS volume.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Req 5: Ability to create multiple instances in AWS.
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>The same functionality would be added to the OpenStack environment.</simpara>
+<simpara>We did whiteboard the use cases and we used the same dialogs for both the AWS and
+OpenStack functionality.</simpara>
+<simpara>Here are the dialogs that were whiteboarded for each of the use cases.</simpara>
+<informalfigure>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="./images/Cloudforms-ScreenShots/YaleNUS-EBS-Use-Cases.png"/>
+  </imageobject>
+  <textobject><phrase>./images/Cloudforms-ScreenShots/YaleNUS-EBS-Use-Cases.png</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<section id="_yalenus_aws_workflow_screen_shots">
+<title>YaleNUS AWS Workflow Screen Shots</title>
+<simpara>The functionality for Yale NUS was done via the Service Catalog.  The first
+screen viewed by the user is the login screen of Cloudforms.</simpara>
+<informalfigure>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="./images/Cloudforms-ScreenShots/YaleNUS-CFME-Login-Screen.png"/>
+  </imageobject>
+  <textobject><phrase>./images/Cloudforms-ScreenShots/YaleNUS-CFME-Login-Screen.png</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>On successful login the user would see the initial dashboard screen which shows
+detail information about the OpenStack and AWS environments.</simpara>
+<informalfigure>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="./images/Cloudforms-ScreenShots/YaleNUS-Dashboard.png"/>
+  </imageobject>
+  <textobject><phrase>./images/Cloudforms-ScreenShots/YaleNUS-Dashboard.png</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Requirement 5 was implemented using the Service Catalog functionality.  The
+following screen shows the Service Catalog button used to create a new
+AWS instance.</simpara>
+<informalfigure>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="./images/Cloudforms-ScreenShots/YaleNUS-Amazon-Provisioning-Service_catalog.png"/>
+  </imageobject>
+  <textobject><phrase>./images/Cloudforms-ScreenShots/YaleNUS-Amazon-Provisioning-Service_catalog.png</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>By selecting this service the user would see the AWS Instance dialog that would
+allow them to enter the information to create the AWS instance.</simpara>
+<informalfigure>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="./images/Cloudforms-ScreenShots/YaleNUS-Amazon-Provisioning.png"/>
+  </imageobject>
+  <textobject><phrase>./images/Cloudforms-ScreenShots/YaleNUS-Amazon-Provisioning.png</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>The user can see the instance details in their MyServices option once the instance
+was created.</simpara>
+<informalfigure>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="./images/Cloudforms-ScreenShots/YaleNUS-Service-with-VM-Instance-View.png"/>
+  </imageobject>
+  <textobject><phrase>./images/Cloudforms-ScreenShots/YaleNUS-Service-with-VM-Instance-View.png</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>All instances created in AWS can be viewed under the <emphasis role="strong">Clouds</emphasis> &gt; <emphasis role="strong">Instances</emphasis>
+menu option.</simpara>
+<simpara>Once the instance was created in AWS the user could create and attach a new EBS
+volume to the new instance by using the drop down menu found under the
+Cloud &gt; Instance view.</simpara>
+<informalfigure>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="./images/Cloudforms-ScreenShots/AWS-Services-Instance-Button-Options.png"/>
+  </imageobject>
+  <textobject><phrase>./images/Cloudforms-ScreenShots/AWS-Services-Instance-Button-Options.png</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>The user would select the instance and select the the appropriate action needed.
+Here are the actions that the user could take:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Create and Attach EBS Volume
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>By selecting the Create and Attach EBS volume option the user would see the
+following screen and enter the appropriate information.</simpara>
+<informalfigure>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="./images/Cloudforms-ScreenShots/YaleNUS-Create-and-Attach-EBS-to-Instance-Dialog.png"/>
+  </imageobject>
+  <textobject><phrase>./images/Cloudforms-ScreenShots/YaleNUS-Create-and-Attach-EBS-to-Instance-Dialog.png</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Once the EBS volume is attached an administrator could confirm that the action
+was successful by verifying the instance via the AWS console.  Cloudforms
+currently does not give us a good view of the attached volume.  Another way
+to verify that the action was successful is by ssh&#8217;ing to the instance and executing
+the <literal>df</literal> command to see that the volume is attached.</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Detach EBS Volume
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>The user can detach the volume from an existing instance by selecting the
+Detach EBS from Instance option.</simpara>
+<simpara>The user would be presented with the following Dialog.</simpara>
+<informalfigure>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="./images/Cloudforms-ScreenShots/Detach-EBS-from-Instance.png"/>
+  </imageobject>
+  <textobject><phrase>./images/Cloudforms-ScreenShots/Detach-EBS-from-Instance.png</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Again, the request verification would be done by ssh&#8217;ing to the instance or via
+the AWS Console.</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Delete EBS Volume
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>This option deletes the EBS volume all together.  A warning is given to the user
+which is required to be selected.</simpara>
+<informalfigure>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="./images/Cloudforms-ScreenShots/YaleNUS-Delete-EBS-from-Instance-Dialog.png"/>
+  </imageobject>
+  <textobject><phrase>./images/Cloudforms-ScreenShots/YaleNUS-Delete-EBS-from-Instance-Dialog.png</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>The action can be verified using the AWS console.</simpara>
+</section>
+</section>
+<section id="_yalenus_demonstration_workflow">
+<title>YaleNUS Demonstration Workflow</title>
+<simpara>A demonstration of the functionality was presented to the YaleNUS leadership
+for Phase 1.  The following is a white board capture of what was presented to
+YaleNUS.</simpara>
+<informalfigure>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="./images/Cloudforms-ScreenShots/YaleNUS-Demonstration-Workflow.png"/>
+  </imageobject>
+  <textobject><phrase>./images/Cloudforms-ScreenShots/YaleNUS-Demonstration-Workflow.png</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>The main use case was for a professor to use the Cloudforms portal to create
+instances for a class.  The professor would login, create instances for the
+students and create/attach EBS volumes to the instances once created.</simpara>
+<simpara>The instances were also registered with the CloudFlareDNS service. All instances
+were also tagged with the professors project so that it could facilitate the
+reporting aspect which was slated for Phase 2.</simpara>
 </section>
 </section>
 <section id="_openstack_deployment">
